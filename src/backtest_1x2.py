@@ -46,7 +46,7 @@ def build_model() -> Pipeline:
     ])
     return Pipeline([
         ("prep", prep),
-        ("model", LogisticRegression(max_iter=2000, multi_class="auto")),
+        ("model", LogisticRegression(max_iter=2000)),
     ])
 
 
@@ -86,7 +86,7 @@ def main() -> None:
     }
 
     bets = []
-    for idx, row in test.iterrows():
+    for _, row in test.iterrows():
         candidates = []
         for sel, (odds_col, market_col) in mapping.items():
             model_prob = row.get(f"model_prob_{sel}")

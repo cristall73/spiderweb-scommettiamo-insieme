@@ -40,14 +40,17 @@ jobs:
       - name: Esegui backtest 1X2
         run: python src/backtest_1x2.py
 
+      - name: Analizza segmenti e filtri stabili
+        run: python src/analyze_backtest.py
+
       - name: Salva risultati nella repository
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f data/output/backtest_1x2.csv data/output/backtest_1x2_summary.csv
+          git add -f data/output/backtest_1x2.csv data/output/backtest_1x2_summary.csv data/output/backtest_segments.csv data/output/backtest_stable_filters.csv
           if git diff --cached --quiet; then
             echo "Nessuna modifica ai risultati"
           else
-            git commit -m "Aggiorna risultati primo backtest 1X2"
+            git commit -m "Aggiorna risultati e analisi backtest 1X2"
             git push
           fi

@@ -16,3 +16,7 @@ venv/
 
 # Mantieni i file README nelle cartelle dati
 !/data/**/README.md
+
+# Mantieni in repository i risultati principali dei backtest
+!/data/output/backtest_1x2.csv
+!/data/output/backtest_1x2_summary.csv

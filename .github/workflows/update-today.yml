@@ -2,6 +2,11 @@ name: Aggiorna Partite Oggi
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/update_today.py"
+      - ".github/workflows/update-today.yml"
   schedule:
     - cron: "17 6,9,12,15,18,21 * * *"
 
@@ -29,7 +34,7 @@ jobs:
         run: python src/download_football_data.py
       - name: Costruisci dataset storico
         run: python src/build_dataset.py
-      - name: Aggiorna Partite Oggi
+      - name: Aggiorna Partite Oggi multi-mercato
         run: python src/update_today.py
       - name: Salva dati aggiornati
         run: |
@@ -39,7 +44,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nessuna modifica"
           else
-            git commit -m "Aggiorna Partite Oggi"
+            git commit -m "Aggiorna Partite Oggi multi-mercato"
             git pull --rebase origin main
             git push
           fi

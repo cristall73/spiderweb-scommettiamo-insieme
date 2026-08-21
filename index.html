@@ -8,23 +8,30 @@
   <style>
     *{box-sizing:border-box}
     body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top,#18233f 0,#0b1020 42%,#070a12 100%);color:#f5f7fb;min-height:100vh}
-    .wrap{max-width:1050px;margin:auto;padding:24px}
+    .wrap{max-width:1120px;margin:auto;padding:24px}
     header{text-align:center;padding:48px 10px 28px}
     .logo{font-size:58px;line-height:1;margin-bottom:12px}
     h1{margin:0;font-size:clamp(32px,7vw,64px);letter-spacing:-1px}
     .accent{color:#e63946}
-    .sub{max-width:760px;margin:16px auto 0;color:#b9c1d3;font-size:18px;line-height:1.6}
+    .sub{max-width:780px;margin:16px auto 0;color:#b9c1d3;font-size:18px;line-height:1.6}
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:30px 0}
-    .card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-shadow:0 18px 50px rgba(0,0,0,.18)}
-    .card h2{margin:0 0 10px;font-size:21px}
-    .card p{margin:0;color:#bbc3d3;line-height:1.55}
+    .card,.panel{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:24px;box-shadow:0 18px 50px rgba(0,0,0,.18)}
+    .card h2{margin:0 0 10px;font-size:21px}.card p{margin:0;color:#bbc3d3;line-height:1.55}
     .badge{display:inline-block;background:#e63946;color:white;border-radius:999px;padding:7px 11px;font-weight:700;font-size:12px;margin-bottom:14px}
-    .cta{margin-top:30px;background:linear-gradient(135deg,#e63946,#b91c2b);border-radius:22px;padding:28px;text-align:center;box-shadow:0 18px 60px rgba(230,57,70,.18)}
-    .cta h2{margin:0 0 8px;font-size:28px}
-    .cta p{margin:0;color:#ffe9ec;line-height:1.55}
-    .status{margin:24px auto 0;max-width:760px;padding:15px 18px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#d6dbea;text-align:center}
+    .section-title{text-align:center;margin:48px 0 18px;font-size:30px}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+    .metric{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.10);border-radius:16px;padding:20px;text-align:center}
+    .metric .value{font-size:30px;font-weight:800;margin-bottom:6px}.metric .label{color:#9ca7bb;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+    .positive{color:#4ade80}.negative{color:#fb7185}.neutral{color:#f5f7fb}
+    .panel{overflow-x:auto}
+    table{width:100%;border-collapse:collapse;min-width:760px}
+    th,td{padding:13px 12px;border-bottom:1px solid rgba(255,255,255,.08);text-align:right}
+    th:first-child,td:first-child{text-align:left}th{color:#aab4c8;font-size:12px;text-transform:uppercase;letter-spacing:.5px}td{color:#e8ebf2}tr:last-child td{border-bottom:0;font-weight:700}
+    .note{margin-top:14px;color:#9ca7bb;font-size:13px;line-height:1.5}
+    .status{margin:26px auto 0;max-width:820px;padding:15px 18px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:#d6dbea;text-align:center}
+    .loading{text-align:center;color:#aab4c8;padding:30px}
     footer{padding:34px 0 18px;text-align:center;color:#7f899e;font-size:13px}
-    @media(max-width:760px){.grid{grid-template-columns:1fr}.wrap{padding:16px}header{padding-top:32px}.logo{font-size:48px}.card{padding:20px}}
+    @media(max-width:820px){.grid{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.wrap{padding:16px}header{padding-top:32px}.logo{font-size:48px}.card,.panel{padding:20px}}
   </style>
 </head>
 <body>
@@ -36,31 +43,69 @@
     </header>
 
     <section class="grid">
-      <article class="card">
-        <span class="badge">1X2</span>
-        <h2>Analisi delle partite</h2>
-        <p>Confronto dei risultati storici, forma recente, rendimento casa/trasferta e probabilità stimate.</p>
-      </article>
-      <article class="card">
-        <span class="badge">QUOTE</span>
-        <h2>Valore della quota</h2>
-        <p>Le quote vengono confrontate con la probabilità stimata per evidenziare eventuali differenze interessanti.</p>
-      </article>
-      <article class="card">
-        <span class="badge">BACKTEST</span>
-        <h2>Strategia verificata sui dati</h2>
-        <p>Prima di considerare una metodologia valida, la testiamo sul passato per capire risultati, rischio e stabilità.</p>
-      </article>
+      <article class="card"><span class="badge">1X2</span><h2>Analisi delle partite</h2><p>Confronto dei risultati storici, forma recente, rendimento casa/trasferta e probabilità stimate.</p></article>
+      <article class="card"><span class="badge">QUOTE</span><h2>Valore della quota</h2><p>Le quote vengono confrontate con la probabilità stimata per evidenziare eventuali differenze interessanti.</p></article>
+      <article class="card"><span class="badge">BACKTEST</span><h2>Strategia verificata sui dati</h2><p>Prima di considerare una metodologia valida, la testiamo sul passato per capire risultati, rischio e stabilità.</p></article>
     </section>
 
-    <section class="cta">
-      <h2>Il sito è online 🚀</h2>
-      <p>Questa è la prima versione della homepage. Nei prossimi passaggi collegheremo risultati, statistiche, pronostici e backtest direttamente ai dati del progetto.</p>
+    <h2 class="section-title">Risultati reali del backtest 1X2</h2>
+    <section class="metrics" id="metrics">
+      <div class="metric"><div class="value">—</div><div class="label">Scommesse</div></div>
+      <div class="metric"><div class="value">—</div><div class="label">Vinte</div></div>
+      <div class="metric"><div class="value">—</div><div class="label">Profitto unità</div></div>
+      <div class="metric"><div class="value">—</div><div class="label">ROI</div></div>
+    </section>
+
+    <section class="panel">
+      <div id="backtestTable" class="loading">Caricamento risultati...</div>
+      <div class="note">I dati mostrati qui arrivano direttamente dal file <strong>data/output/backtest_1x2_summary.csv</strong> del progetto. Un'unità corrisponde a una puntata standard del backtest.</div>
     </section>
 
     <div class="status">⚠️ Le quote possono variare tra bookmaker e nel tempo. Le analisi hanno finalità informative e statistiche e non garantiscono risultati.</div>
-
     <footer>SpiderWeb - Scommettiamo Insieme</footer>
   </div>
+
+  <script>
+    const fmtPct = v => (Number(v) * 100).toFixed(2) + '%';
+    const fmtNum = v => Number(v).toFixed(2);
+    const cls = v => Number(v) > 0 ? 'positive' : Number(v) < 0 ? 'negative' : 'neutral';
+
+    fetch('data/output/backtest_1x2_summary.csv?ts=' + Date.now())
+      .then(r => { if(!r.ok) throw new Error('File non disponibile'); return r.text(); })
+      .then(text => {
+        const lines = text.trim().split(/\r?\n/);
+        const headers = lines[0].split(',');
+        const rows = lines.slice(1).map(line => {
+          const values = line.split(',');
+          return Object.fromEntries(headers.map((h,i) => [h, values[i]]));
+        });
+        const total = rows.find(r => r.league === 'TOTALE');
+        if(!total) throw new Error('Riga TOTALE non trovata');
+
+        document.getElementById('metrics').innerHTML = `
+          <div class="metric"><div class="value">${total.bets}</div><div class="label">Scommesse</div></div>
+          <div class="metric"><div class="value">${total.wins}</div><div class="label">Vinte</div></div>
+          <div class="metric"><div class="value ${cls(total.profit_units)}">${fmtNum(total.profit_units)}</div><div class="label">Profitto unità</div></div>
+          <div class="metric"><div class="value ${cls(total.roi)}">${fmtPct(total.roi)}</div><div class="label">ROI</div></div>`;
+
+        const body = rows.map(r => `
+          <tr>
+            <td>${r.league}</td><td>${r.bets}</td><td>${r.wins}</td>
+            <td>${fmtPct(r.hit_rate)}</td><td>${fmtNum(r.avg_odds)}</td>
+            <td class="${cls(r.profit_units)}">${fmtNum(r.profit_units)}</td>
+            <td class="${cls(r.roi)}">${fmtPct(r.roi)}</td>
+          </tr>`).join('');
+
+        document.getElementById('backtestTable').className = '';
+        document.getElementById('backtestTable').innerHTML = `
+          <table>
+            <thead><tr><th>Campionato</th><th>Bet</th><th>Vinte</th><th>Hit rate</th><th>Quota media</th><th>Profitto</th><th>ROI</th></tr></thead>
+            <tbody>${body}</tbody>
+          </table>`;
+      })
+      .catch(err => {
+        document.getElementById('backtestTable').innerHTML = 'Impossibile caricare i risultati del backtest: ' + err.message;
+      });
+  </script>
 </body>
 </html>

@@ -7,6 +7,7 @@ on:
     paths:
       - "src/update_today.py"
       - "src/restore_logo.py"
+      - "requirements.txt"
       - ".github/workflows/update-today.yml"
   schedule:
     - cron: "17 6,9,12,15,18,21 * * *"
@@ -39,7 +40,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f data/output/today.json assets/spiderweb-logo.webp
+          git add -f data/output/today.json assets/spiderweb-logo.jpg
           if git diff --cached --quiet; then
             echo "Nessuna modifica"
           else

@@ -1,0 +1,45 @@
+name: Aggiorna Partite Oggi
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 6,9,12,15,18,21 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: spiderweb-partite-oggi
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Dipendenze
+        run: pip install -r requirements.txt
+      - name: Scarica storico
+        run: python src/download_football_data.py
+      - name: Costruisci dataset storico
+        run: python src/build_dataset.py
+      - name: Aggiorna Partite Oggi
+        run: python src/update_today.py
+      - name: Salva dati aggiornati
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f data/output/today.json
+          if git diff --cached --quiet; then
+            echo "Nessuna modifica"
+          else
+            git commit -m "Aggiorna Partite Oggi"
+            git pull --rebase origin main
+            git push
+          fi

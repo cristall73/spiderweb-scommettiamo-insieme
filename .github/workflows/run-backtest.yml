@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/output/backtest_1x2.csv data/output/backtest_1x2_summary.csv
+          git add -f data/output/backtest_1x2.csv data/output/backtest_1x2_summary.csv
           if git diff --cached --quiet; then
             echo "Nessuna modifica ai risultati"
           else

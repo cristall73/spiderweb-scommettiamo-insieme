@@ -1,10 +1,75 @@
 {
-  "generated_at": null,
-  "date": null,
-  "source": "Football-Data.co.uk fixtures + quote mercato",
-  "fixtures_count": 0,
+  "generated_at": "2026-08-21T17:19:52+02:00",
+  "date": "2026-08-21",
+  "source": "Football-Data.co.uk + filtri multi-fonte validati",
+  "fixtures_count": 3,
   "signals_count": 0,
   "signals": [],
-  "matches": [],
-  "note": "In attesa del primo aggiornamento automatico."
+  "matches": [
+    {
+      "league": "Ligue 1",
+      "time": "19:45",
+      "home_team": "Marseille",
+      "away_team": "Strasbourg",
+      "market": "1X2",
+      "selection_code": "H",
+      "selection": "1",
+      "model_probability": 0.6201,
+      "market_probability": 0.5475,
+      "edge": 0.0726,
+      "odds": 1.72,
+      "odds_source": "Media mercato riportata da Football-Data.co.uk",
+      "status": "NO_BET",
+      "rule": "Nessun filtro 1X2 validato superato",
+      "markets_checked": [
+        "1X2",
+        "OVER/UNDER 2.5"
+      ]
+    },
+    {
+      "league": "La Liga",
+      "time": "20:00",
+      "home_team": "Betis",
+      "away_team": "Sociedad",
+      "market": "OVER/UNDER 2.5",
+      "selection_code": "OVER25",
+      "selection": "Over 2.5",
+      "model_probability": 0.6,
+      "market_probability": 0.5227,
+      "edge": 0.0773,
+      "odds": 1.79,
+      "odds_source": "Media mercato Football-Data",
+      "status": "NO_BET",
+      "rule": "Nessun filtro Over/Under validato superato",
+      "markets_checked": [
+        "1X2",
+        "OVER/UNDER 2.5"
+      ]
+    },
+    {
+      "league": "Premier League",
+      "time": "20:00",
+      "home_team": "Arsenal",
+      "away_team": "Coventry",
+      "market": "1X2",
+      "selection_code": "H",
+      "selection": "1",
+      "model_probability": 0.8099,
+      "market_probability": 0.7939,
+      "edge": 0.016,
+      "odds": 1.19,
+      "odds_source": "Media mercato riportata da Football-Data.co.uk",
+      "status": "NO_BET",
+      "rule": "Nessun filtro 1X2 validato superato",
+      "markets_checked": [
+        "1X2"
+      ]
+    }
+  ],
+  "markets": [
+    "1X2",
+    "Over/Under 2.5",
+    "Goal/No Goal (quando sono disponibili quote reali)"
+  ],
+  "note": "Il sistema confronta i mercati disponibili e mostra una sola scelta per partita: quella con il filtro più robusto; a parità di validazione privilegia l'edge maggiore. Le quote di riferimento possono differire da Sisal. BTTS viene valutato solo quando sono disponibili quote reali correnti: nessuna quota viene inventata."
 }

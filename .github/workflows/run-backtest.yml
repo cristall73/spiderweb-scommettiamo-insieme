@@ -9,6 +9,10 @@ on:
       - "requirements.txt"
       - ".github/workflows/run-backtest.yml"
 
+concurrency:
+  group: backtest-1x2-main
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -46,5 +50,6 @@ jobs:
             echo "Nessuna modifica ai risultati"
           else
             git commit -m "Aggiorna risultati, segmenti e walk-forward 1X2"
-            git push
+            git pull --rebase origin main
+            git push origin main
           fi

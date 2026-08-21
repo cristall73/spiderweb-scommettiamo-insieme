@@ -34,8 +34,10 @@ jobs:
           python src/backtest_1x2.py
           python src/analyze_backtest.py
           python src/walk_forward_1x2.py
-      - name: Ricerca Over Under e Goal No Goal
+      - name: Ricerca benchmark mercati goal
         run: python src/backtest_markets.py
+      - name: Backtest Over Under con quote storiche reali
+        run: python src/backtest_ou_real.py
       - name: Salva risultati
         run: |
           git config user.name "github-actions[bot]"
@@ -44,7 +46,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nessuna modifica ai risultati"
           else
-            git commit -m "Aggiorna backtest multi-mercato"
+            git commit -m "Aggiorna backtest multi-mercato con quote reali"
             git pull --rebase origin main
             git push origin main
           fi

@@ -5,6 +5,7 @@ import math
 import os
 import re
 import unicodedata
+from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -20,7 +21,8 @@ OUT = Path('data/output/today.json')
 LIVE_HISTORY = Path('data/output/live_training.csv')
 API_BASE = 'https://v3.football.api-sports.io'
 API_KEY = os.getenv('API_FOOTBALL_KEY', '').strip()
-MAX_ODDS_PAGES = max(1, min(int(os.getenv('API_FOOTBALL_MAX_ODDS_PAGES', '3')), 3))
+MAX_ODDS_PAGE = 3
+MAX_ODDS_REQUESTS = max(1, min(int(os.getenv('API_FOOTBALL_MAX_ODDS_REQUESTS', '12')), 18))
 TIMEOUT = 35
 
 
@@ -112,6 +114,8 @@ def fixture_to_event(item):
         pass
     return {
         'event_id': fixture.get('id'),
+        'api_league_id': league.get('id'),
+        'api_season': league.get('season'),
         'country': country,
         'league': league_name,
         'canonical_league': canonical_league(country, league_name),
@@ -143,9 +147,8 @@ def pair_market(bookmaker, target):
             is_market = ('both teams' in name and ('score' in name or 'to score' in name)) or 'btts' in name
         if not is_market:
             continue
-        values = bet.get('values') or []
         sides = {}
-        for value in values:
+        for value in bet.get('values') or []:
             label = simple(value.get('value', ''))
             odd = num(value.get('odd'))
             if not odd:
@@ -193,27 +196,80 @@ def parse_odds_item(item):
     return fixture.get('id'), markets
 
 
-def choose_odds_pages(total_pages, now):
-    if total_pages <= 0:
-        return []
-    # Il piano Free API-Sports consente page <= 3 sull'endpoint odds.
-    # Quindi non tentiamo mai pagine 4+ anche se il payload dichiara piu pagine totali.
-    highest_allowed = min(total_pages, 3, MAX_ODDS_PAGES)
-    return list(range(1, highest_allowed + 1))
+def active_league_priorities(rules):
+    priority = defaultdict(float)
+    has_global = False
+    for rule in rules:
+        league = str(rule.get('league', ''))
+        roi = float(rule.get('roi') or 0)
+        if league == 'TUTTI':
+            has_global = True
+        elif league:
+            priority[league] = max(priority[league], roi)
+    return priority, has_global
 
 
-def load_odds_for_date(date_iso, now):
-    first, headers = api_get('/odds', {'date': date_iso, 'page': 1})
-    total = int((first.get('paging') or {}).get('total') or 1)
-    pages = choose_odds_pages(total, now)
-    items = list(first.get('response') or []) if 1 in pages else []
-    for page in pages:
-        if page == 1:
+def targeted_odds(events, rules, date_iso):
+    priorities, has_global = active_league_priorities(rules)
+    groups = {}
+    for event in events:
+        canonical = event.get('canonical_league')
+        lid = event.get('api_league_id')
+        season = event.get('api_season')
+        if not canonical or not lid or not season:
             continue
-        data, headers = api_get('/odds', {'date': date_iso, 'page': page})
-        items.extend(data.get('response') or [])
-    remaining = headers.get('x-ratelimit-requests-remaining') or headers.get('X-RateLimit-Requests-Remaining')
-    return items, pages, total, remaining
+        if not has_global and canonical not in priorities:
+            continue
+        key = (canonical, int(lid), int(season))
+        groups.setdefault(key, []).append(event)
+
+    ordered = sorted(
+        groups.items(),
+        key=lambda kv: (-priorities.get(kv[0][0], 0.0), -len(kv[1]), kv[0][0])
+    )
+
+    requests_used = 0
+    items = []
+    leagues_queried = []
+    remaining = None
+    first_page_meta = []
+
+    # Prima copriamo il maggior numero possibile di leghe validate con una pagina ciascuna.
+    for (canonical, lid, season), league_events in ordered:
+        if requests_used >= MAX_ODDS_REQUESTS:
+            break
+        data, headers = api_get('/odds', {
+            'date': date_iso, 'league': lid, 'season': season, 'page': 1
+        })
+        requests_used += 1
+        resp = list(data.get('response') or [])
+        items.extend(resp)
+        total_pages = min(int((data.get('paging') or {}).get('total') or 1), MAX_ODDS_PAGE)
+        first_page_meta.append((canonical, lid, season, total_pages))
+        leagues_queried.append({
+            'league': canonical, 'api_league_id': lid, 'season': season,
+            'fixtures_today': len(league_events), 'pages_available_free': total_pages,
+            'page1_items': len(resp), 'priority_roi': round(priorities.get(canonical, 0.0), 4)
+        })
+        remaining = headers.get('x-ratelimit-requests-remaining') or headers.get('X-RateLimit-Requests-Remaining')
+
+    # Poi completiamo eventuali pagine 2/3 partendo dalle leghe con ROI storico maggiore.
+    for page in (2, 3):
+        for canonical, lid, season, total_pages in first_page_meta:
+            if requests_used >= MAX_ODDS_REQUESTS:
+                break
+            if total_pages < page:
+                continue
+            data, headers = api_get('/odds', {
+                'date': date_iso, 'league': lid, 'season': season, 'page': page
+            })
+            requests_used += 1
+            items.extend(data.get('response') or [])
+            remaining = headers.get('x-ratelimit-requests-remaining') or headers.get('X-RateLimit-Requests-Remaining')
+        if requests_used >= MAX_ODDS_REQUESTS:
+            break
+
+    return items, requests_used, leagues_queried, remaining, len(groups)
 
 
 def main():
@@ -223,50 +279,64 @@ def main():
     hist, teams = base.latest_histories(historical)
     models = base.train_live_models(historical)
     rules = base.load_live_rules()
+
     fixtures_data, fixture_headers = api_get('/fixtures', {'date': date_iso, 'timezone': 'Europe/Rome'})
     raw_fixtures = [x for x in (fixtures_data.get('response') or []) if senior_fixture(x)]
     events = [fixture_to_event(x) for x in raw_fixtures]
     event_by_id = {e['event_id']: e for e in events if e.get('event_id') is not None}
-    odds_items, pages_used, odds_total_pages, remaining = load_odds_for_date(date_iso, now)
+    eligible = [e for e in events if e.get('canonical_league')]
+
+    odds_items, odds_requests_used, leagues_queried, remaining, target_leagues_today = targeted_odds(
+        eligible, rules, date_iso
+    )
     for item in odds_items:
         fixture_id, markets = parse_odds_item(item)
         event = event_by_id.get(fixture_id)
         if event and markets:
             event['markets'] = markets
             event['odds_available'] = True
-    eligible = [e for e in events if e.get('canonical_league')]
+
     with_odds = [e for e in eligible if e.get('odds_available')]
     rows = base.best_per_event(base.candidate_rows(with_odds, models, hist, teams, rules))
     for row in rows:
-        row['source'] = 'API-Football quote pre-match + modello SpiderWeb walk-forward'
+        row['source'] = 'API-Football quote pre-match mirate + modello SpiderWeb walk-forward'
+
     single = rows[0] if rows else None
     double = base.pick_combo(rows, 2, 1.80, 3.20) if len(rows) >= 2 else None
     triple = base.pick_combo(rows, 3, 2.30, 4.50) if len(rows) >= 3 else None
+
     payload = {
         'generated_at': now.isoformat(timespec='seconds'),
         'date': date_iso,
-        'source': 'API-Football calendario mondiale + quote pre-match; storico SpiderWeb/Football-Data',
+        'source': 'API-Football calendario mondiale + quote mirate per leghe validate; storico SpiderWeb/Football-Data',
         'fixtures_count': len(events),
         'eligible_history_count': len(eligible),
+        'target_leagues_today': target_leagues_today,
+        'leagues_queried': leagues_queried,
         'fixtures_with_odds': len(with_odds),
         'candidate_count': len(rows),
         'active_rules': len(rules),
-        'odds_pages_used': pages_used,
-        'odds_total_pages': odds_total_pages,
+        'odds_requests_used': odds_requests_used,
         'api_requests_remaining': remaining,
         'single': single,
         'double': double,
         'triple': triple,
         'shortlist': rows[:30],
-        'note': ('Il radar scansiona il calendario mondiale API-Football. Sul piano Free le quote sono disponibili '
-                 'solo per le prime 3 pagine dell endpoint odds; il calendario globale resta comunque interamente scansionato.'),
+        'note': ('Il radar scansiona tutto il calendario mondiale ma spende le richieste quote solo sui campionati '
+                 'che hanno gia sistemi walk-forward attivi, privilegiando quelli con ROI storico maggiore.'),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({
-        'date': date_iso, 'fixtures_globali': len(events), 'con_storico': len(eligible),
-        'con_quote': len(with_odds), 'candidati': len(rows), 'pagine_quote': pages_used,
-        'pagine_quote_totali': odds_total_pages, 'richieste_rimanenti': remaining,
+        'date': date_iso,
+        'fixtures_globali': len(events),
+        'con_storico': len(eligible),
+        'leghe_target_oggi': target_leagues_today,
+        'leghe_interrogate': [x['league'] for x in leagues_queried],
+        'richieste_quote_usate': odds_requests_used,
+        'con_quote': len(with_odds),
+        'candidati': len(rows),
+        'richieste_rimanenti': remaining,
     }, ensure_ascii=False))
 
 

@@ -37,7 +37,10 @@ jobs:
       - name: Prepara storico compatto per radar live
         run: python src/export_live_history.py
 
-      - name: Salva risultati globali
+      - name: Rigenera Partite Oggi con radar mondiale
+        run: python src/update_today_global.py
+
+      - name: Salva risultati globali e radar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -45,10 +48,11 @@ jobs:
           git add -f data/output/backtest_multisource_summary.csv
           git add -f data/output/backtest_multisource_stable.csv
           git add -f data/output/live_training.csv
+          git add -f data/output/today.json
           if git diff --cached --quiet; then
             echo "Nessuna modifica ai risultati"
           else
-            git commit -m "Aggiorna backtest globale e storico live"
+            git commit -m "Aggiorna backtest globale, storico live e radar mondiale"
             git pull --rebase origin main
             git push origin main
           fi

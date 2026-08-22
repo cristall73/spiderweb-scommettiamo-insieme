@@ -4,14 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - "src/update_today.py"
-      - "src/update_today_global.py"
-      - "src/league_catalog.py"
-      - "data/output/live_training.csv"
-      - "data/output/backtest_multisource_stable.csv"
-      - "requirements.txt"
-      - ".github/workflows/update-today.yml"
   schedule:
     - cron: "17 6,9,12,15,18,21 * * *"
 
@@ -25,18 +17,43 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
+
       - name: Dipendenze
         run: pip install -r requirements.txt
+
+      - name: Diagnostica input radar
+        run: |
+          echo "Commit: $GITHUB_SHA"
+          ls -lh data/output/live_training.csv data/output/backtest_multisource_stable.csv || true
+
       - name: Aggiorna radar mondiale e schedine
         run: python src/update_today_global.py
+
+      - name: Verifica output radar
+        run: |
+          test -s data/output/today.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('data/output/today.json').read_text(encoding='utf-8'))
+          print('Data:', d.get('date'))
+          print('Partite scansionate:', d.get('fixtures_count'))
+          print('Con quote:', d.get('fixtures_with_odds'))
+          print('Candidati:', d.get('candidate_count'))
+          if int(d.get('fixtures_count') or 0) <= 3:
+              raise SystemExit('Radar ancora limitato a 3 o meno partite')
+          PY
+
       - name: Salva dati aggiornati
         run: |
           git config user.name "github-actions[bot]"

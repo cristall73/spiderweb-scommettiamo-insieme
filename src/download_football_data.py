@@ -1,61 +1,59 @@
 from __future__ import annotations
 
 from pathlib import Path
-
 import pandas as pd
 import requests
 
+from league_catalog import EUROPE_LEAGUES, WORLD_LEAGUES, EUROPE_SEASONS, EUROPE_URL, WORLD_URL
 
-BASE_URL = "https://www.football-data.co.uk/mmz4281/{season}/{league}.csv"
-
-LEAGUES = {
-    "E0": "Premier League",
-    "I1": "Serie A",
-    "D1": "Bundesliga",
-    "SP1": "La Liga",
-    "F1": "Ligue 1",
-}
-
-# Cinque stagioni concluse: prima base per il backtest.
-SEASONS = ["2122", "2223", "2324", "2425", "2526"]
-
-RAW_DIR = Path("data/raw")
+RAW_DIR = Path('data/raw')
+HEADERS = {'User-Agent':'Mozilla/5.0 SpiderWeb/1.0'}
 
 
-def download_csv(season: str, league_code: str) -> Path:
-    RAW_DIR.mkdir(parents=True, exist_ok=True)
-    destination = RAW_DIR / f"{season}_{league_code}.csv"
-    url = BASE_URL.format(season=season, league=league_code)
-
-    response = requests.get(url, timeout=30)
-    response.raise_for_status()
-    destination.write_bytes(response.content)
+def download(url: str, destination: Path) -> Path:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    r=requests.get(url,headers=HEADERS,timeout=40)
+    r.raise_for_status()
+    # Alcune pagine di errore restituiscono HTML con status 200: scartiamole.
+    if b'<html' in r.content[:300].lower():
+        raise RuntimeError('risposta HTML invece di CSV')
+    destination.write_bytes(r.content)
     return destination
 
 
-def validate_csv(path: Path) -> tuple[int, int]:
-    df = pd.read_csv(path)
+def validate(path: Path) -> tuple[int,int]:
+    df=pd.read_csv(path)
+    if len(df)<20:
+        raise RuntimeError(f'CSV troppo corto: {len(df)} righe')
     return df.shape
 
 
 def main() -> None:
-    total_matches = 0
+    total=0; ok=0; failed=0
 
-    for season in SEASONS:
-        for league_code, league_name in LEAGUES.items():
+    # 22 divisioni europee, sei stagioni concluse.
+    for season in EUROPE_SEASONS:
+        for code,meta in EUROPE_LEAGUES.items():
             try:
-                path = download_csv(season, league_code)
-                rows, columns = validate_csv(path)
-                total_matches += rows
-                print(
-                    f"OK | {season} | {league_name:<15} | "
-                    f"{rows:>4} partite | {columns:>3} colonne"
-                )
+                p=download(EUROPE_URL.format(season=season,code=code),RAW_DIR/f'eu_{season}_{code}.csv')
+                rows,cols=validate(p); total+=rows; ok+=1
+                print(f"OK EU | {season} | {meta['name']:<30} | {rows:>4} partite | {cols:>3} colonne")
             except Exception as exc:
-                print(f"ERRORE | {season} | {league_name} | {exc}")
+                failed+=1
+                print(f"SKIP EU | {season} | {meta['name']} | {exc}")
 
-    print(f"\nTotale righe scaricate: {total_matches}")
+    # 16 archivi extra-europei. Football-Data li pubblica come CSV per paese/lega.
+    for code,meta in WORLD_LEAGUES.items():
+        try:
+            p=download(WORLD_URL.format(code=code),RAW_DIR/f'world_{code}.csv')
+            rows,cols=validate(p); total+=rows; ok+=1
+            print(f"OK WORLD | {meta['name']:<30} | {rows:>5} righe | {cols:>3} colonne")
+        except Exception as exc:
+            failed+=1
+            print(f"SKIP WORLD | {meta['name']} | {exc}")
+
+    print(f'\nFile validi: {ok} | file saltati: {failed} | righe storiche scaricate: {total}')
 
 
-if __name__ == "__main__":
+if __name__=='__main__':
     main()

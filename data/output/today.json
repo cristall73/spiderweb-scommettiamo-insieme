@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-22T10:24:22+02:00",
+  "generated_at": "2026-08-22T10:47:32+02:00",
   "date": "2026-08-22",
   "source": "API-Football calendario mondiale + quote API-Football con fallback gratuito Football-Data fixtures; storico SpiderWeb/Football-Data",
-  "fixtures_count": 1074,
+  "fixtures_count": 1069,
   "eligible_history_count": 171,
   "target_leagues_today": 9,
   "leagues_queried": [

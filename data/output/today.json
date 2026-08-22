@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-22T10:53:03+02:00",
+  "generated_at": "2026-08-22T11:02:58+02:00",
   "date": "2026-08-22",
   "source": "API-Football calendario mondiale + probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 1064,
+  "fixtures_count": 1059,
   "eligible_history_count": 171,
   "fixtures_with_odds": 0,
   "candidate_count": 24,
   "active_rules": 212,
-  "api_requests_remaining": "89",
+  "api_requests_remaining": "88",
   "single": {
     "event_id": 1593292,
     "country": "Greece",

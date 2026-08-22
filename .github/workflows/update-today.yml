@@ -37,7 +37,7 @@ jobs:
           ls -lh data/output/live_training.csv data/output/backtest_multisource_stable.csv || true
 
       - name: Aggiorna radar mondiale e schedine
-        run: python src/update_today_global.py
+        run: python src/update_today_footballdata.py
 
       - name: Verifica output radar
         run: |
@@ -47,11 +47,12 @@ jobs:
           from pathlib import Path
           d=json.loads(Path('data/output/today.json').read_text(encoding='utf-8'))
           print('Data:', d.get('date'))
+          print('Fonte:', d.get('source'))
           print('Partite scansionate:', d.get('fixtures_count'))
           print('Con quote:', d.get('fixtures_with_odds'))
           print('Candidati:', d.get('candidate_count'))
           if int(d.get('fixtures_count') or 0) <= 3:
-              raise SystemExit('Radar ancora limitato a 3 o meno partite')
+              raise SystemExit('Radar ha trovato 3 o meno partite: controllare aggiornamento fixtures.csv')
           PY
 
       - name: Salva dati aggiornati

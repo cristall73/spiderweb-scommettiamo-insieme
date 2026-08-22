@@ -1,22 +1,101 @@
 {
-  "generated_at": "2026-08-22T10:10:52+02:00",
+  "generated_at": "2026-08-22T10:20:27+02:00",
   "date": "2026-08-22",
-  "source": "API-Football calendario mondiale + quote pre-match; storico SpiderWeb/Football-Data",
-  "fixtures_count": 1084,
+  "source": "API-Football calendario mondiale + quote mirate per leghe validate; storico SpiderWeb/Football-Data",
+  "fixtures_count": 1075,
   "eligible_history_count": 171,
-  "fixtures_with_odds": 11,
+  "target_leagues_today": 9,
+  "leagues_queried": [
+    {
+      "league": "Greece Super League",
+      "api_league_id": 197,
+      "season": 2026,
+      "fixtures_today": 3,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.2861
+    },
+    {
+      "league": "Portugal Primeira Liga",
+      "api_league_id": 94,
+      "season": 2026,
+      "fixtures_today": 3,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.2285
+    },
+    {
+      "league": "Turkey Super Lig",
+      "api_league_id": 203,
+      "season": 2026,
+      "fixtures_today": 3,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.1266
+    },
+    {
+      "league": "England National League",
+      "api_league_id": 43,
+      "season": 2026,
+      "fixtures_today": 12,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.1238
+    },
+    {
+      "league": "England National League",
+      "api_league_id": 50,
+      "season": 2026,
+      "fixtures_today": 12,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.1238
+    },
+    {
+      "league": "England National League",
+      "api_league_id": 51,
+      "season": 2026,
+      "fixtures_today": 11,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.1238
+    },
+    {
+      "league": "Scotland League One",
+      "api_league_id": 183,
+      "season": 2026,
+      "fixtures_today": 5,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.1097
+    },
+    {
+      "league": "Italy Serie A",
+      "api_league_id": 135,
+      "season": 2026,
+      "fixtures_today": 4,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.0956
+    },
+    {
+      "league": "Netherlands Eredivisie",
+      "api_league_id": 88,
+      "season": 2026,
+      "fixtures_today": 3,
+      "pages_available_free": 1,
+      "page1_items": 0,
+      "priority_roi": 0.0639
+    }
+  ],
+  "fixtures_with_odds": 0,
   "candidate_count": 0,
   "active_rules": 212,
-  "odds_pages_used": [
-    1,
-    2,
-    3
-  ],
-  "odds_total_pages": 73,
-  "api_requests_remaining": "94",
+  "odds_requests_used": 9,
+  "api_requests_remaining": null,
   "single": null,
   "double": null,
   "triple": null,
   "shortlist": [],
-  "note": "Il radar scansiona il calendario mondiale API-Football. Sul piano Free le quote sono disponibili solo per le prime 3 pagine dell endpoint odds; il calendario globale resta comunque interamente scansionato."
+  "note": "Il radar scansiona tutto il calendario mondiale ma spende le richieste quote solo sui campionati che hanno gia sistemi walk-forward attivi, privilegiando quelli con ROI storico maggiore."
 }

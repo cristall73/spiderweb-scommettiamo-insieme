@@ -20,7 +20,7 @@ OUT = Path('data/output/today.json')
 LIVE_HISTORY = Path('data/output/live_training.csv')
 API_BASE = 'https://v3.football.api-sports.io'
 API_KEY = os.getenv('API_FOOTBALL_KEY', '').strip()
-MAX_ODDS_PAGES = max(1, min(int(os.getenv('API_FOOTBALL_MAX_ODDS_PAGES', '8')), 20))
+MAX_ODDS_PAGES = max(1, min(int(os.getenv('API_FOOTBALL_MAX_ODDS_PAGES', '3')), 3))
 TIMEOUT = 35
 
 
@@ -162,7 +162,6 @@ def pair_market(bookmaker, target):
                     sides['BTTS_NO'] = odd
         if len(sides) == 2:
             inv = sum(1 / o for o in sides.values())
-            # Preferiamo la coppia con margine bookmaker piu basso e coerente.
             candidates.append((abs(inv - 1.0), inv, sides, bookmaker.get('name') or 'Bookmaker'))
     if not candidates:
         return None
@@ -187,7 +186,6 @@ def parse_odds_item(item):
         for book in all_books:
             market = pair_market(book, target)
             if market:
-                # Ranking della singola coppia: minore overround assoluto.
                 inv = sum(1 / float(o['odds']) for o in market['options'])
                 choices.append((abs(inv - 1.0), market))
         if choices:
@@ -198,17 +196,10 @@ def parse_odds_item(item):
 def choose_odds_pages(total_pages, now):
     if total_pages <= 0:
         return []
-    cap = min(MAX_ODDS_PAGES, total_pages)
-    if cap == total_pages:
-        return list(range(1, total_pages + 1))
-    # Pagina 1 sempre inclusa; le altre ruotano durante la giornata per ampliare la copertura
-    # senza superare il tetto del piano gratuito.
-    pages = [1]
-    remaining = total_pages - 1
-    start = ((now.hour // 3) * max(1, cap - 1)) % remaining
-    for i in range(cap - 1):
-        pages.append(2 + ((start + i) % remaining))
-    return pages
+    # Il piano Free API-Sports consente page <= 3 sull'endpoint odds.
+    # Quindi non tentiamo mai pagine 4+ anche se il payload dichiara piu pagine totali.
+    highest_allowed = min(total_pages, 3, MAX_ODDS_PAGES)
+    return list(range(1, highest_allowed + 1))
 
 
 def load_odds_for_date(date_iso, now):
@@ -228,17 +219,14 @@ def load_odds_for_date(date_iso, now):
 def main():
     now = datetime.now(ROME)
     date_iso = now.date().isoformat()
-
     historical = load_live_training()
     hist, teams = base.latest_histories(historical)
     models = base.train_live_models(historical)
     rules = base.load_live_rules()
-
     fixtures_data, fixture_headers = api_get('/fixtures', {'date': date_iso, 'timezone': 'Europe/Rome'})
     raw_fixtures = [x for x in (fixtures_data.get('response') or []) if senior_fixture(x)]
     events = [fixture_to_event(x) for x in raw_fixtures]
     event_by_id = {e['event_id']: e for e in events if e.get('event_id') is not None}
-
     odds_items, pages_used, odds_total_pages, remaining = load_odds_for_date(date_iso, now)
     for item in odds_items:
         fixture_id, markets = parse_odds_item(item)
@@ -246,17 +234,14 @@ def main():
         if event and markets:
             event['markets'] = markets
             event['odds_available'] = True
-
     eligible = [e for e in events if e.get('canonical_league')]
     with_odds = [e for e in eligible if e.get('odds_available')]
     rows = base.best_per_event(base.candidate_rows(with_odds, models, hist, teams, rules))
     for row in rows:
         row['source'] = 'API-Football quote pre-match + modello SpiderWeb walk-forward'
-
     single = rows[0] if rows else None
     double = base.pick_combo(rows, 2, 1.80, 3.20) if len(rows) >= 2 else None
     triple = base.pick_combo(rows, 3, 2.30, 4.50) if len(rows) >= 3 else None
-
     payload = {
         'generated_at': now.isoformat(timespec='seconds'),
         'date': date_iso,
@@ -273,23 +258,15 @@ def main():
         'double': double,
         'triple': triple,
         'shortlist': rows[:30],
-        'note': (
-            'Il radar scansiona il calendario mondiale API-Football. Le giocate vengono valutate solo quando '
-            'esistono storico sufficiente, quota pre-match reale e filtro walk-forward validato. Le pagine quote '
-            'ruotano durante la giornata per ampliare la copertura restando entro il limite del piano API.'
-        ),
+        'note': ('Il radar scansiona il calendario mondiale API-Football. Sul piano Free le quote sono disponibili '
+                 'solo per le prime 3 pagine dell endpoint odds; il calendario globale resta comunque interamente scansionato.'),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({
-        'date': date_iso,
-        'fixtures_globali': len(events),
-        'con_storico': len(eligible),
-        'con_quote': len(with_odds),
-        'candidati': len(rows),
-        'pagine_quote': pages_used,
-        'pagine_quote_totali': odds_total_pages,
-        'richieste_rimanenti': remaining,
+        'date': date_iso, 'fixtures_globali': len(events), 'con_storico': len(eligible),
+        'con_quote': len(with_odds), 'candidati': len(rows), 'pagine_quote': pages_used,
+        'pagine_quote_totali': odds_total_pages, 'richieste_rimanenti': remaining,
     }, ensure_ascii=False))
 
 

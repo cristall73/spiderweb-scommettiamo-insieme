@@ -27,26 +27,28 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
 
-      - name: Scarica e prepara storico Football-Data
+      - name: Scarica storico esteso Football-Data
+        run: python src/download_football_data.py
+
+      - name: Backtest storico legacy 1X2
         run: |
-          python src/download_football_data.py
           python src/build_dataset.py
           python src/build_features.py
-
-      - name: Backtest e validazioni 1X2
-        run: |
           python src/backtest_1x2.py
           python src/analyze_backtest.py
           python src/walk_forward_1x2.py
 
-      - name: Benchmark mercati goal
+      - name: Benchmark mercati goal legacy
         run: python src/backtest_markets.py
 
       - name: Over Under con quote Football-Data reali
         run: python src/backtest_ou_real.py
 
-      - name: Walk-forward multi-fonte Over Under e BTTS
+      - name: Walk-forward globale Over Under e BTTS
         run: python src/backtest_multisource_real.py
+
+      - name: Prepara storico compatto per radar live
+        run: python src/export_live_history.py
 
       - name: Salva risultati
         run: |
@@ -56,7 +58,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nessuna modifica ai risultati"
           else
-            git commit -m "Aggiorna ricerca multi-fonte OU e BTTS"
+            git commit -m "Aggiorna backtest globale e storico live"
             git pull --rebase origin main
             git push origin main
           fi

@@ -56,14 +56,12 @@ def load_live_training():
     return df.dropna(subset=['Date','LeagueName','HomeTeam','AwayTeam','FTHG','FTAG']).copy()
 
 
-# Il vecchio limite di 140 privilegiava le partite popolari e tagliava il resto del mondo.
-# 700 copre normalmente l'intera giornata senior; se gli eventi sono meno, vengono presi tutti.
+# Radar mondiale: il limite alto evita di scartare serie minori solo per popolarità.
 base.MAX_EVENTS_WITH_ODDS=700
 base.canonical_league=global_canonical_league
 base.load_data=load_live_training
 
-# Continuiamo a escludere giovanili/riserve perché lo storico non è ancora omogeneo per quei tornei.
-# Non filtriamo invece serie B/C quando presenti nel catalogo storico.
+# Escludiamo solo giovanili e riserve; serie B/C senior restano incluse se presenti nello storico.
 base.BAD_WORDS=('u17','u18','u19','u20','u21','u23','youth','junior','reserve','reserves')
 
 if __name__=='__main__':

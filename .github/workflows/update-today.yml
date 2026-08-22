@@ -20,8 +20,10 @@ jobs:
     timeout-minutes: 30
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-      API_FOOTBALL_MAX_ODDS_REQUESTS: "12"
-      SPIDERWEB_RADAR_VERSION: "api-football-targeted-v4-safe-free"
+      ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
+      ODDS_API_IO_BOOKMAKERS: "Bet365,Unibet"
+      ODDS_API_IO_MAX_CALLS: "24"
+      SPIDERWEB_RADAR_VERSION: "api-football-plus-oddsapiio-v5"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,21 +43,26 @@ jobs:
           echo "Radar: $SPIDERWEB_RADAR_VERSION"
           ls -lh data/output/live_training.csv data/output/backtest_multisource_stable.csv || true
 
-      - name: Stato configurazione API-Football
+      - name: Stato configurazione fonti
         id: api_key
         shell: bash
         run: |
           if [ -z "$API_FOOTBALL_KEY" ]; then
             echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::API_FOOTBALL_KEY non ancora configurata."
+            echo "::warning::API_FOOTBALL_KEY non configurata."
           else
             echo "configured=true" >> "$GITHUB_OUTPUT"
-            echo "API-Football configurata: avvio radar mondiale mirato."
+            echo "API-Football configurata."
+          fi
+          if [ -z "$ODDS_API_IO_KEY" ]; then
+            echo "::warning::ODDS_API_IO_KEY non ancora configurata: userò il radar attuale."
+          else
+            echo "Odds-API.io configurata: attivo fallback quote."
           fi
 
       - name: Aggiorna radar mondiale e schedine
         if: steps.api_key.outputs.configured == 'true'
-        run: python src/update_today_apifootball_safe.py
+        run: python src/update_today_oddsapiio.py
 
       - name: Verifica output radar
         if: steps.api_key.outputs.configured == 'true'
@@ -70,13 +77,13 @@ jobs:
           print('Partite mondiali scansionate:', d.get('fixtures_count'))
           print('Con storico compatibile:', d.get('eligible_history_count'))
           print('Leghe target oggi:', d.get('target_leagues_today'))
-          print('Leghe interrogate:', [x.get('league') for x in d.get('leagues_queried',[])])
-          print('Richieste quote usate:', d.get('odds_requests_used'))
+          print('Eventi Odds-API.io:', d.get('odds_api_events_today'))
+          print('Quote abbinate Odds-API.io:', d.get('odds_api_matches'))
+          print('Richieste Odds-API.io:', d.get('odds_api_calls_used'))
           print('Con quote:', d.get('fixtures_with_odds'))
           print('Candidati:', d.get('candidate_count'))
-          print('Richieste API rimaste:', d.get('api_requests_remaining'))
           if int(d.get('fixtures_count') or 0) <= 3:
-              raise SystemExit('API-Football ha restituito 3 o meno partite globali: controllare la risposta API')
+              raise SystemExit('Radar mondiale ha restituito 3 o meno partite')
           PY
 
       - name: Salva dati aggiornati

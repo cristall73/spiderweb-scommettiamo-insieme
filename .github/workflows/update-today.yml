@@ -21,6 +21,7 @@ jobs:
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       API_FOOTBALL_MAX_ODDS_PAGES: "8"
+      SPIDERWEB_RADAR_VERSION: "api-football-live-v1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,6 +38,7 @@ jobs:
       - name: Diagnostica input radar
         run: |
           echo "Commit: $GITHUB_SHA"
+          echo "Radar: $SPIDERWEB_RADAR_VERSION"
           ls -lh data/output/live_training.csv data/output/backtest_multisource_stable.csv || true
 
       - name: Stato configurazione API-Football

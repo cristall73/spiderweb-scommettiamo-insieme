@@ -21,7 +21,7 @@ jobs:
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       API_FOOTBALL_MAX_ODDS_REQUESTS: "12"
-      SPIDERWEB_RADAR_VERSION: "api-football-targeted-v3"
+      SPIDERWEB_RADAR_VERSION: "api-football-targeted-v4-safe-free"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -55,7 +55,7 @@ jobs:
 
       - name: Aggiorna radar mondiale e schedine
         if: steps.api_key.outputs.configured == 'true'
-        run: python src/update_today_apifootball.py
+        run: python src/update_today_apifootball_safe.py
 
       - name: Verifica output radar
         if: steps.api_key.outputs.configured == 'true'

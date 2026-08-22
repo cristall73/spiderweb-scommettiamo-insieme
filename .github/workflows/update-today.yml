@@ -18,6 +18,9 @@ jobs:
   update:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+      API_FOOTBALL_MAX_ODDS_PAGES: "8"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,10 +39,24 @@ jobs:
           echo "Commit: $GITHUB_SHA"
           ls -lh data/output/live_training.csv data/output/backtest_multisource_stable.csv || true
 
+      - name: Stato configurazione API-Football
+        id: api_key
+        shell: bash
+        run: |
+          if [ -z "$API_FOOTBALL_KEY" ]; then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::API_FOOTBALL_KEY non ancora configurata. Il radar mondiale è pronto ma resta in attesa della chiave."
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+            echo "API-Football configurata: avvio radar mondiale."
+          fi
+
       - name: Aggiorna radar mondiale e schedine
-        run: python src/update_today_footballdata.py
+        if: steps.api_key.outputs.configured == 'true'
+        run: python src/update_today_apifootball.py
 
       - name: Verifica output radar
+        if: steps.api_key.outputs.configured == 'true'
         run: |
           test -s data/output/today.json
           python - <<'PY'
@@ -48,14 +65,19 @@ jobs:
           d=json.loads(Path('data/output/today.json').read_text(encoding='utf-8'))
           print('Data:', d.get('date'))
           print('Fonte:', d.get('source'))
-          print('Partite scansionate:', d.get('fixtures_count'))
+          print('Partite mondiali scansionate:', d.get('fixtures_count'))
+          print('Con storico compatibile:', d.get('eligible_history_count'))
           print('Con quote:', d.get('fixtures_with_odds'))
           print('Candidati:', d.get('candidate_count'))
+          print('Pagine quote usate:', d.get('odds_pages_used'))
+          print('Pagine quote totali:', d.get('odds_total_pages'))
+          print('Richieste API rimaste:', d.get('api_requests_remaining'))
           if int(d.get('fixtures_count') or 0) <= 3:
-              raise SystemExit('Radar ha trovato 3 o meno partite: controllare aggiornamento fixtures.csv')
+              raise SystemExit('API-Football ha restituito 3 o meno partite globali: controllare la risposta API')
           PY
 
       - name: Salva dati aggiornati
+        if: steps.api_key.outputs.configured == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

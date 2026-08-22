@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-22T10:20:27+02:00",
+  "generated_at": "2026-08-22T10:24:22+02:00",
   "date": "2026-08-22",
-  "source": "API-Football calendario mondiale + quote mirate per leghe validate; storico SpiderWeb/Football-Data",
-  "fixtures_count": 1075,
+  "source": "API-Football calendario mondiale + quote API-Football con fallback gratuito Football-Data fixtures; storico SpiderWeb/Football-Data",
+  "fixtures_count": 1074,
   "eligible_history_count": 171,
   "target_leagues_today": 9,
   "leagues_queried": [
@@ -89,6 +89,9 @@
     }
   ],
   "fixtures_with_odds": 0,
+  "api_fixtures_with_odds": 0,
+  "football_data_fallback_matches": 0,
+  "football_data_rows_today": 0,
   "candidate_count": 0,
   "active_rules": 212,
   "odds_requests_used": 9,
@@ -97,5 +100,5 @@
   "double": null,
   "triple": null,
   "shortlist": [],
-  "note": "Il radar scansiona tutto il calendario mondiale ma spende le richieste quote solo sui campionati che hanno gia sistemi walk-forward attivi, privilegiando quelli con ROI storico maggiore."
+  "note": "Il radar usa API-Football per il calendario mondiale. Per le quote tenta API-Football e, quando il piano Free non le rende disponibili, usa automaticamente il feed fixtures gratuito di Football-Data."
 }

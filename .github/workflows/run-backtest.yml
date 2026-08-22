@@ -1,4 +1,4 @@
-name: Backtest calcio multi-mercato
+name: Backtest calcio globale multi-mercato
 
 on:
   workflow_dispatch:
@@ -19,6 +19,7 @@ permissions:
 jobs:
   backtest:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -30,31 +31,20 @@ jobs:
       - name: Scarica storico esteso Football-Data
         run: python src/download_football_data.py
 
-      - name: Backtest storico legacy 1X2
-        run: |
-          python src/build_dataset.py
-          python src/build_features.py
-          python src/backtest_1x2.py
-          python src/analyze_backtest.py
-          python src/walk_forward_1x2.py
-
-      - name: Benchmark mercati goal legacy
-        run: python src/backtest_markets.py
-
-      - name: Over Under con quote Football-Data reali
-        run: python src/backtest_ou_real.py
-
       - name: Walk-forward globale Over Under e BTTS
         run: python src/backtest_multisource_real.py
 
       - name: Prepara storico compatto per radar live
         run: python src/export_live_history.py
 
-      - name: Salva risultati
+      - name: Salva risultati globali
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f data/output/*.csv
+          git add -f data/output/backtest_multisource_real.csv
+          git add -f data/output/backtest_multisource_summary.csv
+          git add -f data/output/backtest_multisource_stable.csv
+          git add -f data/output/live_training.csv
           if git diff --cached --quiet; then
             echo "Nessuna modifica ai risultati"
           else

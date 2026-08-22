@@ -6,6 +6,10 @@ on:
     branches: [main]
     paths:
       - "src/update_today.py"
+      - "src/update_today_global.py"
+      - "src/league_catalog.py"
+      - "data/output/live_training.csv"
+      - "data/output/backtest_multisource_stable.csv"
       - "requirements.txt"
       - ".github/workflows/update-today.yml"
   schedule:
@@ -31,8 +35,8 @@ jobs:
           cache: pip
       - name: Dipendenze
         run: pip install -r requirements.txt
-      - name: Aggiorna radar globale e schedine
-        run: python src/update_today.py
+      - name: Aggiorna radar mondiale e schedine
+        run: python src/update_today_global.py
       - name: Salva dati aggiornati
         run: |
           git config user.name "github-actions[bot]"
@@ -41,7 +45,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nessuna modifica"
           else
-            git commit -m "Aggiorna radar globale e schedine"
+            git commit -m "Aggiorna radar mondiale e schedine"
             git pull --rebase origin main
             git push
           fi

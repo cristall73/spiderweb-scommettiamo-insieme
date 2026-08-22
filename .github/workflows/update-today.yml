@@ -20,8 +20,8 @@ jobs:
     timeout-minutes: 30
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-      API_FOOTBALL_MAX_ODDS_PAGES: "8"
-      SPIDERWEB_RADAR_VERSION: "api-football-live-v1"
+      API_FOOTBALL_MAX_ODDS_PAGES: "3"
+      SPIDERWEB_RADAR_VERSION: "api-football-live-v2"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
         run: |
           if [ -z "$API_FOOTBALL_KEY" ]; then
             echo "configured=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::API_FOOTBALL_KEY non ancora configurata. Il radar mondiale è pronto ma resta in attesa della chiave."
+            echo "::warning::API_FOOTBALL_KEY non ancora configurata."
           else
             echo "configured=true" >> "$GITHUB_OUTPUT"
             echo "API-Football configurata: avvio radar mondiale."

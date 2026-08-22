@@ -20,8 +20,8 @@ jobs:
     timeout-minutes: 30
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-      API_FOOTBALL_MAX_ODDS_PAGES: "3"
-      SPIDERWEB_RADAR_VERSION: "api-football-live-v2"
+      API_FOOTBALL_MAX_ODDS_REQUESTS: "12"
+      SPIDERWEB_RADAR_VERSION: "api-football-targeted-v3"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
             echo "::warning::API_FOOTBALL_KEY non ancora configurata."
           else
             echo "configured=true" >> "$GITHUB_OUTPUT"
-            echo "API-Football configurata: avvio radar mondiale."
+            echo "API-Football configurata: avvio radar mondiale mirato."
           fi
 
       - name: Aggiorna radar mondiale e schedine
@@ -69,10 +69,11 @@ jobs:
           print('Fonte:', d.get('source'))
           print('Partite mondiali scansionate:', d.get('fixtures_count'))
           print('Con storico compatibile:', d.get('eligible_history_count'))
+          print('Leghe target oggi:', d.get('target_leagues_today'))
+          print('Leghe interrogate:', [x.get('league') for x in d.get('leagues_queried',[])])
+          print('Richieste quote usate:', d.get('odds_requests_used'))
           print('Con quote:', d.get('fixtures_with_odds'))
           print('Candidati:', d.get('candidate_count'))
-          print('Pagine quote usate:', d.get('odds_pages_used'))
-          print('Pagine quote totali:', d.get('odds_total_pages'))
           print('Richieste API rimaste:', d.get('api_requests_remaining'))
           if int(d.get('fixtures_count') or 0) <= 3:
               raise SystemExit('API-Football ha restituito 3 o meno partite globali: controllare la risposta API')

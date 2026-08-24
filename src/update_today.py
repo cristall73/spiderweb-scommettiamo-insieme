@@ -206,7 +206,12 @@ def fetch_odds(e):
 def latest_histories(df):
     hist=defaultdict(lambda:deque(maxlen=10))
     teams=defaultdict(set)
-    for _,r in df.sort_values('Date').iterrows():
+    # Le fonti storiche possono restituire Date miste (stringhe e Timestamp).
+    # Normalizziamo solo la chiave di ordinamento, senza cambiare i dati o la logica del modello.
+    ordered=df.copy()
+    ordered['_sort_date']=pd.to_datetime(ordered['Date'],errors='coerce',utc=True)
+    ordered=ordered.sort_values('_sort_date',na_position='last')
+    for _,r in ordered.iterrows():
         league=str(r.LeagueName); h=str(r.HomeTeam); a=str(r.AwayTeam)
         teams[league].update([h,a])
         hg=int(r.FTHG); ag=int(r.FTAG)

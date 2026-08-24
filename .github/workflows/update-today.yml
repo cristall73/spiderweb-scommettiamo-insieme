@@ -52,10 +52,6 @@ jobs:
             echo "API-Football configurata: uso calendario mondiale multisorgente."
           fi
 
-      - name: Correggi endpoint calendario Sofascore
-        if: steps.api_key.outputs.configured == 'true'
-        run: sed -i 's#https://www.sofascore.com/api/v1/#https://api.sofascore.com/api/v1/#g' src/update_today_min_odds.py
-
       - name: Calcola candidati e quota minima
         if: steps.api_key.outputs.configured == 'true'
         run: python src/update_today_min_odds.py
@@ -95,6 +91,6 @@ jobs:
             echo "Nessuna modifica"
           else
             git commit -m "Aggiorna radar quota minima"
-            git pull --rebase origin main
+            git pull --rebase --autostash origin main
             git push
           fi

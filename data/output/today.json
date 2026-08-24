@@ -1,20 +1,76 @@
 {
-  "generated_at": "2026-08-24T10:38:05+02:00",
+  "generated_at": "2026-08-24T11:01:05+02:00",
   "date": "2026-08-24",
   "source": "API-Football calendario mondiale + probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
   "fixtures_count": 101,
-  "eligible_history_count": 40,
-  "retail_extra_mapped_count": 23,
-  "retail_history_requests_used": 14,
-  "retail_history_coverage": [],
-  "unmapped_history_count": 61,
-  "unmapped_leagues": [
+  "eligible_history_count": 66,
+  "retail_extra_mapped_count": 49,
+  "retail_history_requests_used": 20,
+  "retail_history_coverage": [
     {
-      "country": "Iran",
-      "league": "Persian Gulf Pro League",
-      "fixtures": 6
+      "league": "Iran Persian Gulf Pro League",
+      "fixtures_today": 6,
+      "history_matches": 240,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
     },
+    {
+      "league": "Russia First League",
+      "fixtures_today": 4,
+      "history_matches": 306,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "league": "Israel Liga Leumit",
+      "fixtures_today": 3,
+      "history_matches": 297,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "league": "Italy Serie C - Girone C",
+      "fixtures_today": 3,
+      "history_matches": 362,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "league": "Serbia Prva Liga",
+      "fixtures_today": 3,
+      "history_matches": 296,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "league": "Sweden Superettan",
+      "fixtures_today": 3,
+      "history_matches": 244,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    }
+  ],
+  "unmapped_history_count": 35,
+  "unmapped_leagues": [
     {
       "country": "India",
       "league": "Calcutta Premier Division",
@@ -26,18 +82,8 @@
       "fixtures": 4
     },
     {
-      "country": "Serbia",
-      "league": "Prva Liga",
-      "fixtures": 3
-    },
-    {
       "country": "Estonia",
       "league": "Esiliiga A",
-      "fixtures": 3
-    },
-    {
-      "country": "Israel",
-      "league": "Liga Leumit",
       "fixtures": 3
     },
     {
@@ -61,18 +107,8 @@
       "fixtures": 2
     },
     {
-      "country": "Belarus",
-      "league": "Premier League",
-      "fixtures": 2
-    },
-    {
       "country": "Kyrgyzstan",
       "league": "Premier League",
-      "fixtures": 2
-    },
-    {
-      "country": "Macedonia",
-      "league": "First League",
       "fixtures": 2
     },
     {
@@ -81,28 +117,8 @@
       "fixtures": 2
     },
     {
-      "country": "Bulgaria",
-      "league": "First League",
-      "fixtures": 2
-    },
-    {
-      "country": "Paraguay",
-      "league": "Division Profesional - Clausura",
-      "fixtures": 2
-    },
-    {
       "country": "Armenia",
       "league": "Cup",
-      "fixtures": 1
-    },
-    {
-      "country": "Malaysia",
-      "league": "Super League",
-      "fixtures": 1
-    },
-    {
-      "country": "Uzbekistan",
-      "league": "Super League",
       "fixtures": 1
     },
     {
@@ -121,11 +137,6 @@
       "fixtures": 1
     },
     {
-      "country": "Lithuania",
-      "league": "A Lyga",
-      "fixtures": 1
-    },
-    {
       "country": "Latvia",
       "league": "1. Liga",
       "fixtures": 1
@@ -136,11 +147,6 @@
       "fixtures": 1
     },
     {
-      "country": "Israel",
-      "league": "Ligat Ha'al",
-      "fixtures": 1
-    },
-    {
       "country": "Brazil",
       "league": "Paranaense - 3",
       "fixtures": 1
@@ -148,16 +154,6 @@
     {
       "country": "Bolivia",
       "league": "Nacional B",
-      "fixtures": 1
-    },
-    {
-      "country": "Iceland",
-      "league": "Úrvalsdeild",
-      "fixtures": 1
-    },
-    {
-      "country": "Peru",
-      "league": "Segunda División",
       "fixtures": 1
     },
     {
@@ -174,7 +170,7 @@
   "fixtures_with_odds": 0,
   "candidate_count": 3,
   "active_rules": 212,
-  "api_requests_remaining": "95",
+  "api_requests_remaining": "87",
   "single": {
     "event_id": 1575467,
     "country": "Portugal",

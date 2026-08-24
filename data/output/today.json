@@ -1,9 +1,12 @@
 {
-  "generated_at": "2026-08-24T11:01:05+02:00",
+  "generated_at": "2026-08-24T11:30:35+02:00",
   "date": "2026-08-24",
-  "source": "API-Football calendario mondiale + probabilita SpiderWeb; quota minima da verificare sul bookmaker",
+  "source": "API-Football + Football-Data calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
   "fixtures_count": 101,
+  "api_football_fixtures_count": 101,
+  "football_data_rows_today": 0,
+  "football_data_calendar_added": 0,
   "eligible_history_count": 66,
   "retail_extra_mapped_count": 49,
   "retail_history_requests_used": 20,
@@ -170,7 +173,7 @@
   "fixtures_with_odds": 0,
   "candidate_count": 3,
   "active_rules": 212,
-  "api_requests_remaining": "87",
+  "api_requests_remaining": "80",
   "single": {
     "event_id": 1575467,
     "country": "Portugal",
@@ -195,6 +198,7 @@
     "system_bets": 239,
     "score": 0.25129,
     "retail_extra": false,
+    "calendar_source": "API-Football",
     "needs_bookmaker_check": true,
     "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
   },
@@ -224,6 +228,7 @@
         "system_bets": 239,
         "score": 0.25129,
         "retail_extra": false,
+        "calendar_source": "API-Football",
         "needs_bookmaker_check": true,
         "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
       },
@@ -251,6 +256,7 @@
         "system_bets": 147,
         "score": 0.23194,
         "retail_extra": false,
+        "calendar_source": "API-Football",
         "needs_bookmaker_check": true,
         "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
       }
@@ -284,6 +290,7 @@
       "system_bets": 239,
       "score": 0.25129,
       "retail_extra": false,
+      "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
     },
@@ -311,6 +318,7 @@
       "system_bets": 147,
       "score": 0.23194,
       "retail_extra": false,
+      "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
     },
@@ -338,9 +346,10 @@
       "system_bets": 147,
       "score": 0.22213,
       "retail_extra": false,
+      "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
     }
   ],
-  "note": "Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima accettabile per rispettare l edge del sistema walk-forward. La giocata diventa valida solo se il bookmaker offre una quota uguale o superiore a quella indicata. Le leghe extra sono limitate a competizioni normalmente presenti sui bookmaker retail; coppe minori e campionati troppo profondi restano esclusi."
+  "note": "Il calendario viene ora unito da API-Football e Football-Data, eliminando i duplicati. Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima accettabile per rispettare l edge del sistema walk-forward. La giocata diventa valida solo se il bookmaker offre una quota uguale o superiore a quella indicata. Modello, soglie, edge, ROI e regole walk-forward restano invariati."
 }

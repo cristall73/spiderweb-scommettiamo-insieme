@@ -1,14 +1,237 @@
 {
-  "generated_at": "2026-08-24T09:30:09+02:00",
+  "generated_at": "2026-08-24T09:45:52+02:00",
   "date": "2026-08-24",
   "source": "API-Football calendario mondiale + probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
   "fixtures_count": 101,
   "eligible_history_count": 17,
+  "unmapped_history_count": 84,
+  "unmapped_leagues": [
+    {
+      "country": "Iran",
+      "league": "Persian Gulf Pro League",
+      "fixtures": 6
+    },
+    {
+      "country": "India",
+      "league": "Calcutta Premier Division",
+      "fixtures": 4
+    },
+    {
+      "country": "Russia",
+      "league": "First League",
+      "fixtures": 4
+    },
+    {
+      "country": "Germany",
+      "league": "DFB Pokal",
+      "fixtures": 4
+    },
+    {
+      "country": "Serbia",
+      "league": "Prva Liga",
+      "fixtures": 3
+    },
+    {
+      "country": "Estonia",
+      "league": "Esiliiga A",
+      "fixtures": 3
+    },
+    {
+      "country": "Israel",
+      "league": "Liga Leumit",
+      "fixtures": 3
+    },
+    {
+      "country": "Sweden",
+      "league": "Superettan",
+      "fixtures": 3
+    },
+    {
+      "country": "Argentina",
+      "league": "Primera C",
+      "fixtures": 3
+    },
+    {
+      "country": "Argentina",
+      "league": "Torneo Promocional Amateur",
+      "fixtures": 3
+    },
+    {
+      "country": "Italy",
+      "league": "Serie C - Girone C",
+      "fixtures": 3
+    },
+    {
+      "country": "Macedonia",
+      "league": "Second League",
+      "fixtures": 2
+    },
+    {
+      "country": "Qatar",
+      "league": "Second Division",
+      "fixtures": 2
+    },
+    {
+      "country": "Belarus",
+      "league": "Premier League",
+      "fixtures": 2
+    },
+    {
+      "country": "Kyrgyzstan",
+      "league": "Premier League",
+      "fixtures": 2
+    },
+    {
+      "country": "Macedonia",
+      "league": "First League",
+      "fixtures": 2
+    },
+    {
+      "country": "Tanzania",
+      "league": "Ligi kuu Bara",
+      "fixtures": 2
+    },
+    {
+      "country": "Bulgaria",
+      "league": "First League",
+      "fixtures": 2
+    },
+    {
+      "country": "Saudi-Arabia",
+      "league": "Pro League",
+      "fixtures": 2
+    },
+    {
+      "country": "Portugal",
+      "league": "Segunda Liga",
+      "fixtures": 2
+    },
+    {
+      "country": "Italy",
+      "league": "Serie C - Girone B",
+      "fixtures": 2
+    },
+    {
+      "country": "Paraguay",
+      "league": "Division Profesional - Clausura",
+      "fixtures": 2
+    },
+    {
+      "country": "Colombia",
+      "league": "Primera B",
+      "fixtures": 2
+    },
+    {
+      "country": "Armenia",
+      "league": "Cup",
+      "fixtures": 1
+    },
+    {
+      "country": "Malaysia",
+      "league": "Super League",
+      "fixtures": 1
+    },
+    {
+      "country": "Uzbekistan",
+      "league": "Super League",
+      "fixtures": 1
+    },
+    {
+      "country": "Greece",
+      "league": "Cup",
+      "fixtures": 1
+    },
+    {
+      "country": "Slovakia",
+      "league": "2. liga",
+      "fixtures": 1
+    },
+    {
+      "country": "Bulgaria",
+      "league": "Second League",
+      "fixtures": 1
+    },
+    {
+      "country": "Lithuania",
+      "league": "A Lyga",
+      "fixtures": 1
+    },
+    {
+      "country": "Latvia",
+      "league": "1. Liga",
+      "fixtures": 1
+    },
+    {
+      "country": "Sweden",
+      "league": "Ettan - Södra",
+      "fixtures": 1
+    },
+    {
+      "country": "Israel",
+      "league": "Ligat Ha'al",
+      "fixtures": 1
+    },
+    {
+      "country": "Poland",
+      "league": "I Liga",
+      "fixtures": 1
+    },
+    {
+      "country": "Netherlands",
+      "league": "Eerste Divisie",
+      "fixtures": 1
+    },
+    {
+      "country": "Brazil",
+      "league": "Paranaense - 3",
+      "fixtures": 1
+    },
+    {
+      "country": "Turkey",
+      "league": "1. Lig",
+      "fixtures": 1
+    },
+    {
+      "country": "Argentina",
+      "league": "Primera Nacional",
+      "fixtures": 1
+    },
+    {
+      "country": "Italy",
+      "league": "Serie C - Girone A",
+      "fixtures": 1
+    },
+    {
+      "country": "Bolivia",
+      "league": "Nacional B",
+      "fixtures": 1
+    },
+    {
+      "country": "Iceland",
+      "league": "Úrvalsdeild",
+      "fixtures": 1
+    },
+    {
+      "country": "Peru",
+      "league": "Segunda División",
+      "fixtures": 1
+    },
+    {
+      "country": "Paraguay",
+      "league": "Division Intermedia",
+      "fixtures": 1
+    },
+    {
+      "country": "Colombia",
+      "league": "Liga Femenina",
+      "fixtures": 1
+    }
+  ],
   "fixtures_with_odds": 0,
   "candidate_count": 3,
   "active_rules": 212,
-  "api_requests_remaining": "99",
+  "api_requests_remaining": "98",
   "single": {
     "event_id": 1575467,
     "country": "Portugal",

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import math
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -118,6 +119,14 @@ def main():
     events = [radar.fixture_to_event(x) for x in raw]
     eligible = [e for e in events if e.get('canonical_league')]
 
+    # Diagnostica soltanto informativa: non modifica filtri, modello o selezione.
+    unmapped = [e for e in events if not e.get('canonical_league')]
+    unmapped_counter = Counter((e.get('country') or 'Sconosciuto', e.get('league') or 'Sconosciuto') for e in unmapped)
+    unmapped_leagues = [
+        {'country': country, 'league': league, 'fixtures': count}
+        for (country, league), count in unmapped_counter.most_common(50)
+    ]
+
     rows = build_candidates(eligible, models, hist, teams, rules)
     rows = base.best_per_event(rows)
     single = rows[0] if rows else None
@@ -132,6 +141,8 @@ def main():
         'mode': 'min_acceptable_odds',
         'fixtures_count': len(events),
         'eligible_history_count': len(eligible),
+        'unmapped_history_count': len(unmapped),
+        'unmapped_leagues': unmapped_leagues,
         'fixtures_with_odds': 0,
         'candidate_count': len(rows),
         'active_rules': len(rules),
@@ -150,6 +161,8 @@ def main():
         'date': date_iso,
         'fixtures_globali': len(events),
         'con_storico': len(eligible),
+        'senza_mapping_storico': len(unmapped),
+        'top_leghe_senza_mapping': unmapped_leagues[:15],
         'candidati_quota_minima': len(rows),
         'migliore': None if not single else f"{single['home_team']} - {single['away_team']} / {single['selection']} >= {single['min_acceptable_odds']}",
         'richieste_api_rimanenti': remaining,

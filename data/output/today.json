@@ -1,14 +1,16 @@
 {
-  "generated_at": "2026-08-24T15:14:22+02:00",
+  "generated_at": "2026-08-24T16:17:57+02:00",
   "date": "2026-08-24",
-  "source": "API-Football + Football-Data calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
+  "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 96,
-  "api_football_fixtures_count": 96,
+  "fixtures_count": 94,
+  "api_football_fixtures_count": 94,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
-  "eligible_history_count": 66,
-  "retail_extra_mapped_count": 49,
+  "sofascore_rows_today": 0,
+  "sofascore_calendar_added": 0,
+  "eligible_history_count": 65,
+  "retail_extra_mapped_count": 48,
   "retail_history_requests_used": 20,
   "retail_history_coverage": [
     {
@@ -72,7 +74,7 @@
       ]
     }
   ],
-  "unmapped_history_count": 30,
+  "unmapped_history_count": 29,
   "unmapped_leagues": [
     {
       "country": "Germany",
@@ -97,11 +99,6 @@
     {
       "country": "Macedonia",
       "league": "Second League",
-      "fixtures": 2
-    },
-    {
-      "country": "Qatar",
-      "league": "Second Division",
       "fixtures": 2
     },
     {
@@ -135,6 +132,11 @@
       "fixtures": 1
     },
     {
+      "country": "Qatar",
+      "league": "Second Division",
+      "fixtures": 1
+    },
+    {
       "country": "Sweden",
       "league": "Ettan - Södra",
       "fixtures": 1
@@ -163,7 +165,7 @@
   "fixtures_with_odds": 0,
   "candidate_count": 3,
   "active_rules": 212,
-  "api_requests_remaining": "66",
+  "api_requests_remaining": "59",
   "single": {
     "event_id": 1575467,
     "country": "Portugal",
@@ -341,5 +343,5 @@
       "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
     }
   ],
-  "note": "Il calendario viene ora unito da API-Football e Football-Data, eliminando i duplicati. Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima accettabile per rispettare l edge del sistema walk-forward. La giocata diventa valida solo se il bookmaker offre una quota uguale o superiore a quella indicata. Modello, soglie, edge, ROI e regole walk-forward restano invariati."
+  "note": "Il calendario viene unito da API-Football, Football-Data e Sofascore, eliminando i duplicati. Sofascore viene usato solo come calendario: non modifica probabilita, modello, soglie, edge, ROI o regole walk-forward. La giocata e valida solo se il bookmaker offre una quota uguale o superiore alla quota minima indicata."
 }

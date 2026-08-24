@@ -1,11 +1,14 @@
 {
-  "generated_at": "2026-08-24T10:14:04+02:00",
+  "generated_at": "2026-08-24T10:38:05+02:00",
   "date": "2026-08-24",
   "source": "API-Football calendario mondiale + probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
   "fixtures_count": 101,
-  "eligible_history_count": 17,
-  "unmapped_history_count": 84,
+  "eligible_history_count": 40,
+  "retail_extra_mapped_count": 23,
+  "retail_history_requests_used": 14,
+  "retail_history_coverage": [],
+  "unmapped_history_count": 61,
   "unmapped_leagues": [
     {
       "country": "Iran",
@@ -15,11 +18,6 @@
     {
       "country": "India",
       "league": "Calcutta Premier Division",
-      "fixtures": 4
-    },
-    {
-      "country": "Russia",
-      "league": "First League",
       "fixtures": 4
     },
     {
@@ -43,11 +41,6 @@
       "fixtures": 3
     },
     {
-      "country": "Sweden",
-      "league": "Superettan",
-      "fixtures": 3
-    },
-    {
       "country": "Argentina",
       "league": "Primera C",
       "fixtures": 3
@@ -55,11 +48,6 @@
     {
       "country": "Argentina",
       "league": "Torneo Promocional Amateur",
-      "fixtures": 3
-    },
-    {
-      "country": "Italy",
-      "league": "Serie C - Girone C",
       "fixtures": 3
     },
     {
@@ -98,28 +86,8 @@
       "fixtures": 2
     },
     {
-      "country": "Saudi-Arabia",
-      "league": "Pro League",
-      "fixtures": 2
-    },
-    {
-      "country": "Portugal",
-      "league": "Segunda Liga",
-      "fixtures": 2
-    },
-    {
-      "country": "Italy",
-      "league": "Serie C - Girone B",
-      "fixtures": 2
-    },
-    {
       "country": "Paraguay",
       "league": "Division Profesional - Clausura",
-      "fixtures": 2
-    },
-    {
-      "country": "Colombia",
-      "league": "Primera B",
       "fixtures": 2
     },
     {
@@ -173,33 +141,8 @@
       "fixtures": 1
     },
     {
-      "country": "Poland",
-      "league": "I Liga",
-      "fixtures": 1
-    },
-    {
-      "country": "Netherlands",
-      "league": "Eerste Divisie",
-      "fixtures": 1
-    },
-    {
       "country": "Brazil",
       "league": "Paranaense - 3",
-      "fixtures": 1
-    },
-    {
-      "country": "Turkey",
-      "league": "1. Lig",
-      "fixtures": 1
-    },
-    {
-      "country": "Argentina",
-      "league": "Primera Nacional",
-      "fixtures": 1
-    },
-    {
-      "country": "Italy",
-      "league": "Serie C - Girone A",
       "fixtures": 1
     },
     {
@@ -231,7 +174,7 @@
   "fixtures_with_odds": 0,
   "candidate_count": 3,
   "active_rules": 212,
-  "api_requests_remaining": "97",
+  "api_requests_remaining": "95",
   "single": {
     "event_id": 1575467,
     "country": "Portugal",
@@ -255,6 +198,7 @@
     "system_roi": 0.1033,
     "system_bets": 239,
     "score": 0.25129,
+    "retail_extra": false,
     "needs_bookmaker_check": true,
     "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
   },
@@ -283,6 +227,7 @@
         "system_roi": 0.1033,
         "system_bets": 239,
         "score": 0.25129,
+        "retail_extra": false,
         "needs_bookmaker_check": true,
         "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
       },
@@ -309,6 +254,7 @@
         "system_roi": 0.0953,
         "system_bets": 147,
         "score": 0.23194,
+        "retail_extra": false,
         "needs_bookmaker_check": true,
         "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
       }
@@ -341,6 +287,7 @@
       "system_roi": 0.1033,
       "system_bets": 239,
       "score": 0.25129,
+      "retail_extra": false,
       "needs_bookmaker_check": true,
       "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
     },
@@ -367,6 +314,7 @@
       "system_roi": 0.0953,
       "system_bets": 147,
       "score": 0.23194,
+      "retail_extra": false,
       "needs_bookmaker_check": true,
       "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
     },
@@ -393,9 +341,10 @@
       "system_roi": 0.0953,
       "system_bets": 147,
       "score": 0.22213,
+      "retail_extra": false,
       "needs_bookmaker_check": true,
       "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
     }
   ],
-  "note": "Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima accettabile per rispettare l edge del sistema walk-forward. La giocata diventa valida solo se il bookmaker offre una quota uguale o superiore a quella indicata."
+  "note": "Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima accettabile per rispettare l edge del sistema walk-forward. La giocata diventa valida solo se il bookmaker offre una quota uguale o superiore a quella indicata. Le leghe extra sono limitate a competizioni normalmente presenti sui bookmaker retail; coppe minori e campionati troppo profondi restano esclusi."
 }

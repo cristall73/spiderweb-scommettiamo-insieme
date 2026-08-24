@@ -16,9 +16,134 @@ radar = safe.radar
 ROME = ZoneInfo('Europe/Rome')
 OUT = Path('data/output/today.json')
 
+# Leghe aggiuntive abbastanza comuni sui bookmaker italiani. Evitiamo volutamente
+# campionati regionali/amatoriali, giovanili, femminili e coppe minori: aumentare
+# la copertura non deve produrre partite che poi sono difficili da trovare su Sisal.
+# Le soglie, il modello e le regole walk-forward restano invariati.
+RETAIL_EXTRA = {
+    ('italy', 'serie c - girone a'): 'Italy Serie C - Girone A',
+    ('italy', 'serie c - girone b'): 'Italy Serie C - Girone B',
+    ('italy', 'serie c - girone c'): 'Italy Serie C - Girone C',
+    ('netherlands', 'eerste divisie'): 'Netherlands Eerste Divisie',
+    ('sweden', 'superettan'): 'Sweden Superettan',
+    ('poland', 'i liga'): 'Poland I Liga',
+    ('turkey', '1. lig'): 'Turkey 1. Lig',
+    ('portugal', 'segunda liga'): 'Portugal Segunda Liga',
+    ('russia', 'first league'): 'Russia First League',
+    ('saudi-arabia', 'pro league'): 'Saudi Arabia Pro League',
+    ('argentina', 'primera nacional'): 'Argentina Primera Nacional',
+    ('colombia', 'primera b'): 'Colombia Primera B',
+}
+MAX_RETAIL_HISTORY_REQUESTS = 14
+
 
 def ceil2(x: float) -> float:
     return math.ceil((x - 1e-12) * 100) / 100.0
+
+
+def retail_canonical(country: str, league: str):
+    return RETAIL_EXTRA.get((str(country).strip().lower(), str(league).strip().lower()))
+
+
+def map_retail_extras(events):
+    mapped = 0
+    for e in events:
+        if e.get('canonical_league'):
+            continue
+        canonical = retail_canonical(e.get('country', ''), e.get('league', ''))
+        if canonical:
+            e['canonical_league'] = canonical
+            e['retail_extra'] = True
+            mapped += 1
+    return mapped
+
+
+def supplemental_retail_history(events, now):
+    """Recupera solo risultati, non quote, per le leghe retail extra di oggi.
+
+    Il modello NON viene riaddestrato con questi dati: servono esclusivamente per
+    costruire forma 5/10 partite delle squadre. Le decisioni continuano quindi a
+    usare il modello e i filtri walk-forward gia validati; per queste leghe puo
+    passare soltanto una regola globale TUTTI.
+    """
+    groups = {}
+    for e in events:
+        if not e.get('retail_extra'):
+            continue
+        lid = e.get('api_league_id')
+        season = e.get('api_season')
+        canonical = e.get('canonical_league')
+        if lid and season and canonical:
+            groups.setdefault((canonical, int(lid), int(season)), 0)
+            groups[(canonical, int(lid), int(season))] += 1
+
+    # Prima le leghe con piu partite oggi: massimizziamo utilita per richiesta API.
+    ordered = sorted(groups.items(), key=lambda kv: (-kv[1], kv[0][0]))
+    rows = []
+    requests_used = 0
+    covered = []
+    cutoff = int(now.timestamp())
+
+    for (canonical, lid, season), fixtures_today in ordered:
+        league_rows = []
+        seasons_tried = []
+        for target_season in (season, season - 1):
+            if requests_used >= MAX_RETAIL_HISTORY_REQUESTS:
+                break
+            try:
+                data, _ = radar.api_get('/fixtures', {'league': lid, 'season': target_season, 'timezone': 'Europe/Rome'})
+                requests_used += 1
+                seasons_tried.append(target_season)
+            except Exception as exc:
+                requests_used += 1
+                print(f'WARN storico retail non accessibile {canonical} {target_season}: {exc}')
+                continue
+
+            for item in data.get('response') or []:
+                fixture = item.get('fixture') or {}
+                status = (fixture.get('status') or {}).get('short', '')
+                ts = int(fixture.get('timestamp') or 0)
+                if status not in ('FT', 'AET', 'PEN') or not ts or ts >= cutoff:
+                    continue
+                goals = item.get('goals') or {}
+                hg, ag = goals.get('home'), goals.get('away')
+                if hg is None or ag is None:
+                    continue
+                teams = item.get('teams') or {}
+                home = (teams.get('home') or {}).get('name') or ''
+                away = (teams.get('away') or {}).get('name') or ''
+                if not home or not away:
+                    continue
+                dt = datetime.fromtimestamp(ts, ROME)
+                league_rows.append({
+                    'Date': dt.date().isoformat(),
+                    'LeagueName': canonical,
+                    'HomeTeam': home,
+                    'AwayTeam': away,
+                    'FTHG': int(hg),
+                    'FTAG': int(ag),
+                })
+
+            # Se la stagione corrente ha gia un campione ampio non consumiamo
+            # un'altra chiamata solo per aumentare profondita non necessaria.
+            if len(league_rows) >= 120:
+                break
+
+        if league_rows:
+            # deduplica eventuali sovrapposizioni e conserva tutto: latest_histories
+            # usera comunque solo le ultime 10 gare per squadra.
+            df = pd.DataFrame(league_rows).drop_duplicates(subset=['Date', 'LeagueName', 'HomeTeam', 'AwayTeam'])
+            rows.extend(df.to_dict('records'))
+            covered.append({
+                'league': canonical,
+                'fixtures_today': fixtures_today,
+                'history_matches': len(df),
+                'seasons_tried': seasons_tried,
+            })
+        if requests_used >= MAX_RETAIL_HISTORY_REQUESTS:
+            break
+
+    return pd.DataFrame(rows), requests_used, covered
 
 
 def rules_for(rules, target, league, selection):
@@ -26,7 +151,12 @@ def rules_for(rules, target, league, selection):
     for r in rules:
         if str(r.get('target')) != target:
             continue
-        if str(r.get('league')) not in ('TUTTI', league):
+        # Per le leghe retail aggiunte non inventiamo una validazione specifica:
+        # possono usare esclusivamente regole globali TUTTI gia validate.
+        if league in RETAIL_EXTRA.values():
+            if str(r.get('league')) != 'TUTTI':
+                continue
+        elif str(r.get('league')) not in ('TUTTI', league):
             continue
         if str(r.get('selection')) not in ('TUTTI', selection):
             continue
@@ -45,6 +175,9 @@ def build_candidates(events, models, hist, teams, rules):
         if not home or not away:
             continue
         x = base.feature_row(hist, league, home, away)
+        # Forma insufficiente = feature NaN: non forziamo alcuna previsione.
+        if x.isna().any(axis=None):
+            continue
         for target in ('OU25','BTTS'):
             if target not in models:
                 continue
@@ -100,6 +233,7 @@ def build_candidates(events, models, hist, teams, rules):
                     'system_roi': round(roi,4),
                     'system_bets': bets,
                     'score': round(score,5),
+                    'retail_extra': bool(e.get('retail_extra')),
                     'needs_bookmaker_check': True,
                     'source': 'Quota minima calcolata dal modello SpiderWeb + sistema walk-forward',
                 })
@@ -110,13 +244,24 @@ def main():
     now = datetime.now(ROME)
     date_iso = now.date().isoformat()
     historical = radar.load_live_training()
-    hist, teams = base.latest_histories(historical)
+
+    # Modello e regole rimangono quelli gia validati: nessun allentamento.
     models = base.train_live_models(historical)
     rules = base.load_live_rules()
 
     fixtures_data, headers = radar.api_get('/fixtures', {'date': date_iso, 'timezone': 'Europe/Rome'})
     raw = [x for x in (fixtures_data.get('response') or []) if radar.senior_fixture(x)]
     events = [radar.fixture_to_event(x) for x in raw]
+    retail_mapped = map_retail_extras(events)
+
+    supplemental, history_requests, retail_history = supplemental_retail_history(events, now)
+    history_for_form = historical
+    if not supplemental.empty:
+        # Allineamento colonne: per la forma servono soltanto Date/LeagueName/
+        # HomeTeam/AwayTeam/FTHG/FTAG; le altre possono essere NaN.
+        history_for_form = pd.concat([historical, supplemental], ignore_index=True, sort=False)
+    hist, teams = base.latest_histories(history_for_form)
+
     eligible = [e for e in events if e.get('canonical_league')]
 
     # Diagnostica soltanto informativa: non modifica filtri, modello o selezione.
@@ -141,6 +286,9 @@ def main():
         'mode': 'min_acceptable_odds',
         'fixtures_count': len(events),
         'eligible_history_count': len(eligible),
+        'retail_extra_mapped_count': retail_mapped,
+        'retail_history_requests_used': history_requests,
+        'retail_history_coverage': retail_history,
         'unmapped_history_count': len(unmapped),
         'unmapped_leagues': unmapped_leagues,
         'fixtures_with_odds': 0,
@@ -153,14 +301,19 @@ def main():
         'shortlist': rows[:40],
         'note': ('Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima '
                  'accettabile per rispettare l edge del sistema walk-forward. La giocata diventa valida solo se '
-                 'il bookmaker offre una quota uguale o superiore a quella indicata.'),
+                 'il bookmaker offre una quota uguale o superiore a quella indicata. Le leghe extra sono limitate '
+                 'a competizioni normalmente presenti sui bookmaker retail; coppe minori e campionati troppo profondi '
+                 'restano esclusi.'),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({
         'date': date_iso,
         'fixtures_globali': len(events),
-        'con_storico': len(eligible),
+        'con_storico_o_retail': len(eligible),
+        'retail_extra_mappate': retail_mapped,
+        'richieste_storico_retail': history_requests,
+        'copertura_storico_retail': retail_history,
         'senza_mapping_storico': len(unmapped),
         'top_leghe_senza_mapping': unmapped_leagues[:15],
         'candidati_quota_minima': len(rows),

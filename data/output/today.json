@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-08-24T11:30:35+02:00",
+  "generated_at": "2026-08-24T12:05:39+02:00",
   "date": "2026-08-24",
   "source": "API-Football + Football-Data calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 101,
-  "api_football_fixtures_count": 101,
+  "fixtures_count": 97,
+  "api_football_fixtures_count": 97,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
   "eligible_history_count": 66,
@@ -72,13 +72,8 @@
       ]
     }
   ],
-  "unmapped_history_count": 35,
+  "unmapped_history_count": 31,
   "unmapped_leagues": [
-    {
-      "country": "India",
-      "league": "Calcutta Premier Division",
-      "fixtures": 4
-    },
     {
       "country": "Germany",
       "league": "DFB Pokal",
@@ -173,7 +168,7 @@
   "fixtures_with_odds": 0,
   "candidate_count": 3,
   "active_rules": 212,
-  "api_requests_remaining": "80",
+  "api_requests_remaining": "73",
   "single": {
     "event_id": 1575467,
     "country": "Portugal",

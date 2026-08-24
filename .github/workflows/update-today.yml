@@ -20,7 +20,7 @@ jobs:
     timeout-minutes: 30
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v6"
+      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v7-thesportsdb"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -49,21 +49,13 @@ jobs:
             echo "::warning::API_FOOTBALL_KEY non configurata."
           else
             echo "configured=true" >> "$GITHUB_OUTPUT"
-            echo "API-Football configurata: uso calendario mondiale multisorgente."
+            echo "API-Football configurata; se sospesa il radar prosegue con i fallback."
           fi
 
-      - name: Usa endpoint API Sofascore
-        if: steps.api_key.outputs.configured == 'true'
-        run: |
-          sed -i 's#https://www.sofascore.com/api/v1/#https://api.sofascore.com/api/v1/#g' src/update_today_min_odds.py
-          grep 'SOFASCORE_SCHEDULE' src/update_today_min_odds.py
-
       - name: Calcola candidati e quota minima
-        if: steps.api_key.outputs.configured == 'true'
-        run: python src/update_today_min_odds.py
+        run: python src/update_today_multisource.py
 
       - name: Verifica output radar
-        if: steps.api_key.outputs.configured == 'true'
         run: |
           test -s data/output/today.json
           python - <<'PY'
@@ -75,8 +67,8 @@ jobs:
           print('Partite mondiali scansionate:', d.get('fixtures_count'))
           print('API-Football:', d.get('api_football_fixtures_count'))
           print('Football-Data righe:', d.get('football_data_rows_today'))
-          print('Sofascore righe:', d.get('sofascore_rows_today'))
-          print('Sofascore aggiunte:', d.get('sofascore_calendar_added'))
+          print('Calendario fallback righe:', d.get('sofascore_rows_today'))
+          print('Calendario fallback aggiunte:', d.get('sofascore_calendar_added'))
           print('Con storico compatibile:', d.get('eligible_history_count'))
           print('Candidati con quota minima:', d.get('candidate_count'))
           s=d.get('single') or {}
@@ -88,9 +80,7 @@ jobs:
           PY
 
       - name: Salva dati aggiornati
-        if: steps.api_key.outputs.configured == 'true'
         run: |
-          git checkout -- src/update_today_min_odds.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f data/output/today.json

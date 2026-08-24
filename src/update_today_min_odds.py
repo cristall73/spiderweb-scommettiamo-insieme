@@ -33,8 +33,22 @@ RETAIL_EXTRA = {
     ('saudi-arabia', 'pro league'): 'Saudi Arabia Pro League',
     ('argentina', 'primera nacional'): 'Argentina Primera Nacional',
     ('colombia', 'primera b'): 'Colombia Primera B',
+    # Prime/Seconde divisioni nazionali normalmente presenti anche sui bookmaker retail.
+    ('iran', 'persian gulf pro league'): 'Iran Persian Gulf Pro League',
+    ('serbia', 'prva liga'): 'Serbia Prva Liga',
+    ('israel', 'liga leumit'): 'Israel Liga Leumit',
+    ('israel', "ligat ha'al"): 'Israel Ligat Haal',
+    ('belarus', 'premier league'): 'Belarus Premier League',
+    ('macedonia', 'first league'): 'Macedonia First League',
+    ('bulgaria', 'first league'): 'Bulgaria First League',
+    ('paraguay', 'division profesional - clausura'): 'Paraguay Division Profesional',
+    ('malaysia', 'super league'): 'Malaysia Super League',
+    ('uzbekistan', 'super league'): 'Uzbekistan Super League',
+    ('lithuania', 'a lyga'): 'Lithuania A Lyga',
+    ('iceland', 'úrvalsdeild'): 'Iceland Urvalsdeild',
+    ('peru', 'segunda división'): 'Peru Segunda Division',
 }
-MAX_RETAIL_HISTORY_REQUESTS = 14
+MAX_RETAIL_HISTORY_REQUESTS = 20
 
 
 def ceil2(x: float) -> float:
@@ -87,7 +101,14 @@ def supplemental_retail_history(events, now):
     for (canonical, lid, season), fixtures_today in ordered:
         league_rows = []
         seasons_tried = []
-        for target_season in (season, season - 1):
+        # Il piano API gratuito puo mostrare il calendario corrente ma negare lo
+        # storico della stagione corrente. Dopo current/current-1 proviamo quindi
+        # stagioni archiviate comunemente accessibili, senza cambiare alcuna logica.
+        season_candidates = []
+        for s in (season, season - 1, 2024, 2023, 2022):
+            if s > 0 and s not in season_candidates:
+                season_candidates.append(s)
+        for target_season in season_candidates:
             if requests_used >= MAX_RETAIL_HISTORY_REQUESTS:
                 break
             try:
@@ -96,6 +117,7 @@ def supplemental_retail_history(events, now):
                 seasons_tried.append(target_season)
             except Exception as exc:
                 requests_used += 1
+                seasons_tried.append(target_season)
                 print(f'WARN storico retail non accessibile {canonical} {target_season}: {exc}')
                 continue
 
@@ -124,14 +146,12 @@ def supplemental_retail_history(events, now):
                     'FTAG': int(ag),
                 })
 
-            # Se la stagione corrente ha gia un campione ampio non consumiamo
-            # un'altra chiamata solo per aumentare profondita non necessaria.
+            # Bastano 120 gare per avere forma recente robusta; non consumiamo
+            # altre chiamate una volta raggiunto il campione necessario.
             if len(league_rows) >= 120:
                 break
 
         if league_rows:
-            # deduplica eventuali sovrapposizioni e conserva tutto: latest_histories
-            # usera comunque solo le ultime 10 gare per squadra.
             df = pd.DataFrame(league_rows).drop_duplicates(subset=['Date', 'LeagueName', 'HomeTeam', 'AwayTeam'])
             rows.extend(df.to_dict('records'))
             covered.append({
@@ -151,8 +171,6 @@ def rules_for(rules, target, league, selection):
     for r in rules:
         if str(r.get('target')) != target:
             continue
-        # Per le leghe retail aggiunte non inventiamo una validazione specifica:
-        # possono usare esclusivamente regole globali TUTTI gia validate.
         if league in RETAIL_EXTRA.values():
             if str(r.get('league')) != 'TUTTI':
                 continue
@@ -175,7 +193,6 @@ def build_candidates(events, models, hist, teams, rules):
         if not home or not away:
             continue
         x = base.feature_row(hist, league, home, away)
-        # Forma insufficiente = feature NaN: non forziamo alcuna previsione.
         if x.isna().any(axis=None):
             continue
         for target in ('OU25','BTTS'):
@@ -245,7 +262,6 @@ def main():
     date_iso = now.date().isoformat()
     historical = radar.load_live_training()
 
-    # Modello e regole rimangono quelli gia validati: nessun allentamento.
     models = base.train_live_models(historical)
     rules = base.load_live_rules()
 
@@ -257,14 +273,11 @@ def main():
     supplemental, history_requests, retail_history = supplemental_retail_history(events, now)
     history_for_form = historical
     if not supplemental.empty:
-        # Allineamento colonne: per la forma servono soltanto Date/LeagueName/
-        # HomeTeam/AwayTeam/FTHG/FTAG; le altre possono essere NaN.
         history_for_form = pd.concat([historical, supplemental], ignore_index=True, sort=False)
     hist, teams = base.latest_histories(history_for_form)
 
     eligible = [e for e in events if e.get('canonical_league')]
 
-    # Diagnostica soltanto informativa: non modifica filtri, modello o selezione.
     unmapped = [e for e in events if not e.get('canonical_league')]
     unmapped_counter = Counter((e.get('country') or 'Sconosciuto', e.get('league') or 'Sconosciuto') for e in unmapped)
     unmapped_leagues = [

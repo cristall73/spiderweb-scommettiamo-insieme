@@ -52,6 +52,12 @@ jobs:
             echo "API-Football configurata: uso calendario mondiale multisorgente."
           fi
 
+      - name: Usa endpoint API Sofascore
+        if: steps.api_key.outputs.configured == 'true'
+        run: |
+          sed -i 's#https://www.sofascore.com/api/v1/#https://api.sofascore.com/api/v1/#g' src/update_today_min_odds.py
+          grep 'SOFASCORE_SCHEDULE' src/update_today_min_odds.py
+
       - name: Calcola candidati e quota minima
         if: steps.api_key.outputs.configured == 'true'
         run: python src/update_today_min_odds.py
@@ -84,6 +90,7 @@ jobs:
       - name: Salva dati aggiornati
         if: steps.api_key.outputs.configured == 'true'
         run: |
+          git checkout -- src/update_today_min_odds.py
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f data/output/today.json

@@ -4,10 +4,12 @@ import json
 import math
 from collections import Counter
 from datetime import datetime
+from io import StringIO
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import pandas as pd
+import requests
 
 import update_today as base
 import update_today_apifootball_safe as safe
@@ -33,7 +35,6 @@ RETAIL_EXTRA = {
     ('saudi-arabia', 'pro league'): 'Saudi Arabia Pro League',
     ('argentina', 'primera nacional'): 'Argentina Primera Nacional',
     ('colombia', 'primera b'): 'Colombia Primera B',
-    # Prime/Seconde divisioni nazionali normalmente presenti anche sui bookmaker retail.
     ('iran', 'persian gulf pro league'): 'Iran Persian Gulf Pro League',
     ('serbia', 'prva liga'): 'Serbia Prva Liga',
     ('israel', 'liga leumit'): 'Israel Liga Leumit',
@@ -72,6 +73,79 @@ def map_retail_extras(events):
     return mapped
 
 
+def same_fixture(a, b):
+    if a.get('canonical_league') and b.get('canonical_league') and a.get('canonical_league') != b.get('canonical_league'):
+        return False
+    return radar.team_match(a.get('home_team', ''), b.get('home_team', '')) and radar.team_match(a.get('away_team', ''), b.get('away_team', ''))
+
+
+def football_data_calendar(date_iso):
+    """Aggiunge al calendario le partite di Football-Data non gia presenti.
+
+    Questa fonte amplia soltanto il bacino delle partite. Modello, soglie, edge,
+    ROI e regole walk-forward non vengono modificati.
+    """
+    try:
+        response = requests.get(
+            radar.FOOTBALL_DATA_FIXTURES,
+            timeout=radar.TIMEOUT,
+            headers={'User-Agent': 'Mozilla/5.0 SpiderWeb/1.0'},
+        )
+        response.raise_for_status()
+        df = pd.read_csv(StringIO(response.text))
+    except Exception as exc:
+        print(f'WARN calendario Football-Data non disponibile: {exc}')
+        return [], 0
+
+    if df.empty or 'Date' not in df.columns:
+        return [], 0
+
+    target = datetime.fromisoformat(date_iso).date()
+    dates = pd.to_datetime(df['Date'], dayfirst=True, errors='coerce').dt.date
+    today = df.loc[dates == target].copy()
+    events = []
+
+    for idx, row in today.iterrows():
+        home = str(row.get('HomeTeam') or '').strip()
+        away = str(row.get('AwayTeam') or '').strip()
+        div = str(row.get('Div') or '').strip()
+        if not home or not away or not div:
+            continue
+        meta = radar.ALL_LEAGUES.get(div)
+        if not meta:
+            continue
+        events.append({
+            'event_id': f'fd-{date_iso}-{div}-{idx}',
+            'api_league_id': None,
+            'api_season': None,
+            'country': meta['country'],
+            'league': meta['name'],
+            'canonical_league': meta['name'],
+            'home_team': home,
+            'away_team': away,
+            'time': str(row.get('Time') or '').strip(),
+            'start_timestamp': 0,
+            'popularity': 0,
+            'markets': [],
+            'odds_available': False,
+            'calendar_source': 'Football-Data',
+            'retail_extra': False,
+        })
+
+    return events, len(today)
+
+
+def merge_calendar_sources(api_events, fd_events):
+    merged = list(api_events)
+    added = 0
+    for event in fd_events:
+        if any(same_fixture(event, existing) for existing in merged):
+            continue
+        merged.append(event)
+        added += 1
+    return merged, added
+
+
 def supplemental_retail_history(events, now):
     """Recupera solo risultati, non quote, per le leghe retail extra di oggi.
 
@@ -91,7 +165,6 @@ def supplemental_retail_history(events, now):
             groups.setdefault((canonical, int(lid), int(season)), 0)
             groups[(canonical, int(lid), int(season))] += 1
 
-    # Prima le leghe con piu partite oggi: massimizziamo utilita per richiesta API.
     ordered = sorted(groups.items(), key=lambda kv: (-kv[1], kv[0][0]))
     rows = []
     requests_used = 0
@@ -101,9 +174,6 @@ def supplemental_retail_history(events, now):
     for (canonical, lid, season), fixtures_today in ordered:
         league_rows = []
         seasons_tried = []
-        # Il piano API gratuito puo mostrare il calendario corrente ma negare lo
-        # storico della stagione corrente. Dopo current/current-1 proviamo quindi
-        # stagioni archiviate comunemente accessibili, senza cambiare alcuna logica.
         season_candidates = []
         for s in (season, season - 1, 2024, 2023, 2022):
             if s > 0 and s not in season_candidates:
@@ -146,8 +216,6 @@ def supplemental_retail_history(events, now):
                     'FTAG': int(ag),
                 })
 
-            # Bastano 120 gare per avere forma recente robusta; non consumiamo
-            # altre chiamate una volta raggiunto il campione necessario.
             if len(league_rows) >= 120:
                 break
 
@@ -251,6 +319,7 @@ def build_candidates(events, models, hist, teams, rules):
                     'system_bets': bets,
                     'score': round(score,5),
                     'retail_extra': bool(e.get('retail_extra')),
+                    'calendar_source': e.get('calendar_source', 'API-Football'),
                     'needs_bookmaker_check': True,
                     'source': 'Quota minima calcolata dal modello SpiderWeb + sistema walk-forward',
                 })
@@ -267,7 +336,12 @@ def main():
 
     fixtures_data, headers = radar.api_get('/fixtures', {'date': date_iso, 'timezone': 'Europe/Rome'})
     raw = [x for x in (fixtures_data.get('response') or []) if radar.senior_fixture(x)]
-    events = [radar.fixture_to_event(x) for x in raw]
+    api_events = [radar.fixture_to_event(x) for x in raw]
+    for event in api_events:
+        event['calendar_source'] = 'API-Football'
+
+    fd_events, fd_rows_today = football_data_calendar(date_iso)
+    events, fd_added = merge_calendar_sources(api_events, fd_events)
     retail_mapped = map_retail_extras(events)
 
     supplemental, history_requests, retail_history = supplemental_retail_history(events, now)
@@ -295,9 +369,12 @@ def main():
     payload = {
         'generated_at': now.isoformat(timespec='seconds'),
         'date': date_iso,
-        'source': 'API-Football calendario mondiale + probabilita SpiderWeb; quota minima da verificare sul bookmaker',
+        'source': 'API-Football + Football-Data calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker',
         'mode': 'min_acceptable_odds',
         'fixtures_count': len(events),
+        'api_football_fixtures_count': len(api_events),
+        'football_data_rows_today': fd_rows_today,
+        'football_data_calendar_added': fd_added,
         'eligible_history_count': len(eligible),
         'retail_extra_mapped_count': retail_mapped,
         'retail_history_requests_used': history_requests,
@@ -312,17 +389,20 @@ def main():
         'double': double,
         'triple': triple,
         'shortlist': rows[:40],
-        'note': ('Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima '
+        'note': ('Il calendario viene ora unito da API-Football e Football-Data, eliminando i duplicati. '
+                 'Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima '
                  'accettabile per rispettare l edge del sistema walk-forward. La giocata diventa valida solo se '
-                 'il bookmaker offre una quota uguale o superiore a quella indicata. Le leghe extra sono limitate '
-                 'a competizioni normalmente presenti sui bookmaker retail; coppe minori e campionati troppo profondi '
-                 'restano esclusi.'),
+                 'il bookmaker offre una quota uguale o superiore a quella indicata. Modello, soglie, edge, ROI '
+                 'e regole walk-forward restano invariati.'),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps({
         'date': date_iso,
-        'fixtures_globali': len(events),
+        'api_football_fixtures': len(api_events),
+        'football_data_righe_oggi': fd_rows_today,
+        'football_data_aggiunte': fd_added,
+        'fixtures_globali_unici': len(events),
         'con_storico_o_retail': len(eligible),
         'retail_extra_mappate': retail_mapped,
         'richieste_storico_retail': history_requests,

@@ -17,6 +17,7 @@ import update_today_apifootball_safe as safe
 radar = safe.radar
 ROME = ZoneInfo('Europe/Rome')
 OUT = Path('data/output/today.json')
+SOFASCORE_SCHEDULE = 'https://www.sofascore.com/api/v1/sport/football/scheduled-events/{date}'
 
 # Leghe aggiuntive abbastanza comuni sui bookmaker italiani. Evitiamo volutamente
 # campionati regionali/amatoriali, giovanili, femminili e coppe minori: aumentare
@@ -80,11 +81,6 @@ def same_fixture(a, b):
 
 
 def football_data_calendar(date_iso):
-    """Aggiunge al calendario le partite di Football-Data non gia presenti.
-
-    Questa fonte amplia soltanto il bacino delle partite. Modello, soglie, edge,
-    ROI e regole walk-forward non vengono modificati.
-    """
     try:
         response = requests.get(
             radar.FOOTBALL_DATA_FIXTURES,
@@ -135,10 +131,83 @@ def football_data_calendar(date_iso):
     return events, len(today)
 
 
-def merge_calendar_sources(api_events, fd_events):
-    merged = list(api_events)
+def sofascore_calendar(date_iso, now):
+    """Calendario mondiale aggiuntivo. Viene usato solo come fonte fixture.
+
+    Nessuna probabilita, quota o statistica Sofascore entra nel modello: per un
+    candidato continuano a servire storico compatibile e regole SpiderWeb.
+    """
+    try:
+        response = requests.get(
+            SOFASCORE_SCHEDULE.format(date=date_iso),
+            timeout=radar.TIMEOUT,
+            headers={
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36',
+                'Accept': 'application/json,text/plain,*/*',
+                'Referer': 'https://www.sofascore.com/',
+            },
+        )
+        response.raise_for_status()
+        data = response.json()
+    except Exception as exc:
+        print(f'WARN calendario Sofascore non disponibile: {exc}')
+        return [], 0
+
+    raw_events = data.get('events') or []
+    events = []
+    cutoff = int(now.timestamp())
+    blocked = ('women', 'femmin', ' u17', ' u18', ' u19', ' u20', ' u21', ' u23', 'youth', 'reserve')
+
+    for item in raw_events:
+        home = str((item.get('homeTeam') or {}).get('name') or '').strip()
+        away = str((item.get('awayTeam') or {}).get('name') or '').strip()
+        tournament = item.get('tournament') or {}
+        unique = tournament.get('uniqueTournament') or {}
+        category = tournament.get('category') or unique.get('category') or {}
+        country = str(category.get('name') or '').strip()
+        league = str(unique.get('name') or tournament.get('name') or '').strip()
+        ts = int(item.get('startTimestamp') or 0)
+        status_type = str((item.get('status') or {}).get('type') or '').lower()
+
+        if not home or not away or not league:
+            continue
+        text = f'{league} {home} {away}'.lower()
+        if any(word in text for word in blocked):
+            continue
+        if status_type in ('finished', 'inprogress', 'canceled', 'cancelled', 'postponed', 'afterextra', 'afterpenalties'):
+            continue
+        if ts and ts < cutoff:
+            continue
+
+        canonical = radar.canonical_league(country, league) if country else None
+        if not canonical:
+            canonical = retail_canonical(country, league)
+        dt = datetime.fromtimestamp(ts, ROME) if ts else None
+        events.append({
+            'event_id': f"sofa-{item.get('id')}",
+            'api_league_id': None,
+            'api_season': None,
+            'country': country,
+            'league': league,
+            'canonical_league': canonical,
+            'home_team': home,
+            'away_team': away,
+            'time': dt.strftime('%H:%M') if dt else '',
+            'start_timestamp': ts,
+            'popularity': 0,
+            'markets': [],
+            'odds_available': False,
+            'calendar_source': 'Sofascore',
+            'retail_extra': bool(canonical in RETAIL_EXTRA.values()),
+        })
+
+    return events, len(raw_events)
+
+
+def merge_calendar_sources(base_events, extra_events):
+    merged = list(base_events)
     added = 0
-    for event in fd_events:
+    for event in extra_events:
         if any(same_fixture(event, existing) for existing in merged):
             continue
         merged.append(event)
@@ -147,13 +216,6 @@ def merge_calendar_sources(api_events, fd_events):
 
 
 def supplemental_retail_history(events, now):
-    """Recupera solo risultati, non quote, per le leghe retail extra di oggi.
-
-    Il modello NON viene riaddestrato con questi dati: servono esclusivamente per
-    costruire forma 5/10 partite delle squadre. Le decisioni continuano quindi a
-    usare il modello e i filtri walk-forward gia validati; per queste leghe puo
-    passare soltanto una regola globale TUTTI.
-    """
     groups = {}
     for e in events:
         if not e.get('retail_extra'):
@@ -342,6 +404,10 @@ def main():
 
     fd_events, fd_rows_today = football_data_calendar(date_iso)
     events, fd_added = merge_calendar_sources(api_events, fd_events)
+
+    sofa_events, sofa_rows_today = sofascore_calendar(date_iso, now)
+    events, sofa_added = merge_calendar_sources(events, sofa_events)
+
     retail_mapped = map_retail_extras(events)
 
     supplemental, history_requests, retail_history = supplemental_retail_history(events, now)
@@ -351,7 +417,6 @@ def main():
     hist, teams = base.latest_histories(history_for_form)
 
     eligible = [e for e in events if e.get('canonical_league')]
-
     unmapped = [e for e in events if not e.get('canonical_league')]
     unmapped_counter = Counter((e.get('country') or 'Sconosciuto', e.get('league') or 'Sconosciuto') for e in unmapped)
     unmapped_leagues = [
@@ -369,12 +434,14 @@ def main():
     payload = {
         'generated_at': now.isoformat(timespec='seconds'),
         'date': date_iso,
-        'source': 'API-Football + Football-Data calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker',
+        'source': 'API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker',
         'mode': 'min_acceptable_odds',
         'fixtures_count': len(events),
         'api_football_fixtures_count': len(api_events),
         'football_data_rows_today': fd_rows_today,
         'football_data_calendar_added': fd_added,
+        'sofascore_rows_today': sofa_rows_today,
+        'sofascore_calendar_added': sofa_added,
         'eligible_history_count': len(eligible),
         'retail_extra_mapped_count': retail_mapped,
         'retail_history_requests_used': history_requests,
@@ -389,11 +456,10 @@ def main():
         'double': double,
         'triple': triple,
         'shortlist': rows[:40],
-        'note': ('Il calendario viene ora unito da API-Football e Football-Data, eliminando i duplicati. '
-                 'Le quote live non sono necessarie per generare la shortlist. SpiderWeb calcola la quota minima '
-                 'accettabile per rispettare l edge del sistema walk-forward. La giocata diventa valida solo se '
-                 'il bookmaker offre una quota uguale o superiore a quella indicata. Modello, soglie, edge, ROI '
-                 'e regole walk-forward restano invariati.'),
+        'note': ('Il calendario viene unito da API-Football, Football-Data e Sofascore, eliminando i duplicati. '
+                 'Sofascore viene usato solo come calendario: non modifica probabilita, modello, soglie, edge, ROI '
+                 'o regole walk-forward. La giocata e valida solo se il bookmaker offre una quota uguale o superiore '
+                 'alla quota minima indicata.'),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
@@ -402,6 +468,8 @@ def main():
         'api_football_fixtures': len(api_events),
         'football_data_righe_oggi': fd_rows_today,
         'football_data_aggiunte': fd_added,
+        'sofascore_righe_oggi': sofa_rows_today,
+        'sofascore_aggiunte': sofa_added,
         'fixtures_globali_unici': len(events),
         'con_storico_o_retail': len(eligible),
         'retail_extra_mappate': retail_mapped,

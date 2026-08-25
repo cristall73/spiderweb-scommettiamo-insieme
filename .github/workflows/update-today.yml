@@ -5,7 +5,9 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: "17 6,9,12,15,18,21 * * *"
+    # Un solo aggiornamento automatico al giorno, tarda mattinata italiana.
+    # GitHub Actions usa UTC: 09:17 UTC = 11:17 in Italia con ora legale.
+    - cron: "17 9 * * *"
 
 permissions:
   contents: write

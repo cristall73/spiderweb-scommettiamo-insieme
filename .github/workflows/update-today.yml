@@ -2,8 +2,6 @@ name: Aggiorna Partite Oggi
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
   schedule:
     # Un solo aggiornamento automatico al giorno, tarda mattinata italiana.
     # GitHub Actions usa UTC: 09:17 UTC = 11:17 in Italia con ora legale.
@@ -100,7 +98,7 @@ jobs:
       - name: Salva dati aggiornati
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "418982418982+github-actions[bot]@users.noreply.github.com"
+          git config user.email "418982+github-actions[bot]@users.noreply.github.com"
           git add -f data/output/today.json
           if git diff --cached --quiet; then
             echo "Nessuna modifica"

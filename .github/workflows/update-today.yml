@@ -59,7 +59,7 @@ jobs:
           echo "Sofascore: massimo una sola richiesta calendario per run, senza retry o bypass."
 
       - name: Calcola candidati e quota minima
-        run: python src/update_today_multisource.py
+        run: python src/run_today_safe_sources.py
 
       - name: Verifica output radar
         run: |

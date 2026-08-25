@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T16:42:10+02:00",
+  "generated_at": "2026-08-25T16:47:20+02:00",
   "date": "2026-08-25",
   "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
@@ -11,15 +11,13 @@
   "sofascore_calendar_added": 3,
   "eligible_history_count": 11,
   "retail_extra_mapped_count": 9,
-  "retail_history_requests_used": 15,
+  "retail_history_requests_used": 5,
   "retail_history_coverage": [
     {
       "league": "Saudi Arabia Pro League",
       "fixtures_today": 4,
       "history_matches": 306,
       "seasons_tried": [
-        2026,
-        2025,
         2024
       ]
     },
@@ -28,8 +26,6 @@
       "fixtures_today": 2,
       "history_matches": 244,
       "seasons_tried": [
-        2026,
-        2025,
         2024
       ]
     },
@@ -38,8 +34,6 @@
       "fixtures_today": 1,
       "history_matches": 310,
       "seasons_tried": [
-        2026,
-        2025,
         2024
       ]
     },
@@ -48,8 +42,6 @@
       "fixtures_today": 1,
       "history_matches": 132,
       "seasons_tried": [
-        2026,
-        2025,
         2024
       ]
     },
@@ -58,8 +50,6 @@
       "fixtures_today": 1,
       "history_matches": 185,
       "seasons_tried": [
-        2026,
-        2025,
         2024
       ]
     }
@@ -230,7 +220,7 @@
   "fixtures_with_odds": 0,
   "candidate_count": 0,
   "active_rules": 212,
-  "api_requests_remaining": "99",
+  "api_requests_remaining": "93",
   "single": null,
   "double": null,
   "triple": null,

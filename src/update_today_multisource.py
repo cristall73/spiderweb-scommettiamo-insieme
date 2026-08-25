@@ -7,10 +7,11 @@ import requests
 import update_today_min_odds as radar_job
 
 ROME = radar_job.ROME
+ORIGINAL_SOFASCORE_CALENDAR = radar_job.sofascore_calendar
 
 
 def thesportsdb_calendar(date_iso, now):
-    """Usa TheSportsDB esclusivamente come calendario mondiale di fallback."""
+    """Usa TheSportsDB come seconda fonte calendario, senza toccare il modello."""
     try:
         response = requests.get(
             'https://www.thesportsdb.com/api/v1/json/123/eventsday.php',
@@ -79,8 +80,21 @@ def thesportsdb_calendar(date_iso, now):
     return events, len(raw_events)
 
 
-# Sostituisce soltanto la fonte calendario aggiuntiva; modello e filtri restano invariati.
-radar_job.sofascore_calendar = thesportsdb_calendar
+def combined_calendar(date_iso, now):
+    """Somma Sofascore + TheSportsDB e rimuove i duplicati.
+
+    Queste fonti servono solo per trovare le partite di oggi. Probabilita,
+    filtri, soglie, edge, ROI e regole walk-forward restano quelli SpiderWeb.
+    """
+    sofa_events, sofa_raw = ORIGINAL_SOFASCORE_CALENDAR(date_iso, now)
+    tsdb_events, tsdb_raw = thesportsdb_calendar(date_iso, now)
+    merged, added = radar_job.merge_calendar_sources(sofa_events, tsdb_events)
+    print(f'Calendari fallback: Sofascore utili={len(sofa_events)}; TheSportsDB utili={len(tsdb_events)}; TheSportsDB aggiunte={added}')
+    return merged, int(sofa_raw or 0) + int(tsdb_raw or 0)
+
+
+# Cambia solo il calendario aggiuntivo: il ragionamento delle scommesse non viene modificato.
+radar_job.sofascore_calendar = combined_calendar
 
 if __name__ == '__main__':
     radar_job.main()

@@ -23,7 +23,8 @@ jobs:
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       FOOTBALL_DATA_ORG_TOKEN: ${{ secrets.FOOTBALL_DATA_ORG_TOKEN }}
-      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v9-safe-multicalendar"
+      FOOTBALLDATA_IO_KEY: ${{ secrets.FOOTBALLDATA_IO_KEY }}
+      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v10-footballdataio-safe"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -52,9 +53,14 @@ jobs:
             echo "API-Football configurata; se sospesa il radar prosegue con i fallback."
           fi
           if [ -z "$FOOTBALL_DATA_ORG_TOKEN" ]; then
-            echo "::notice::football-data.org non ancora configurato: il radar continua con le altre fonti."
+            echo "::notice::football-data.org non configurato."
           else
             echo "football-data.org configurato."
+          fi
+          if [ -z "$FOOTBALLDATA_IO_KEY" ]; then
+            echo "::notice::Footballdata.io non configurato."
+          else
+            echo "Footballdata.io configurato: massimo una richiesta /fixtures/today per run."
           fi
           echo "Sofascore: massimo una sola richiesta calendario per run, senza retry o bypass."
 
@@ -94,7 +100,7 @@ jobs:
       - name: Salva dati aggiornati
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "418982418982+github-actions[bot]@users.noreply.github.com"
           git add -f data/output/today.json
           if git diff --cached --quiet; then
             echo "Nessuna modifica"

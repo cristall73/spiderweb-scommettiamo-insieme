@@ -20,7 +20,7 @@ jobs:
     timeout-minutes: 30
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v7-thesportsdb"
+      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v8-multicalendar"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -60,23 +60,29 @@ jobs:
           test -s data/output/today.json
           python - <<'PY'
           import json
+          from datetime import datetime
           from pathlib import Path
+          from zoneinfo import ZoneInfo
+
           d=json.loads(Path('data/output/today.json').read_text(encoding='utf-8'))
+          today=datetime.now(ZoneInfo('Europe/Rome')).date().isoformat()
           print('Data:', d.get('date'))
           print('Fonte:', d.get('source'))
           print('Partite mondiali scansionate:', d.get('fixtures_count'))
           print('API-Football:', d.get('api_football_fixtures_count'))
           print('Football-Data righe:', d.get('football_data_rows_today'))
-          print('Calendario fallback righe:', d.get('sofascore_rows_today'))
-          print('Calendario fallback aggiunte:', d.get('sofascore_calendar_added'))
+          print('Calendari fallback righe:', d.get('sofascore_rows_today'))
+          print('Calendari fallback aggiunte:', d.get('sofascore_calendar_added'))
           print('Con storico compatibile:', d.get('eligible_history_count'))
           print('Candidati con quota minima:', d.get('candidate_count'))
           s=d.get('single') or {}
           if s:
               print('Migliore:', s.get('home_team'), '-', s.get('away_team'), s.get('selection'), 'quota minima', s.get('min_acceptable_odds'))
           print('Richieste API rimaste:', d.get('api_requests_remaining'))
+          if d.get('date') != today:
+              raise SystemExit(f'Output non aggiornato: atteso {today}, trovato {d.get("date")}')
           if int(d.get('fixtures_count') or 0) <= 3:
-              raise SystemExit('Radar mondiale ha restituito 3 o meno partite')
+              print('::warning::Copertura calendario molto bassa: salvo comunque il file di oggi per non mostrare sul sito le giocate di ieri.')
           PY
 
       - name: Salva dati aggiornati

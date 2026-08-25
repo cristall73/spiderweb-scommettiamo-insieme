@@ -1,24 +1,29 @@
 {
-  "generated_at": "2026-08-25T16:25:13+02:00",
+  "generated_at": "2026-08-25T16:35:44+02:00",
   "date": "2026-08-25",
   "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 19,
+  "fixtures_count": 22,
   "api_football_fixtures_count": 0,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
-  "sofascore_rows_today": 23,
-  "sofascore_calendar_added": 19,
+  "sofascore_rows_today": 27,
+  "sofascore_calendar_added": 22,
   "eligible_history_count": 1,
   "retail_extra_mapped_count": 0,
   "retail_history_requests_used": 0,
   "retail_history_coverage": [],
-  "unmapped_history_count": 18,
+  "unmapped_history_count": 21,
   "unmapped_leagues": [
     {
       "country": "England",
       "league": "English Carabao Cup",
       "fixtures": 17
+    },
+    {
+      "country": "Europe",
+      "league": "UEFA Champions League",
+      "fixtures": 3
     },
     {
       "country": "Argentina",

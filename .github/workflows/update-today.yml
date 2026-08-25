@@ -22,7 +22,7 @@ jobs:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       FOOTBALL_DATA_ORG_TOKEN: ${{ secrets.FOOTBALL_DATA_ORG_TOKEN }}
       FOOTBALLDATA_IO_KEY: ${{ secrets.FOOTBALLDATA_IO_KEY }}
-      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v10-footballdataio-safe"
+      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v11-local-history-map"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -61,9 +61,10 @@ jobs:
             echo "Footballdata.io configurato: massimo una richiesta /fixtures/today per run."
           fi
           echo "Sofascore: massimo una sola richiesta calendario per run, senza retry o bypass."
+          echo "Mapping storico locale: nessuna richiesta API aggiuntiva; solo match univoci con entrambe le squadre nello stesso storico."
 
       - name: Calcola candidati e quota minima
-        run: python src/run_today_safe_sources.py
+        run: python src/run_today_local_mapping.py
 
       - name: Verifica output radar
         run: |

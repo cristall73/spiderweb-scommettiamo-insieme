@@ -20,7 +20,8 @@ jobs:
     timeout-minutes: 30
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v8-multicalendar"
+      FOOTBALL_DATA_ORG_TOKEN: ${{ secrets.FOOTBALL_DATA_ORG_TOKEN }}
+      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v9-safe-multicalendar"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,17 +41,20 @@ jobs:
           echo "Radar: $SPIDERWEB_RADAR_VERSION"
           ls -lh data/output/live_training.csv data/output/backtest_multisource_stable.csv || true
 
-      - name: Stato configurazione API-Football
-        id: api_key
+      - name: Stato configurazione fonti
         shell: bash
         run: |
           if [ -z "$API_FOOTBALL_KEY" ]; then
-            echo "configured=false" >> "$GITHUB_OUTPUT"
             echo "::warning::API_FOOTBALL_KEY non configurata."
           else
-            echo "configured=true" >> "$GITHUB_OUTPUT"
             echo "API-Football configurata; se sospesa il radar prosegue con i fallback."
           fi
+          if [ -z "$FOOTBALL_DATA_ORG_TOKEN" ]; then
+            echo "::notice::football-data.org non ancora configurato: il radar continua con le altre fonti."
+          else
+            echo "football-data.org configurato."
+          fi
+          echo "Sofascore: massimo una sola richiesta calendario per run, senza retry o bypass."
 
       - name: Calcola candidati e quota minima
         run: python src/update_today_multisource.py

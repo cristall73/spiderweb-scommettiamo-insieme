@@ -1,29 +1,225 @@
 {
-  "generated_at": "2026-08-25T16:35:44+02:00",
+  "generated_at": "2026-08-25T16:42:10+02:00",
   "date": "2026-08-25",
   "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 22,
-  "api_football_fixtures_count": 0,
+  "fixtures_count": 130,
+  "api_football_fixtures_count": 127,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
   "sofascore_rows_today": 27,
-  "sofascore_calendar_added": 22,
-  "eligible_history_count": 1,
-  "retail_extra_mapped_count": 0,
-  "retail_history_requests_used": 0,
-  "retail_history_coverage": [],
-  "unmapped_history_count": 21,
+  "sofascore_calendar_added": 3,
+  "eligible_history_count": 11,
+  "retail_extra_mapped_count": 9,
+  "retail_history_requests_used": 15,
+  "retail_history_coverage": [
+    {
+      "league": "Saudi Arabia Pro League",
+      "fixtures_today": 4,
+      "history_matches": 306,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "league": "Sweden Superettan",
+      "fixtures_today": 2,
+      "history_matches": 244,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "league": "Colombia Primera B",
+      "fixtures_today": 1,
+      "history_matches": 310,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "league": "Paraguay Division Profesional",
+      "fixtures_today": 1,
+      "history_matches": 132,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    },
+    {
+      "league": "Uzbekistan Super League",
+      "fixtures_today": 1,
+      "history_matches": 185,
+      "seasons_tried": [
+        2026,
+        2025,
+        2024
+      ]
+    }
+  ],
+  "unmapped_history_count": 119,
   "unmapped_leagues": [
     {
       "country": "England",
-      "league": "English Carabao Cup",
+      "league": "League Cup",
       "fixtures": 17
     },
     {
-      "country": "Europe",
+      "country": "Denmark",
+      "league": "DBU Pokalen",
+      "fixtures": 15
+    },
+    {
+      "country": "Scotland",
+      "league": "Challenge Cup",
+      "fixtures": 14
+    },
+    {
+      "country": "England",
+      "league": "Non League Premier - Northern",
+      "fixtures": 10
+    },
+    {
+      "country": "Argentina",
+      "league": "Primera B Metropolitana",
+      "fixtures": 7
+    },
+    {
+      "country": "Czech-Republic",
+      "league": "Cup",
+      "fixtures": 6
+    },
+    {
+      "country": "Iraq",
+      "league": "Iraqi League",
+      "fixtures": 5
+    },
+    {
+      "country": "Estonia",
+      "league": "Cup",
+      "fixtures": 4
+    },
+    {
+      "country": "Germany",
+      "league": "Regionalliga - Nordost",
+      "fixtures": 4
+    },
+    {
+      "country": "South-Africa",
+      "league": "Premier Soccer League",
+      "fixtures": 4
+    },
+    {
+      "country": "World",
+      "league": "Friendlies Clubs",
+      "fixtures": 3
+    },
+    {
+      "country": "World",
       "league": "UEFA Champions League",
       "fixtures": 3
+    },
+    {
+      "country": "Bulgaria",
+      "league": "Second League",
+      "fixtures": 2
+    },
+    {
+      "country": "Tanzania",
+      "league": "Ligi kuu Bara",
+      "fixtures": 2
+    },
+    {
+      "country": "Kuwait",
+      "league": "Premier League",
+      "fixtures": 2
+    },
+    {
+      "country": "Sweden",
+      "league": "Svenska Cupen",
+      "fixtures": 2
+    },
+    {
+      "country": "Argentina",
+      "league": "Primera C",
+      "fixtures": 2
+    },
+    {
+      "country": "Paraguay",
+      "league": "Copa Paraguay",
+      "fixtures": 2
+    },
+    {
+      "country": "England",
+      "league": "English Carabao Cup",
+      "fixtures": 2
+    },
+    {
+      "country": "Estonia",
+      "league": "Esiliiga B",
+      "fixtures": 1
+    },
+    {
+      "country": "Sweden",
+      "league": "Division 2 - Södra Götaland",
+      "fixtures": 1
+    },
+    {
+      "country": "Latvia",
+      "league": "Virsliga",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Bayern Süd",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Regionalliga - Bayern",
+      "fixtures": 1
+    },
+    {
+      "country": "Qatar",
+      "league": "Second Division",
+      "fixtures": 1
+    },
+    {
+      "country": "Lithuania",
+      "league": "1 Lyga",
+      "fixtures": 1
+    },
+    {
+      "country": "Bolivia",
+      "league": "Primera División",
+      "fixtures": 1
+    },
+    {
+      "country": "Iceland",
+      "league": "1. Deild",
+      "fixtures": 1
+    },
+    {
+      "country": "Peru",
+      "league": "Copa De La Liga",
+      "fixtures": 1
+    },
+    {
+      "country": "Dominican-Republic",
+      "league": "Liga Mayor",
+      "fixtures": 1
+    },
+    {
+      "country": "Uruguay",
+      "league": "Copa Uruguay",
+      "fixtures": 1
     },
     {
       "country": "Argentina",
@@ -34,7 +230,7 @@
   "fixtures_with_odds": 0,
   "candidate_count": 0,
   "active_rules": 212,
-  "api_requests_remaining": null,
+  "api_requests_remaining": "99",
   "single": null,
   "double": null,
   "triple": null,

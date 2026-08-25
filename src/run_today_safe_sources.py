@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 from datetime import datetime
 
+import pandas as pd
 import requests
 
 import update_today_multisource as multi
@@ -143,9 +144,98 @@ def enhanced_combined_calendar(date_iso, now):
     return merged, int(base_raw or 0) + int(fdio_raw or 0)
 
 
+def safe_supplemental_retail_history(events, now):
+    """Storico retail con una sola stagione gratuita per lega.
+
+    API-Football Free consente lo storico 2022-2024 ma non 2025/2026.
+    Per evitare richieste sprecate usiamo direttamente il 2024: nella pratica
+    fornisce gia centinaia di match per le leghe retail aggiuntive. Una sola
+    chiamata per lega mappata, nessun tentativo 2025/2026 e nessun retry.
+    """
+    groups = {}
+    for e in events:
+        if not e.get('retail_extra'):
+            continue
+        lid = e.get('api_league_id')
+        canonical = e.get('canonical_league')
+        if lid and canonical:
+            key = (canonical, int(lid))
+            groups[key] = groups.get(key, 0) + 1
+
+    ordered = sorted(groups.items(), key=lambda kv: (-kv[1], kv[0][0]))
+    rows = []
+    requests_used = 0
+    covered = []
+    cutoff = int(now.timestamp())
+    max_calls = min(8, multi.radar_job.MAX_RETAIL_HISTORY_REQUESTS)
+
+    for (canonical, lid), fixtures_today in ordered:
+        if requests_used >= max_calls:
+            break
+
+        try:
+            data, _ = multi.radar_job.radar.api_get(
+                '/fixtures',
+                {'league': lid, 'season': 2024, 'timezone': 'Europe/Rome'},
+            )
+            requests_used += 1
+        except Exception as exc:
+            requests_used += 1
+            print(f'WARN storico retail 2024 non accessibile {canonical}: {exc}')
+            continue
+
+        league_rows = []
+        for item in data.get('response') or []:
+            fixture = item.get('fixture') or {}
+            status = (fixture.get('status') or {}).get('short', '')
+            ts = int(fixture.get('timestamp') or 0)
+            if status not in ('FT', 'AET', 'PEN') or not ts or ts >= cutoff:
+                continue
+            goals = item.get('goals') or {}
+            hg, ag = goals.get('home'), goals.get('away')
+            if hg is None or ag is None:
+                continue
+            teams = item.get('teams') or {}
+            home = (teams.get('home') or {}).get('name') or ''
+            away = (teams.get('away') or {}).get('name') or ''
+            if not home or not away:
+                continue
+            dt = datetime.fromtimestamp(ts, multi.ROME)
+            league_rows.append({
+                'Date': dt.date().isoformat(),
+                'LeagueName': canonical,
+                'HomeTeam': home,
+                'AwayTeam': away,
+                'FTHG': int(hg),
+                'FTAG': int(ag),
+            })
+
+        if league_rows:
+            df = pd.DataFrame(league_rows).drop_duplicates(
+                subset=['Date', 'LeagueName', 'HomeTeam', 'AwayTeam']
+            )
+            rows.extend(df.to_dict('records'))
+            covered.append({
+                'league': canonical,
+                'fixtures_today': fixtures_today,
+                'history_matches': len(df),
+                'seasons_tried': [2024],
+            })
+
+    print(
+        'DIAG storico retail sicuro: '
+        f'leghe_mappate={len(groups)}, '
+        f'richieste_effettive={requests_used}, '
+        f'limite_run={max_calls}, '
+        'stagioni_provate=2024_only'
+    )
+    return pd.DataFrame(rows), requests_used, covered
+
+
 multi.radar_job.football_data_calendar = disabled_legacy_football_data_calendar
 multi.football_data_org_calendar = diagnostic_football_data_org_calendar
 multi.radar_job.sofascore_calendar = enhanced_combined_calendar
+multi.radar_job.supplemental_retail_history = safe_supplemental_retail_history
 
 
 if __name__ == '__main__':

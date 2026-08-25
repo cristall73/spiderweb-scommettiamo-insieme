@@ -17,7 +17,9 @@ import update_today_apifootball_safe as safe
 radar = safe.radar
 ROME = ZoneInfo('Europe/Rome')
 OUT = Path('data/output/today.json')
-SOFASCORE_SCHEDULE = 'https://www.sofascore.com/api/v1/sport/football/scheduled-events/{date}'
+# Usa il dominio API dedicato di Sofascore: ieri forniva il calendario completo.
+# Rimane UNA sola richiesta calendario per run: nessun retry aggressivo o bypass.
+SOFASCORE_SCHEDULE = 'https://api.sofascore.com/api/v1/sport/football/scheduled-events/{date}'
 
 # Leghe aggiuntive abbastanza comuni sui bookmaker italiani. Evitiamo volutamente
 # campionati regionali/amatoriali, giovanili, femminili e coppe minori: aumentare

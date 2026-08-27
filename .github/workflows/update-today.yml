@@ -3,9 +3,10 @@ name: Aggiorna Partite Oggi
 on:
   workflow_dispatch:
   schedule:
-    # Un solo aggiornamento automatico al giorno, tarda mattinata italiana.
-    # GitHub Actions usa UTC: 09:17 UTC = 11:17 in Italia con ora legale.
-    - cron: "17 9 * * *"
+    # Due tentativi automatici al giorno per evitare che un singolo cron saltato lasci dati vecchi.
+    # GitHub Actions usa UTC. Con ora legale italiana: 09:30 UTC = 11:30, 12:30 UTC = 14:30.
+    - cron: "30 9 * * *"
+    - cron: "30 12 * * *"
 
 permissions:
   contents: write
@@ -27,22 +28,53 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verifica se oggi e gia aggiornato
+        id: freshness
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          should_run = True
+          if os.environ.get('GITHUB_EVENT_NAME') == 'schedule':
+              p = Path('data/output/today.json')
+              if p.exists():
+                  try:
+                      d = json.loads(p.read_text(encoding='utf-8'))
+                      today = datetime.now(ZoneInfo('Europe/Rome')).date().isoformat()
+                      if d.get('date') == today:
+                          should_run = False
+                          print(f'Dati gia aggiornati per {today}: il secondo tentativo non fara chiamate API.')
+                  except Exception as e:
+                      print(f'Impossibile verificare la freschezza ({e}); procedo con aggiornamento.')
+
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as f:
+              f.write(f'should_run={str(should_run).lower()}\n')
+          PY
+
       - name: Python
+        if: steps.freshness.outputs.should_run == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
 
       - name: Dipendenze
+        if: steps.freshness.outputs.should_run == 'true'
         run: pip install -r requirements.txt
 
       - name: Diagnostica input radar
+        if: steps.freshness.outputs.should_run == 'true'
         run: |
           echo "Commit: $GITHUB_SHA"
           echo "Radar: $SPIDERWEB_RADAR_VERSION"
           ls -lh data/output/live_training.csv data/output/backtest_multisource_stable.csv || true
 
       - name: Stato configurazione fonti
+        if: steps.freshness.outputs.should_run == 'true'
         shell: bash
         run: |
           if [ -z "$API_FOOTBALL_KEY" ]; then
@@ -64,9 +96,11 @@ jobs:
           echo "Mapping storico locale: nessuna richiesta API aggiuntiva; solo match univoci con entrambe le squadre nello stesso storico."
 
       - name: Calcola candidati e quota minima
+        if: steps.freshness.outputs.should_run == 'true'
         run: python src/run_today_local_mapping.py
 
       - name: Verifica output radar
+        if: steps.freshness.outputs.should_run == 'true'
         run: |
           test -s data/output/today.json
           python - <<'PY'
@@ -97,6 +131,7 @@ jobs:
           PY
 
       - name: Salva dati aggiornati
+        if: steps.freshness.outputs.should_run == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "418982+github-actions[bot]@users.noreply.github.com"

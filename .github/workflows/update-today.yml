@@ -2,6 +2,9 @@ name: Aggiorna Partite Oggi
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/update-today.yml"
   schedule:
     # Due tentativi automatici al giorno per evitare che un singolo cron saltato lasci dati vecchi.
     # Usiamo minuti non "tondi" per ridurre il rischio di congestione dello scheduler GitHub.
@@ -136,11 +139,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "418982+github-actions[bot]@users.noreply.github.com"
+          cp data/output/today.json /tmp/today.json
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/today.json data/output/today.json
           git add -f data/output/today.json
           if git diff --cached --quiet; then
             echo "Nessuna modifica"
           else
             git commit -m "Aggiorna radar quota minima"
-            git pull --rebase --autostash origin main
-            git push
+            git push origin HEAD:main
           fi

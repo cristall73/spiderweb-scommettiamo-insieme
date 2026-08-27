@@ -1,29 +1,99 @@
 {
-  "generated_at": "2026-08-27T14:43:54+02:00",
-  "date": "2026-08-27",
+  "generated_at": "2026-08-28T00:26:12+02:00",
+  "date": "2026-08-28",
   "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 101,
-  "api_football_fixtures_count": 96,
+  "fixtures_count": 399,
+  "api_football_fixtures_count": 397,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
   "sofascore_rows_today": 22,
-  "sofascore_calendar_added": 5,
-  "eligible_history_count": 6,
-  "retail_extra_mapped_count": 3,
-  "retail_history_requests_used": 0,
-  "retail_history_coverage": [],
-  "unmapped_history_count": 95,
-  "unmapped_leagues": [
+  "sofascore_calendar_added": 2,
+  "eligible_history_count": 121,
+  "retail_extra_mapped_count": 46,
+  "retail_history_requests_used": 8,
+  "retail_history_coverage": [
     {
-      "country": "World",
-      "league": "UEFA Europa Conference League",
-      "fixtures": 23
+      "league": "Iran Persian Gulf Pro League",
+      "fixtures_today": 6,
+      "history_matches": 240,
+      "seasons_tried": [
+        2024
+      ]
     },
     {
-      "country": "World",
-      "league": "UEFA Europa League",
-      "fixtures": 12
+      "league": "Netherlands Eerste Divisie",
+      "fixtures_today": 6,
+      "history_matches": 380,
+      "seasons_tried": [
+        2024
+      ]
+    },
+    {
+      "league": "Italy Serie C - Girone C",
+      "fixtures_today": 4,
+      "history_matches": 362,
+      "seasons_tried": [
+        2024
+      ]
+    },
+    {
+      "league": "Saudi Arabia Pro League",
+      "fixtures_today": 4,
+      "history_matches": 306,
+      "seasons_tried": [
+        2024
+      ]
+    },
+    {
+      "league": "Turkey 1. Lig",
+      "fixtures_today": 4,
+      "history_matches": 385,
+      "seasons_tried": [
+        2024
+      ]
+    },
+    {
+      "league": "Poland I Liga",
+      "fixtures_today": 3,
+      "history_matches": 309,
+      "seasons_tried": [
+        2024
+      ]
+    },
+    {
+      "league": "Belarus Premier League",
+      "fixtures_today": 2,
+      "history_matches": 242,
+      "seasons_tried": [
+        2024
+      ]
+    },
+    {
+      "league": "Bulgaria First League",
+      "fixtures_today": 2,
+      "history_matches": 295,
+      "seasons_tried": [
+        2024
+      ]
+    }
+  ],
+  "unmapped_history_count": 278,
+  "unmapped_leagues": [
+    {
+      "country": "Wales",
+      "league": "FAW Championship",
+      "fixtures": 14
+    },
+    {
+      "country": "Wales",
+      "league": "Premier League",
+      "fixtures": 8
+    },
+    {
+      "country": "England",
+      "league": "FA Trophy",
+      "fixtures": 8
     },
     {
       "country": "Egypt",
@@ -31,28 +101,128 @@
       "fixtures": 5
     },
     {
-      "country": "Europe",
-      "league": "UEFA Europa League",
+      "country": "Poland",
+      "league": "III Liga - Group 2",
       "fixtures": 5
     },
     {
-      "country": "Georgia",
-      "league": "Liga 3",
-      "fixtures": 4
+      "country": "Germany",
+      "league": "Oberliga - Bayern Süd",
+      "fixtures": 5
     },
     {
-      "country": "Sweden",
-      "league": "Svenska Cupen",
-      "fixtures": 4
+      "country": "Germany",
+      "league": "Oberliga - Hamburg",
+      "fixtures": 5
     },
     {
-      "country": "Russia",
-      "league": "Cup",
-      "fixtures": 3
+      "country": "Austria",
+      "league": "2. Liga",
+      "fixtures": 5
+    },
+    {
+      "country": "Austria",
+      "league": "Regionalliga - South",
+      "fixtures": 5
+    },
+    {
+      "country": "Ireland",
+      "league": "First Division",
+      "fixtures": 5
+    },
+    {
+      "country": "Northern-Ireland",
+      "league": "Championship",
+      "fixtures": 5
     },
     {
       "country": "Egypt",
       "league": "Premier League",
+      "fixtures": 4
+    },
+    {
+      "country": "Croatia",
+      "league": "First NL",
+      "fixtures": 4
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Bayern Nord",
+      "fixtures": 4
+    },
+    {
+      "country": "Austria",
+      "league": "Regionalliga - Ost",
+      "fixtures": 4
+    },
+    {
+      "country": "Austria",
+      "league": "Regionalliga - North",
+      "fixtures": 4
+    },
+    {
+      "country": "Switzerland",
+      "league": "Challenge League",
+      "fixtures": 4
+    },
+    {
+      "country": "San-Marino",
+      "league": "Campionato",
+      "fixtures": 4
+    },
+    {
+      "country": "World",
+      "league": "Friendlies Clubs",
+      "fixtures": 3
+    },
+    {
+      "country": "India",
+      "league": "Calcutta Premier Division",
+      "fixtures": 3
+    },
+    {
+      "country": "Kazakhstan",
+      "league": "1. Division",
+      "fixtures": 3
+    },
+    {
+      "country": "Lithuania",
+      "league": "1 Lyga",
+      "fixtures": 3
+    },
+    {
+      "country": "Tanzania",
+      "league": "Ligi kuu Bara",
+      "fixtures": 3
+    },
+    {
+      "country": "South-Africa",
+      "league": "1st Division",
+      "fixtures": 3
+    },
+    {
+      "country": "Poland",
+      "league": "III Liga - Group 3",
+      "fixtures": 3
+    },
+    {
+      "country": "Moldova",
+      "league": "Liga 1",
+      "fixtures": 3
+    },
+    {
+      "country": "Finland",
+      "league": "Kakkonen - Lohko B",
+      "fixtures": 3
+    },
+    {
+      "country": "Slovenia",
+      "league": "2. SNL",
+      "fixtures": 3
+    },
+    {
+      "country": "United-Arab-Emirates",
+      "league": "Division 1",
       "fixtures": 3
     },
     {
@@ -61,13 +231,93 @@
       "fixtures": 3
     },
     {
-      "country": "Ecuador",
-      "league": "Liga Pro Serie B",
+      "country": "Sweden",
+      "league": "Division 2 - Västra Götaland",
       "fixtures": 3
     },
     {
-      "country": "Tanzania",
-      "league": "Ligi kuu Bara",
+      "country": "France",
+      "league": "National 2 - Group B",
+      "fixtures": 3
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Niederrhein",
+      "fixtures": 3
+    },
+    {
+      "country": "Germany",
+      "league": "Regionalliga - West",
+      "fixtures": 3
+    },
+    {
+      "country": "Algeria",
+      "league": "Ligue 1",
+      "fixtures": 3
+    },
+    {
+      "country": "England",
+      "league": "Non League Premier - Northern",
+      "fixtures": 3
+    },
+    {
+      "country": "Bolivia",
+      "league": "Primera División",
+      "fixtures": 2
+    },
+    {
+      "country": "Colombia",
+      "league": "Primera A",
+      "fixtures": 2
+    },
+    {
+      "country": "Mexico",
+      "league": "Liga de Expansión MX",
+      "fixtures": 2
+    },
+    {
+      "country": "World",
+      "league": "CONCACAF Central American Cup",
+      "fixtures": 2
+    },
+    {
+      "country": "Ukraine",
+      "league": "Persha Liga",
+      "fixtures": 2
+    },
+    {
+      "country": "Myanmar",
+      "league": "National League",
+      "fixtures": 2
+    },
+    {
+      "country": "South-Korea",
+      "league": "WK-League",
+      "fixtures": 2
+    },
+    {
+      "country": "South-Korea",
+      "league": "K League 2",
+      "fixtures": 2
+    },
+    {
+      "country": "Burundi",
+      "league": "Ligue A",
+      "fixtures": 2
+    },
+    {
+      "country": "Uzbekistan",
+      "league": "Pro League A",
+      "fixtures": 2
+    },
+    {
+      "country": "Tajikistan",
+      "league": "Vysshaya Liga",
+      "fixtures": 2
+    },
+    {
+      "country": "United-Arab-Emirates",
+      "league": "Pro League",
       "fixtures": 2
     },
     {
@@ -76,164 +326,527 @@
       "fixtures": 2
     },
     {
-      "country": "Angola",
-      "league": "Girabola",
+      "country": "Czech-Republic",
+      "league": "4. liga - Divizie D",
       "fixtures": 2
-    },
-    {
-      "country": "Kuwait",
-      "league": "Premier League",
-      "fixtures": 2
-    },
-    {
-      "country": "Bahrain",
-      "league": "Premier League",
-      "fixtures": 2
-    },
-    {
-      "country": "Algeria",
-      "league": "Ligue 1",
-      "fixtures": 2
-    },
-    {
-      "country": "Uruguay",
-      "league": "Copa Uruguay",
-      "fixtures": 2
-    },
-    {
-      "country": "Paraguay",
-      "league": "Copa Paraguay",
-      "fixtures": 2
-    },
-    {
-      "country": "Brazil",
-      "league": "Capixaba B",
-      "fixtures": 1
-    },
-    {
-      "country": "Tajikistan",
-      "league": "Vysshaya Liga",
-      "fixtures": 1
-    },
-    {
-      "country": "Kazakhstan",
-      "league": "1. Division",
-      "fixtures": 1
-    },
-    {
-      "country": "Uzbekistan",
-      "league": "Pro League A",
-      "fixtures": 1
-    },
-    {
-      "country": "World",
-      "league": "Friendlies Clubs",
-      "fixtures": 1
-    },
-    {
-      "country": "Germany",
-      "league": "Oberliga - Bayern Nord",
-      "fixtures": 1
-    },
-    {
-      "country": "Sweden",
-      "league": "Division 2 - Norrland",
-      "fixtures": 1
-    },
-    {
-      "country": "Argentina",
-      "league": "Torneo Promocional Amateur",
-      "fixtures": 1
-    },
-    {
-      "country": "Germany",
-      "league": "Oberliga - Niederrhein",
-      "fixtures": 1
-    },
-    {
-      "country": "Bolivia",
-      "league": "Primera División",
-      "fixtures": 1
-    },
-    {
-      "country": "England",
-      "league": "League Cup",
-      "fixtures": 1
-    },
-    {
-      "country": "Bolivia",
-      "league": "Nacional B",
-      "fixtures": 1
-    },
-    {
-      "country": "Peru",
-      "league": "Copa De La Liga",
-      "fixtures": 1
-    },
-    {
-      "country": "Colombia",
-      "league": "Liga Femenina",
-      "fixtures": 1
     }
   ],
   "fixtures_with_odds": 0,
-  "candidate_count": 1,
+  "candidate_count": 12,
   "active_rules": 212,
-  "api_requests_remaining": "98",
+  "api_requests_remaining": "97",
   "single": {
-    "event_id": 1585177,
-    "country": "England",
-    "league": "National League",
-    "home_team": "Boreham Wood",
-    "away_team": "Boston United",
-    "time": "20:45",
-    "canonical_league": "England National League",
+    "event_id": 1552144,
+    "country": "Netherlands",
+    "league": "Eredivisie",
+    "home_team": "Groningen",
+    "away_team": "Fortuna Sittard",
+    "time": "20:00",
+    "canonical_league": "Netherlands Eredivisie",
     "market": "OVER/UNDER 2.5",
     "selection": "OVER 2.5",
     "target": "OU25",
     "selection_code": "OVER25",
-    "odds": 1.87,
-    "min_acceptable_odds": 1.87,
+    "odds": 1.8,
+    "min_acceptable_odds": 1.8,
     "fair_odds": 1.7,
     "model_probability": 0.5866,
-    "required_edge": 0.05,
-    "edge": 0.05,
-    "expected_value_at_min_odds": 0.0969,
-    "expected_value": 0.0969,
-    "system_roi": 0.1238,
-    "system_bets": 130,
-    "score": 0.24854,
+    "required_edge": 0.03,
+    "edge": 0.03,
+    "expected_value_at_min_odds": 0.0559,
+    "expected_value": 0.0559,
+    "system_roi": 0.0508,
+    "system_bets": 309,
+    "score": 0.25379,
     "retail_extra": false,
     "calendar_source": "API-Football",
     "needs_bookmaker_check": true,
     "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
   },
-  "double": null,
-  "triple": null,
+  "double": {
+    "legs": [
+      {
+        "event_id": 1552144,
+        "country": "Netherlands",
+        "league": "Eredivisie",
+        "home_team": "Groningen",
+        "away_team": "Fortuna Sittard",
+        "time": "20:00",
+        "canonical_league": "Netherlands Eredivisie",
+        "market": "OVER/UNDER 2.5",
+        "selection": "OVER 2.5",
+        "target": "OU25",
+        "selection_code": "OVER25",
+        "odds": 1.8,
+        "min_acceptable_odds": 1.8,
+        "fair_odds": 1.7,
+        "model_probability": 0.5866,
+        "required_edge": 0.03,
+        "edge": 0.03,
+        "expected_value_at_min_odds": 0.0559,
+        "expected_value": 0.0559,
+        "system_roi": 0.0508,
+        "system_bets": 309,
+        "score": 0.25379,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+      },
+      {
+        "event_id": 1576152,
+        "country": "Germany",
+        "league": "2. Bundesliga",
+        "home_team": "VfL Bochum",
+        "away_team": "VfL Osnabrück",
+        "time": "18:30",
+        "canonical_league": "Germany 2. Bundesliga",
+        "market": "OVER/UNDER 2.5",
+        "selection": "OVER 2.5",
+        "target": "OU25",
+        "selection_code": "OVER25",
+        "odds": 2.13,
+        "min_acceptable_odds": 2.13,
+        "fair_odds": 1.78,
+        "model_probability": 0.5605,
+        "required_edge": 0.09,
+        "edge": 0.09,
+        "expected_value_at_min_odds": 0.1939,
+        "expected_value": 0.1939,
+        "system_roi": 0.0703,
+        "system_bets": 258,
+        "score": 0.25327,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+      }
+    ],
+    "total_odds": 3.83,
+    "combined_probability": 0.3288
+  },
+  "triple": {
+    "legs": [
+      {
+        "event_id": 1552144,
+        "country": "Netherlands",
+        "league": "Eredivisie",
+        "home_team": "Groningen",
+        "away_team": "Fortuna Sittard",
+        "time": "20:00",
+        "canonical_league": "Netherlands Eredivisie",
+        "market": "OVER/UNDER 2.5",
+        "selection": "OVER 2.5",
+        "target": "OU25",
+        "selection_code": "OVER25",
+        "odds": 1.8,
+        "min_acceptable_odds": 1.8,
+        "fair_odds": 1.7,
+        "model_probability": 0.5866,
+        "required_edge": 0.03,
+        "edge": 0.03,
+        "expected_value_at_min_odds": 0.0559,
+        "expected_value": 0.0559,
+        "system_roi": 0.0508,
+        "system_bets": 309,
+        "score": 0.25379,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+      },
+      {
+        "event_id": 1585184,
+        "country": "England",
+        "league": "National League",
+        "home_team": "Wealdstone",
+        "away_team": "Carlisle",
+        "time": "20:45",
+        "canonical_league": "England National League",
+        "market": "OVER/UNDER 2.5",
+        "selection": "OVER 2.5",
+        "target": "OU25",
+        "selection_code": "OVER25",
+        "odds": 2.01,
+        "min_acceptable_odds": 2.01,
+        "fair_odds": 1.82,
+        "model_probability": 0.5482,
+        "required_edge": 0.05,
+        "edge": 0.05,
+        "expected_value_at_min_odds": 0.1019,
+        "expected_value": 0.1019,
+        "system_roi": 0.1238,
+        "system_bets": 130,
+        "score": 0.23893,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+      },
+      {
+        "event_id": 1585182,
+        "country": "England",
+        "league": "National League",
+        "home_team": "Southend",
+        "away_team": "Kidderminster Harriers",
+        "time": "20:45",
+        "canonical_league": "England National League",
+        "market": "OVER/UNDER 2.5",
+        "selection": "OVER 2.5",
+        "target": "OU25",
+        "selection_code": "OVER25",
+        "odds": 2.04,
+        "min_acceptable_odds": 2.04,
+        "fair_odds": 1.85,
+        "model_probability": 0.5407,
+        "required_edge": 0.05,
+        "edge": 0.05,
+        "expected_value_at_min_odds": 0.103,
+        "expected_value": 0.103,
+        "system_roi": 0.1238,
+        "system_bets": 130,
+        "score": 0.23706,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+      }
+    ],
+    "total_odds": 7.38,
+    "combined_probability": 0.1739
+  },
   "shortlist": [
     {
-      "event_id": 1585177,
+      "event_id": 1552144,
+      "country": "Netherlands",
+      "league": "Eredivisie",
+      "home_team": "Groningen",
+      "away_team": "Fortuna Sittard",
+      "time": "20:00",
+      "canonical_league": "Netherlands Eredivisie",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 1.8,
+      "min_acceptable_odds": 1.8,
+      "fair_odds": 1.7,
+      "model_probability": 0.5866,
+      "required_edge": 0.03,
+      "edge": 0.03,
+      "expected_value_at_min_odds": 0.0559,
+      "expected_value": 0.0559,
+      "system_roi": 0.0508,
+      "system_bets": 309,
+      "score": 0.25379,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1576152,
+      "country": "Germany",
+      "league": "2. Bundesliga",
+      "home_team": "VfL Bochum",
+      "away_team": "VfL Osnabrück",
+      "time": "18:30",
+      "canonical_league": "Germany 2. Bundesliga",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 2.13,
+      "min_acceptable_odds": 2.13,
+      "fair_odds": 1.78,
+      "model_probability": 0.5605,
+      "required_edge": 0.09,
+      "edge": 0.09,
+      "expected_value_at_min_odds": 0.1939,
+      "expected_value": 0.1939,
+      "system_roi": 0.0703,
+      "system_bets": 258,
+      "score": 0.25327,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1576153,
+      "country": "Germany",
+      "league": "2. Bundesliga",
+      "home_team": "Eintracht Braunschweig",
+      "away_team": "Hertha BSC",
+      "time": "18:30",
+      "canonical_league": "Germany 2. Bundesliga",
+      "market": "OVER/UNDER 2.5",
+      "selection": "UNDER 2.5",
+      "target": "OU25",
+      "selection_code": "UNDER25",
+      "odds": 2.17,
+      "min_acceptable_odds": 2.17,
+      "fair_odds": 1.81,
+      "model_probability": 0.5515,
+      "required_edge": 0.09,
+      "edge": 0.09,
+      "expected_value_at_min_odds": 0.1967,
+      "expected_value": 0.1967,
+      "system_roi": 0.0703,
+      "system_bets": 258,
+      "score": 0.25101,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1585184,
       "country": "England",
       "league": "National League",
-      "home_team": "Boreham Wood",
-      "away_team": "Boston United",
+      "home_team": "Wealdstone",
+      "away_team": "Carlisle",
       "time": "20:45",
       "canonical_league": "England National League",
       "market": "OVER/UNDER 2.5",
       "selection": "OVER 2.5",
       "target": "OU25",
       "selection_code": "OVER25",
-      "odds": 1.87,
-      "min_acceptable_odds": 1.87,
-      "fair_odds": 1.7,
-      "model_probability": 0.5866,
+      "odds": 2.01,
+      "min_acceptable_odds": 2.01,
+      "fair_odds": 1.82,
+      "model_probability": 0.5482,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.0969,
-      "expected_value": 0.0969,
+      "expected_value_at_min_odds": 0.1019,
+      "expected_value": 0.1019,
       "system_roi": 0.1238,
       "system_bets": 130,
-      "score": 0.24854,
+      "score": 0.23893,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1585182,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Southend",
+      "away_team": "Kidderminster Harriers",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 2.04,
+      "min_acceptable_odds": 2.04,
+      "fair_odds": 1.85,
+      "model_probability": 0.5407,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.103,
+      "expected_value": 0.103,
+      "system_roi": 0.1238,
+      "system_bets": 130,
+      "score": 0.23706,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1585183,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Tamworth",
+      "away_team": "Worthing",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 2.04,
+      "min_acceptable_odds": 2.04,
+      "fair_odds": 1.85,
+      "model_probability": 0.5402,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.1021,
+      "expected_value": 0.1021,
+      "system_roi": 0.1238,
+      "system_bets": 130,
+      "score": 0.23695,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1550097,
+      "country": "Italy",
+      "league": "Serie A",
+      "home_team": "AC Milan",
+      "away_team": "Venezia",
+      "time": "20:45",
+      "canonical_league": "Italy Serie A",
+      "market": "OVER/UNDER 2.5",
+      "selection": "UNDER 2.5",
+      "target": "OU25",
+      "selection_code": "UNDER25",
+      "odds": 2.17,
+      "min_acceptable_odds": 2.17,
+      "fair_odds": 1.81,
+      "model_probability": 0.5522,
+      "required_edge": 0.09,
+      "edge": 0.09,
+      "expected_value_at_min_odds": 0.1983,
+      "expected_value": 0.1983,
+      "system_roi": 0.0953,
+      "system_bets": 147,
+      "score": 0.23596,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1585179,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Hartlepool",
+      "away_team": "Eastleigh",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 2.11,
+      "min_acceptable_odds": 2.11,
+      "fair_odds": 1.9,
+      "model_probability": 0.5257,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.1091,
+      "expected_value": 0.1091,
+      "system_roi": 0.1238,
+      "system_bets": 130,
+      "score": 0.2333,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1585173,
+      "country": "England",
+      "league": "National League",
+      "home_team": "AFC Fylde",
+      "away_team": "Forest Green",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 2.11,
+      "min_acceptable_odds": 2.11,
+      "fair_odds": 1.91,
+      "model_probability": 0.5241,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.1059,
+      "expected_value": 0.1059,
+      "system_roi": 0.1238,
+      "system_bets": 130,
+      "score": 0.23292,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1585178,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Gateshead",
+      "away_team": "Sutton Utd",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 2.27,
+      "min_acceptable_odds": 2.27,
+      "fair_odds": 2.03,
+      "model_probability": 0.4914,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.1155,
+      "expected_value": 0.1155,
+      "system_roi": 0.0911,
+      "system_bets": 151,
+      "score": 0.21367,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1585175,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Altrincham",
+      "away_team": "FC Halifax Town",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 2.39,
+      "min_acceptable_odds": 2.39,
+      "fair_odds": 2.13,
+      "model_probability": 0.4701,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.1236,
+      "expected_value": 0.1236,
+      "system_roi": 0.0911,
+      "system_bets": 151,
+      "score": 0.20834,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Quota minima calcolata dal modello SpiderWeb + sistema walk-forward"
+    },
+    {
+      "event_id": 1585181,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Scunthorpe",
+      "away_team": "Solihull Moors",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "OVER/UNDER 2.5",
+      "selection": "OVER 2.5",
+      "target": "OU25",
+      "selection_code": "OVER25",
+      "odds": 2.42,
+      "min_acceptable_odds": 2.42,
+      "fair_odds": 2.16,
+      "model_probability": 0.4633,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.1212,
+      "expected_value": 0.1212,
+      "system_roi": 0.0911,
+      "system_bets": 151,
+      "score": 0.20664,
       "retail_extra": false,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,

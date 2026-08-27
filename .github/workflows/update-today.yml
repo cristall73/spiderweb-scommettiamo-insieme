@@ -4,9 +4,10 @@ on:
   workflow_dispatch:
   schedule:
     # Due tentativi automatici al giorno per evitare che un singolo cron saltato lasci dati vecchi.
-    # GitHub Actions usa UTC. Con ora legale italiana: 09:30 UTC = 11:30, 12:30 UTC = 14:30.
-    - cron: "30 9 * * *"
-    - cron: "30 12 * * *"
+    # Usiamo minuti non "tondi" per ridurre il rischio di congestione dello scheduler GitHub.
+    # GitHub Actions usa UTC. Con ora legale italiana: 09:37 UTC = 11:37, 12:22 UTC = 14:22.
+    - cron: "37 9 * * *"
+    - cron: "22 12 * * *"
 
 permissions:
   contents: write

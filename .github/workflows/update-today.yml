@@ -6,10 +6,13 @@ on:
     paths:
       - ".github/workflows/update-today.yml"
   schedule:
-    # Due tentativi automatici al giorno per evitare che un singolo cron saltato lasci dati vecchi.
-    # Usiamo minuti non "tondi" per ridurre il rischio di congestione dello scheduler GitHub.
-    # GitHub Actions usa UTC. Con ora legale italiana: 09:37 UTC = 11:37, 12:22 UTC = 14:22.
+    # Tre tentativi automatici al giorno: il primo aggiorna, i successivi fanno da sicurezza.
+    # Se today.json e gia della data odierna, i tentativi successivi NON chiamano le API.
+    # GitHub Actions usa UTC. Con ora legale italiana:
+    # 09:37 UTC = 11:37, 10:47 UTC = 12:47, 12:22 UTC = 14:22.
+    # Minuti volutamente non tondi per ridurre i ritardi/skip dello scheduler GitHub.
     - cron: "37 9 * * *"
+    - cron: "47 10 * * *"
     - cron: "22 12 * * *"
 
 permissions:
@@ -51,7 +54,7 @@ jobs:
                       today = datetime.now(ZoneInfo('Europe/Rome')).date().isoformat()
                       if d.get('date') == today:
                           should_run = False
-                          print(f'Dati gia aggiornati per {today}: il secondo tentativo non fara chiamate API.')
+                          print(f'Dati gia aggiornati per {today}: questo tentativo di sicurezza non fara chiamate API.')
                   except Exception as e:
                       print(f'Impossibile verificare la freschezza ({e}); procedo con aggiornamento.')
 

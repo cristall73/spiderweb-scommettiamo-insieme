@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/update-today.yml"
   schedule:
+    # Scheduler refresh: 2026-08-31
     # Cinque tentativi automatici al giorno, circa ogni ora dalla mattina.
     # Il primo che aggiorna correttamente salva today.json con la data odierna.
     # I tentativi automatici successivi vedono la data gia aggiornata e NON chiamano le API.

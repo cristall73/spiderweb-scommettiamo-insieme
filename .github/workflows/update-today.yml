@@ -106,6 +106,10 @@ jobs:
           echo "Sofascore: massimo una sola richiesta calendario per run, senza retry o bypass."
           echo "Mapping storico locale: nessuna richiesta API aggiuntiva; solo match univoci con entrambe le squadre nello stesso storico."
 
+      - name: Aggiorna esiti schedine del giorno precedente
+        if: steps.freshness.outputs.should_run == 'true'
+        run: python src/update_previous_results.py
+
       - name: Calcola candidati e quota minima
         if: steps.freshness.outputs.should_run == 'true'
         run: python src/run_today_local_mapping.py
@@ -147,13 +151,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "418982+github-actions[bot]@users.noreply.github.com"
           cp data/output/today.json /tmp/today.json
+          if [ -f data/output/results.json ]; then cp data/output/results.json /tmp/results.json; fi
           git fetch origin main
           git reset --hard origin/main
           cp /tmp/today.json data/output/today.json
-          git add -f data/output/today.json
+          if [ -f /tmp/results.json ]; then cp /tmp/results.json data/output/results.json; fi
+          git add -f data/output/today.json data/output/results.json
           if git diff --cached --quiet; then
             echo "Nessuna modifica"
           else
-            git commit -m "Aggiorna radar quota minima"
+            git commit -m "Aggiorna radar quota minima ed esiti precedenti"
             git push origin HEAD:main
           fi

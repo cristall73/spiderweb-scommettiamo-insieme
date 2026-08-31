@@ -1,0 +1,13 @@
+{
+  "updated_at": "2026-08-31T06:15:00+02:00",
+  "days": [
+    {
+      "date": "2026-08-30",
+      "bets": [
+        {"type":"Singola","status":"won","minimum_odds":2.01,"legs":[{"match":"Atromitos – PAOK","pick":"OVER 2.5","score":"1-2","status":"won"}]},
+        {"type":"Doppia","status":"lost","minimum_odds":2.84,"legs":[{"match":"Casa Pia – Moreirense","pick":"UNDER 2.5","score":"0-1","status":"won"},{"match":"Samsunspor – Fenerbahçe","pick":"OVER 2.5","score":"0-2","status":"lost"}]},
+        {"type":"Tripla","status":"lost","minimum_odds":5.70,"legs":[{"match":"Atromitos – PAOK","pick":"OVER 2.5","score":"1-2","status":"won"},{"match":"Casa Pia – Moreirense","pick":"UNDER 2.5","score":"0-1","status":"won"},{"match":"Samsunspor – Fenerbahçe","pick":"OVER 2.5","score":"0-2","status":"lost"}]}
+      ]
+    }
+  ]
+}

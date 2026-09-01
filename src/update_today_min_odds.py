@@ -54,6 +54,11 @@ RETAIL_EXTRA = {
 }
 MAX_RETAIL_HISTORY_REQUESTS = 20
 
+# Il radar pubblico deve privilegiare la frequenza di successo, non un ROI
+# storico molto alto ottenuto con quote difficili. Sotto questa probabilita il
+# pronostico puo avere valore matematico, ma non e adatto alle schedine del sito.
+MIN_PUBLISH_PROBABILITY = 0.55
+
 
 def ceil2(x: float) -> float:
     return math.ceil((x - 1e-12) * 100) / 100.0
@@ -340,6 +345,8 @@ def build_candidates(events, models, hist, teams, rules):
             sels = ('OVER25','UNDER25') if target == 'OU25' else ('BTTS_YES','BTTS_NO')
             for sel in sels:
                 p = float(probs[sel])
+                if p < MIN_PUBLISH_PROBABILITY:
+                    continue
                 best = None
                 for rule in rules_for(rules, target, league, sel):
                     min_edge = float(rule.get('min_edge') or 0)
@@ -355,7 +362,12 @@ def build_candidates(events, models, hist, teams, rules):
                         continue
                     roi = float(rule.get('roi') or 0)
                     bets = int(rule.get('bets') or 0)
-                    score = roi*0.50 + p*0.25 + min_edge*0.15 + min(bets,400)/400*0.10
+                    # La probabilita della partita corrente e il criterio
+                    # principale. ROI e numerosita storica restano conferme,
+                    # ma non possono piu spingere una giocata ~50% davanti a
+                    # una candidata sensibilmente piu probabile.
+                    capped_roi = min(max(roi, 0.0), 0.15)
+                    score = p*0.60 + capped_roi*0.20 + min_edge*0.10 + min(bets,400)/400*0.10
                     candidate = (score, threshold, min_edge, roi, bets, rule)
                     if best is None or candidate[0] > best[0]:
                         best = candidate
@@ -429,8 +441,11 @@ def main():
     rows = build_candidates(eligible, models, hist, teams, rules)
     rows = base.best_per_event(rows)
     single = rows[0] if rows else None
-    double = base.pick_combo(rows, 2, 1.80, 4.50) if len(rows) >= 2 else None
-    triple = base.pick_combo(rows, 3, 2.30, 7.50) if len(rows) >= 3 else None
+    used = {single['event_id']} if single else set()
+    double = base.pick_combo(rows, 2, 1.80, 4.50, used) if len(rows) >= 3 else None
+    if double:
+        used.update(x['event_id'] for x in double['legs'])
+    triple = base.pick_combo(rows, 3, 2.30, 7.50, used) if len(rows) >= 6 else None
 
     remaining = headers.get('x-ratelimit-requests-remaining') or headers.get('X-RateLimit-Requests-Remaining')
     payload = {
@@ -453,6 +468,13 @@ def main():
         'fixtures_with_odds': 0,
         'candidate_count': len(rows),
         'active_rules': len(rules),
+        'minimum_publish_probability': MIN_PUBLISH_PROBABILITY,
+        'market_coverage': {
+            'OVER_UNDER_25': any(str(r.get('target')) == 'OU25' for r in rules),
+            'GOAL_NO_GOAL': any(str(r.get('target')) == 'BTTS' for r in rules),
+            'ESITO_1X2': False,
+            'DOPPIA_CHANCE': False,
+        },
         'api_requests_remaining': remaining,
         'single': single,
         'double': double,
@@ -460,8 +482,9 @@ def main():
         'shortlist': rows[:40],
         'note': ('Il calendario viene unito da API-Football, Football-Data e Sofascore, eliminando i duplicati. '
                  'Sofascore viene usato solo come calendario: non modifica probabilita, modello, soglie, edge, ROI '
-                 'o regole walk-forward. La giocata e valida solo se il bookmaker offre una quota uguale o superiore '
-                 'alla quota minima indicata.'),
+                 'o regole walk-forward. Sono pubblicate solo candidate con probabilita modello almeno 55%; doppie '
+                 'e triple non vengono forzate e devono superare anche una probabilita combinata minima. La giocata '
+                 'e valida solo se il bookmaker offre una quota uguale o superiore alla quota minima indicata.'),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')

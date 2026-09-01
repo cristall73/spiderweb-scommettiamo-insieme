@@ -35,6 +35,21 @@ BAD_WORDS = ('women','femmin','u17','u18','u19','u20','u21','u23','youth','junio
 MIN_LIVE_SYSTEM_ROI = 0.03
 MIN_LIVE_SYSTEM_BETS = 120
 
+# Mercati calcolabili dallo storico dei risultati gia disponibile. I mercati
+# primo tempo saranno aggiunti solo dopo avere esportato e validato HTHG/HTAG.
+PROBABILITY_MARKETS = {
+    'OVER15': ('OVER 1.5', 'OVER/UNDER 1.5', 0.68),
+    'UNDER15': ('UNDER 1.5', 'OVER/UNDER 1.5', 0.55),
+    'OVER35': ('OVER 3.5', 'OVER/UNDER 3.5', 0.55),
+    'UNDER35': ('UNDER 3.5', 'OVER/UNDER 3.5', 0.68),
+    'HOME': ('1', 'ESITO FINALE 1X2', 0.55),
+    'DRAW': ('X', 'ESITO FINALE 1X2', 0.55),
+    'AWAY': ('2', 'ESITO FINALE 1X2', 0.55),
+    'DC_1X': ('1X', 'DOPPIA CHANCE', 0.68),
+    'DC_X2': ('X2', 'DOPPIA CHANCE', 0.68),
+    'DC_12': ('12', 'DOPPIA CHANCE', 0.68),
+}
+
 
 def get_json(path: str, timeout: int = 12):
     last = None
@@ -262,8 +277,16 @@ def feature_row(hist,league,home,away):
 def train_live_models(df):
     featured=add_features(df).dropna(subset=FEATURES).copy()
     models={}
-    for target in ('OU25','BTTS'):
-        y=((featured.FTHG+featured.FTAG)>2.5).astype(int) if target=='OU25' else ((featured.FTHG>0)&(featured.FTAG>0)).astype(int)
+    hg=featured.FTHG.astype(int); ag=featured.FTAG.astype(int); total=hg+ag
+    targets={
+        'OU25':total>2.5, 'BTTS':(hg>0)&(ag>0),
+        'OVER15':total>1.5, 'UNDER15':total<1.5,
+        'OVER35':total>3.5, 'UNDER35':total<3.5,
+        'HOME':hg>ag, 'DRAW':hg==ag, 'AWAY':hg<ag,
+        'DC_1X':hg>=ag, 'DC_X2':hg<=ag, 'DC_12':hg!=ag,
+    }
+    for target,yraw in targets.items():
+        y=yraw.astype(int)
         model=make_model()
         model.fit(featured[FEATURES],y)
         models[target]=model
@@ -298,11 +321,15 @@ def rule_match(rule,target,league,selection,edge,odds):
 
 
 def friendly_market(target):
-    return 'OVER/UNDER 2.5' if target=='OU25' else 'GOAL/NO GOAL'
+    if target=='OU25': return 'OVER/UNDER 2.5'
+    if target=='BTTS': return 'GOAL/NO GOAL'
+    return PROBABILITY_MARKETS.get(target,(target,target,0))[1]
 
 
 def friendly_selection(sel):
-    return {'OVER25':'OVER 2.5','UNDER25':'UNDER 2.5','BTTS_YES':'GOAL','BTTS_NO':'NO GOAL'}.get(sel,sel)
+    base={'OVER25':'OVER 2.5','UNDER25':'UNDER 2.5','BTTS_YES':'GOAL','BTTS_NO':'NO GOAL'}
+    if sel in base: return base[sel]
+    return PROBABILITY_MARKETS.get(sel,(sel,'',0))[0]
 
 
 def candidate_rows(events,models,hist,teams,rules):

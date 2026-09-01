@@ -399,6 +399,46 @@ def build_candidates(events, models, hist, teams, rules):
                     'needs_bookmaker_check': True,
                     'source': 'Quota minima calcolata dal modello SpiderWeb + sistema walk-forward',
                 })
+
+        # Mercati aggiuntivi: ogni modello e binario e viene valutato sulla
+        # stessa partita. La soglia e piu alta per doppie chance e linee gol
+        # protettive, cosi non confondiamo maggiore scelta con minore rigore.
+        for target, (label, market, min_probability) in base.PROBABILITY_MARKETS.items():
+            model = models.get(target)
+            if model is None:
+                continue
+            p = float(model.predict_proba(x)[0, 1])
+            if p < min_probability:
+                continue
+            safety_margin = 0.05
+            threshold = ceil2(1.0 / (p - safety_margin))
+            if threshold > 4.50:
+                continue
+            fair_odds = 1.0 / p
+            ev_at_threshold = p * threshold - 1
+            rows.append({
+                **{k:e.get(k) for k in ('event_id','country','league','home_team','away_team','time')},
+                'canonical_league': league,
+                'market': market,
+                'selection': label,
+                'target': target,
+                'selection_code': target,
+                'odds': round(threshold, 2),
+                'min_acceptable_odds': round(threshold, 2),
+                'fair_odds': round(fair_odds, 2),
+                'model_probability': round(p, 4),
+                'required_edge': safety_margin,
+                'edge': safety_margin,
+                'expected_value_at_min_odds': round(ev_at_threshold, 4),
+                'expected_value': round(ev_at_threshold, 4),
+                'system_roi': 0.0,
+                'system_bets': 0,
+                'score': round(p * 0.80 + safety_margin * 0.20, 5),
+                'retail_extra': bool(e.get('retail_extra')),
+                'calendar_source': e.get('calendar_source', 'API-Football'),
+                'needs_bookmaker_check': True,
+                'source': 'Probabilita SpiderWeb + margine prudenziale; quota minima da verificare',
+            })
     return rows
 
 
@@ -472,8 +512,10 @@ def main():
         'market_coverage': {
             'OVER_UNDER_25': any(str(r.get('target')) == 'OU25' for r in rules),
             'GOAL_NO_GOAL': any(str(r.get('target')) == 'BTTS' for r in rules),
-            'ESITO_1X2': False,
-            'DOPPIA_CHANCE': False,
+            'ESITO_1X2': True,
+            'DOPPIA_CHANCE': True,
+            'OVER_UNDER_15_35': True,
+            'PRIMO_TEMPO': False,
         },
         'api_requests_remaining': remaining,
         'single': single,

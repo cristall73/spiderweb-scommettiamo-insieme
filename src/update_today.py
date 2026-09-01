@@ -356,16 +356,24 @@ def best_per_event(rows):
     return sorted(best.values(),key=lambda x:(-x['score'],-x['edge'],-x['system_roi']))
 
 
-def pick_combo(rows,n,min_total,max_total):
+MIN_COMBINED_PROBABILITY = {2: 0.35, 3: 0.25}
+
+
+def pick_combo(rows,n,min_total,max_total,excluded_event_ids=None):
     top=rows[:12]
+    excluded_event_ids=set(excluded_event_ids or [])
     best=None
     for combo in itertools.combinations(top,n):
         if len({x['event_id'] for x in combo})<n:
+            continue
+        if any(x['event_id'] in excluded_event_ids for x in combo):
             continue
         q=math.prod(x['odds'] for x in combo)
         if not (min_total<=q<=max_total):
             continue
         prob=math.prod(x['model_probability'] for x in combo)
+        if prob < MIN_COMBINED_PROBABILITY.get(n, 0):
+            continue
         edge_floor=min(x['edge'] for x in combo)
         value=prob+(edge_floor*0.5)
         if best is None or value>best[0]:

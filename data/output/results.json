@@ -1,12 +1,103 @@
 {
-  "updated_at": "2026-08-31T06:15:00+02:00",
+  "updated_at": "2026-09-01T12:20:56+02:00",
   "days": [
+    {
+      "date": "2026-08-31",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "lost",
+          "minimum_odds": 2.38,
+          "legs": [
+            {
+              "match": "Levadiakos – Panathinaikos",
+              "pick": "OVER 2.5",
+              "score": "0-2",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 4.17,
+          "legs": [
+            {
+              "match": "Benfica – Estoril",
+              "pick": "OVER 2.5",
+              "score": "2-1",
+              "status": "won"
+            },
+            {
+              "match": "Atalanta – Bologna",
+              "pick": "UNDER 2.5",
+              "score": "1-0",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-08-30",
       "bets": [
-        {"type":"Singola","status":"won","minimum_odds":2.01,"legs":[{"match":"Atromitos – PAOK","pick":"OVER 2.5","score":"1-2","status":"won"}]},
-        {"type":"Doppia","status":"lost","minimum_odds":2.84,"legs":[{"match":"Casa Pia – Moreirense","pick":"UNDER 2.5","score":"0-1","status":"won"},{"match":"Samsunspor – Fenerbahçe","pick":"OVER 2.5","score":"0-2","status":"lost"}]},
-        {"type":"Tripla","status":"lost","minimum_odds":5.70,"legs":[{"match":"Atromitos – PAOK","pick":"OVER 2.5","score":"1-2","status":"won"},{"match":"Casa Pia – Moreirense","pick":"UNDER 2.5","score":"0-1","status":"won"},{"match":"Samsunspor – Fenerbahçe","pick":"OVER 2.5","score":"0-2","status":"lost"}]}
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 2.01,
+          "legs": [
+            {
+              "match": "Atromitos – PAOK",
+              "pick": "OVER 2.5",
+              "score": "1-2",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 2.84,
+          "legs": [
+            {
+              "match": "Casa Pia – Moreirense",
+              "pick": "UNDER 2.5",
+              "score": "0-1",
+              "status": "won"
+            },
+            {
+              "match": "Samsunspor – Fenerbahçe",
+              "pick": "OVER 2.5",
+              "score": "0-2",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 5.7,
+          "legs": [
+            {
+              "match": "Atromitos – PAOK",
+              "pick": "OVER 2.5",
+              "score": "1-2",
+              "status": "won"
+            },
+            {
+              "match": "Casa Pia – Moreirense",
+              "pick": "UNDER 2.5",
+              "score": "0-1",
+              "status": "won"
+            },
+            {
+              "match": "Samsunspor – Fenerbahçe",
+              "pick": "OVER 2.5",
+              "score": "0-2",
+              "status": "lost"
+            }
+          ]
+        }
       ]
     }
   ]

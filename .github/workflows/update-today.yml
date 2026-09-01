@@ -6,8 +6,8 @@ on:
     paths:
       - ".github/workflows/update-today.yml"
   schedule:
-    # Scheduler refresh: 2026-08-31
-    # Cinque tentativi automatici al giorno, circa ogni ora dalla mattina.
+    # Scheduler refresh: 2026-09-01
+    # Tentativi automatici distribuiti dalla mattina al pomeriggio.
     # Il primo che aggiorna correttamente salva today.json con la data odierna.
     # I tentativi automatici successivi vedono la data gia aggiornata e NON chiamano le API.
     # GitHub Actions usa UTC. Con ora legale italiana (UTC+2):
@@ -18,6 +18,10 @@ on:
     - cron: "23 10 * * *"
     - cron: "31 11 * * *"
     - cron: "41 12 * * *"
+    # Due ulteriori tentativi di sicurezza: se i dati odierni esistono gia,
+    # il controllo iniziale evita qualunque nuova chiamata alle API.
+    - cron: "47 13 * * *"
+    - cron: "53 14 * * *"
 
 permissions:
   contents: write

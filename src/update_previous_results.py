@@ -25,6 +25,14 @@ def _status_from_pick(selection: str, home_goals: int, away_goals: int) -> str |
         return 'won' if total > 2.5 else 'lost'
     if sel in {'UNDER2.5', 'UNDER25'}:
         return 'won' if total < 2.5 else 'lost'
+    if sel in {'OVER1.5', 'OVER15'}:
+        return 'won' if total > 1.5 else 'lost'
+    if sel in {'UNDER1.5', 'UNDER15'}:
+        return 'won' if total < 1.5 else 'lost'
+    if sel in {'OVER3.5', 'OVER35'}:
+        return 'won' if total > 3.5 else 'lost'
+    if sel in {'UNDER3.5', 'UNDER35'}:
+        return 'won' if total < 3.5 else 'lost'
     if sel in {'GOAL', 'BTTSYES', 'BTTS_YES', 'GG'}:
         return 'won' if home_goals > 0 and away_goals > 0 else 'lost'
     if sel in {'NOGOAL', 'BTTSNO', 'BTTS_NO', 'NG'}:

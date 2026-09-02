@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-01T12:20:56+02:00",
+  "updated_at": "2026-09-02T14:44:35+02:00",
   "days": [
+    {
+      "date": "2026-09-01",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.32,
+          "legs": [
+            {
+              "match": "FC Zurich – BSC Young Boys",
+              "pick": "2",
+              "score": "2-4",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 1.89,
+          "legs": [
+            {
+              "match": "Accrington ST – Grimsby",
+              "pick": "2",
+              "score": "2-2",
+              "status": "lost"
+            },
+            {
+              "match": "Boluspor – Keçiörengücü",
+              "pick": "1",
+              "score": "0-2",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.28,
+          "legs": [
+            {
+              "match": "KR Reykjavik – Vikingur Reykjavik",
+              "pick": "OVER 3.5",
+              "score": "1-1",
+              "status": "lost"
+            },
+            {
+              "match": "Shams Azar Qazvin – Tractor Sazi",
+              "pick": "2",
+              "score": "0-0",
+              "status": "lost"
+            },
+            {
+              "match": "Torino – Monza",
+              "pick": "1X",
+              "score": "0-1",
+              "status": "lost"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-08-31",
       "bets": [

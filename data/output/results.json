@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-02T14:44:35+02:00",
+  "updated_at": "2026-09-03T14:47:47+02:00",
   "days": [
+    {
+      "date": "2026-09-02",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.4,
+          "legs": [
+            {
+              "match": "Brodd – Viking",
+              "pick": "2",
+              "score": "1-3",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 2.15,
+          "legs": [
+            {
+              "match": "Hapoel Beer Sheva – Hapoel Haifa",
+              "pick": "1X",
+              "score": "2-2",
+              "status": "won"
+            },
+            {
+              "match": "Burton Albion – AFC Wimbledon",
+              "pick": "1X",
+              "score": "4-1",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "won",
+          "minimum_odds": 3.4,
+          "legs": [
+            {
+              "match": "Panserraikos – Atromitos",
+              "pick": "2",
+              "score": "0-1",
+              "status": "won"
+            },
+            {
+              "match": "Falkirk – Rangers",
+              "pick": "OVER 1.5",
+              "score": "1-2",
+              "status": "won"
+            },
+            {
+              "match": "Celtic – Aberdeen",
+              "pick": "1X",
+              "score": "3-0",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-01",
       "bets": [

@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-03T14:47:47+02:00",
+  "updated_at": "2026-09-04T14:41:50+02:00",
   "days": [
+    {
+      "date": "2026-09-03",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.41,
+          "legs": [
+            {
+              "match": "FC Basel 1893 – FC Sion",
+              "pick": "2",
+              "score": "1-2",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 2.07,
+          "legs": [
+            {
+              "match": "Iğdır FK – Manisa F.K.",
+              "pick": "1",
+              "score": "4-2",
+              "status": "won"
+            },
+            {
+              "match": "Bursaspor – İstanbulspor",
+              "pick": "OVER 3.5",
+              "score": "4-0",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "won",
+          "minimum_odds": 4.63,
+          "legs": [
+            {
+              "match": "FC Copenhagen – FC Nordsjaelland",
+              "pick": "1",
+              "score": "2-0",
+              "status": "won"
+            },
+            {
+              "match": "Al Diriyah – Al-Qadisiyah FC",
+              "pick": "2",
+              "score": "0-2",
+              "status": "won"
+            },
+            {
+              "match": "Toulouse – Lille",
+              "pick": "2",
+              "score": "0-1",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-02",
       "bets": [

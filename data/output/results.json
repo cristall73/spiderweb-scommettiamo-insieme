@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-04T14:41:50+02:00",
+  "updated_at": "2026-09-05T13:49:10+02:00",
   "days": [
+    {
+      "date": "2026-09-04",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.19,
+          "legs": [
+            {
+              "match": "Kelantan Red Warrior FC – Kuala Lumpur FA",
+              "pick": "2",
+              "score": "1-3",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 1.92,
+          "legs": [
+            {
+              "match": "Fredrikstad – Bodo/Glimt",
+              "pick": "X2",
+              "score": "1-2",
+              "status": "won"
+            },
+            {
+              "match": "Wolfsberg – Donau Klagenfurt",
+              "pick": "1X",
+              "score": "0-0",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "won",
+          "minimum_odds": 3.24,
+          "legs": [
+            {
+              "match": "Waterford – Sligo Rovers",
+              "pick": "1X",
+              "score": "3-0",
+              "status": "won"
+            },
+            {
+              "match": "FC Porto – Moreirense",
+              "pick": "1X",
+              "score": "2-1",
+              "status": "won"
+            },
+            {
+              "match": "Al-Ahli Jeddah – Al Riyadh",
+              "pick": "1",
+              "score": "5-0",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-03",
       "bets": [

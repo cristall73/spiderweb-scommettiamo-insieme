@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-05T13:49:10+02:00",
+  "updated_at": "2026-09-06T14:07:01+02:00",
   "days": [
+    {
+      "date": "2026-09-05",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "lost",
+          "minimum_odds": 1.24,
+          "legs": [
+            {
+              "match": "AB Copenhagen – Aalborg",
+              "pick": "1",
+              "score": "0-2",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 1.82,
+          "legs": [
+            {
+              "match": "Club Brugge II – AS Eupen",
+              "pick": "1X",
+              "score": "0-1",
+              "status": "lost"
+            },
+            {
+              "match": "Cheltenham – Grimsby",
+              "pick": "2",
+              "score": "2-2",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "won",
+          "minimum_odds": 2.8,
+          "legs": [
+            {
+              "match": "Hammarby W – Norrköping W",
+              "pick": "1X",
+              "score": "2-0",
+              "status": "won"
+            },
+            {
+              "match": "West Brom – Watford",
+              "pick": "1X",
+              "score": "1-0",
+              "status": "won"
+            },
+            {
+              "match": "Hapoel Katamon – Ironi Kiryat Shmona",
+              "pick": "1X",
+              "score": "4-2",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-04",
       "bets": [

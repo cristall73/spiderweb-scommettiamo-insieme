@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-06T14:07:01+02:00",
+  "updated_at": "2026-09-07T14:58:45+02:00",
   "days": [
+    {
+      "date": "2026-09-06",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.28,
+          "legs": [
+            {
+              "match": "FC Sion – FC Thun",
+              "pick": "1",
+              "score": "3-2",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 1.81,
+          "legs": [
+            {
+              "match": "Vikingur Reykjavik – Fram Reykjavik",
+              "pick": "1",
+              "score": "2-2",
+              "status": "lost"
+            },
+            {
+              "match": "Telstar – Cambuur",
+              "pick": "1X",
+              "score": "2-2",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "won",
+          "minimum_odds": 2.7,
+          "legs": [
+            {
+              "match": "Bayern Munich W – SC Freiburg W",
+              "pick": "1",
+              "score": "4-1",
+              "status": "won"
+            },
+            {
+              "match": "Odense – FC Copenhagen",
+              "pick": "2",
+              "score": "0-5",
+              "status": "won"
+            },
+            {
+              "match": "FC Basel 1893 – FC Lugano",
+              "pick": "X2",
+              "score": "1-3",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-05",
       "bets": [

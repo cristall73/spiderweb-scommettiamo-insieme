@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-07T14:58:45+02:00",
+  "updated_at": "2026-09-08T14:50:47+02:00",
   "days": [
+    {
+      "date": "2026-09-07",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "lost",
+          "minimum_odds": 1.51,
+          "legs": [
+            {
+              "match": "İstanbulspor – Iğdır FK",
+              "pick": "OVER 3.5",
+              "score": "1-2",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 2.39,
+          "legs": [
+            {
+              "match": "Pogon Szczecin – Wisla Plock",
+              "pick": "1X",
+              "score": "1-1",
+              "status": "won"
+            },
+            {
+              "match": "Hapoel Beer Sheva – Maccabi Tel Aviv",
+              "pick": "OVER 3.5",
+              "score": "1-4",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.89,
+          "legs": [
+            {
+              "match": "Hapoel Tel Aviv – Hapoel Ramat Gan",
+              "pick": "X2",
+              "score": "4-0",
+              "status": "lost"
+            },
+            {
+              "match": "FC Isloch Minsk R. – Arsenal",
+              "pick": "1X",
+              "score": "1-1",
+              "status": "won"
+            },
+            {
+              "match": "Kalmar FF – Djurgardens IF",
+              "pick": "X2",
+              "score": "0-1",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-06",
       "bets": [

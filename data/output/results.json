@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-09T14:56:35+02:00",
+  "updated_at": "2026-09-10T14:53:38+02:00",
   "days": [
+    {
+      "date": "2026-09-09",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "lost",
+          "minimum_odds": 1.42,
+          "legs": [
+            {
+              "match": "Al Kholood – Al Shabab",
+              "pick": "2",
+              "score": "2-1",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 2.16,
+          "legs": [
+            {
+              "match": "ST Johnstone – Celtic",
+              "pick": "X2",
+              "score": "0-1",
+              "status": "won"
+            },
+            {
+              "match": "Philadelphia Union – FC Cincinnati",
+              "pick": "OVER 1.5",
+              "score": "5-0",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.61,
+          "legs": [
+            {
+              "match": "Al-Fateh – Al Diriyah",
+              "pick": "1",
+              "score": "1-2",
+              "status": "lost"
+            },
+            {
+              "match": "Moreirense – Benfica",
+              "pick": "X2",
+              "score": "0-4",
+              "status": "won"
+            },
+            {
+              "match": "Rangers – ST Mirren",
+              "pick": "1",
+              "score": "1-0",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-08",
       "bets": [

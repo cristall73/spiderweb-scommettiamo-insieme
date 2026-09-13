@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-12T14:08:28+02:00",
+  "updated_at": "2026-09-13T15:17:09+02:00",
   "days": [
+    {
+      "date": "2026-09-12",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.31,
+          "legs": [
+            {
+              "match": "Airdrie United – Alloa Athletic",
+              "pick": "1",
+              "score": "1-0",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 1.81,
+          "legs": [
+            {
+              "match": "Barnet – Accrington ST",
+              "pick": "1X",
+              "score": "2-1",
+              "status": "won"
+            },
+            {
+              "match": "Boluspor – Pendikspor",
+              "pick": "1",
+              "score": "1-1",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 2.65,
+          "legs": [
+            {
+              "match": "Maidenhead – Billericay Town",
+              "pick": "1X",
+              "score": "2-2",
+              "status": "won"
+            },
+            {
+              "match": "Sorrento – AZ Picerno",
+              "pick": "X2",
+              "score": "1-0",
+              "status": "lost"
+            },
+            {
+              "match": "Cambuur – NEC Nijmegen",
+              "pick": "2",
+              "score": "3-0",
+              "status": "lost"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-11",
       "bets": [

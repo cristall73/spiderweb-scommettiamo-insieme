@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-13T15:17:09+02:00",
+  "updated_at": "2026-09-14T16:59:37+02:00",
   "days": [
+    {
+      "date": "2026-09-13",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.29,
+          "legs": [
+            {
+              "match": "PSV Eindhoven – Sparta Rotterdam",
+              "pick": "1",
+              "score": "4-1",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 1.82,
+          "legs": [
+            {
+              "match": "Haugesund W – Rosenborg W",
+              "pick": "X2",
+              "score": "0-1",
+              "status": "won"
+            },
+            {
+              "match": "Lugano II – Basel II",
+              "pick": "1X",
+              "score": "3-0",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.22,
+          "legs": [
+            {
+              "match": "KR Reykjavik – IA Akranes",
+              "pick": "1",
+              "score": "5-1",
+              "status": "won"
+            },
+            {
+              "match": "Bursaspor – Esenler Erokspor",
+              "pick": "1",
+              "score": "2-2",
+              "status": "lost"
+            },
+            {
+              "match": "Galatasaray – Kocaelispor",
+              "pick": "1X",
+              "score": "1-0",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-12",
       "bets": [

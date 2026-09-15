@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-14T16:59:37+02:00",
+  "updated_at": "2026-09-15T15:29:18+02:00",
   "days": [
+    {
+      "date": "2026-09-14",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.28,
+          "legs": [
+            {
+              "match": "Bodo/Glimt – Sandefjord",
+              "pick": "1X",
+              "score": "3-2",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 1.9,
+          "legs": [
+            {
+              "match": "Maccabi Tel Aviv – Hapoel Tel Aviv",
+              "pick": "1X",
+              "score": "4-1",
+              "status": "won"
+            },
+            {
+              "match": "Como – Parma",
+              "pick": "1X",
+              "score": "2-1",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "won",
+          "minimum_odds": 3.37,
+          "legs": [
+            {
+              "match": "Hapoel Ramat Gan – Maccabi Netanya",
+              "pick": "1X",
+              "score": "2-0",
+              "status": "won"
+            },
+            {
+              "match": "Sirius – Degerfors IF",
+              "pick": "1X",
+              "score": "2-0",
+              "status": "won"
+            },
+            {
+              "match": "Bayer Leverkusen W – Bayern Munich W",
+              "pick": "2",
+              "score": "2-3",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-13",
       "bets": [

@@ -480,12 +480,21 @@ def main():
 
     rows = build_candidates(eligible, models, hist, teams, rules)
     rows = base.best_per_event(rows)
-    single = rows[0] if rows else None
+    # Le soglie sono quote minime da verificare sul bookmaker, non quote live.
+    # Non ripetere incontri fra le schedine e non forzare giocate.
+    single = next((r for r in rows if r['min_acceptable_odds'] >= 2.00), None)
     used = {single['event_id']} if single else set()
-    double = base.pick_combo(rows, 2, 1.80, 4.50, used) if len(rows) >= 3 else None
-    if double:
-        used.update(x['event_id'] for x in double['legs'])
-    triple = base.pick_combo(rows, 3, 2.30, 7.50, used) if len(rows) >= 6 else None
+    double = None
+    first_type = 'single' if single else 'double'
+    if not single:
+        double = base.pick_combo(rows, 2, 2.00, 4.50, used)
+        if double:
+            used.update(x['event_id'] for x in double['legs'])
+    double_aggressive = base.pick_combo(rows, 2, 2.50, 7.50, used)
+    if double_aggressive:
+        used.update(x['event_id'] for x in double_aggressive['legs'])
+    triple = base.pick_combo(rows, 3, 3.00, 9.00, used)
+
 
     remaining = headers.get('x-ratelimit-requests-remaining') or headers.get('X-RateLimit-Requests-Remaining')
     payload = {
@@ -520,12 +529,14 @@ def main():
         'api_requests_remaining': remaining,
         'single': single,
         'double': double,
+        'double_aggressive': double_aggressive,
+        'first_type': first_type,
         'triple': triple,
         'shortlist': rows[:40],
         'note': ('Il calendario viene unito da API-Football, Football-Data e Sofascore, eliminando i duplicati. '
                  'Sofascore viene usato solo come calendario: non modifica probabilita, modello, soglie, edge, ROI '
                  'o regole walk-forward. Sono pubblicate solo candidate con probabilita modello almeno 55%; doppie '
-                 'e triple non vengono forzate e devono superare anche una probabilita combinata minima. La giocata '
+                 'e triple non vengono forzate e devono superare anche una probabilita combinata minima. Singola solo da quota 2,00, altrimenti prima doppia da 2,00; seconda doppia da 2,50 e tripla da 3,00, senza partite ripetute. La giocata '
                  'e valida solo se il bookmaker offre una quota uguale o superiore alla quota minima indicata.'),
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)

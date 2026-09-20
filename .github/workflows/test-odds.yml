@@ -33,36 +33,45 @@ jobs:
                       return response.status, json.load(response)
               except urllib.error.HTTPError as exc:
                   return exc.code, {}
-          # Una richiesta per trovare una partita futura; una sola richiesta quote.
+          # Massimo 1 richiesta calendario + 5 richieste quote, senza paginazione.
           date = (datetime.now(ZoneInfo("Europe/Rome")) + timedelta(days=1)).date().isoformat()
           status, fixtures = get("/fixtures?date=" + date + "&timezone=Europe%2FRome")
           print("Calendario: HTTP", status, "partite:", len(fixtures.get("response") or []))
           if status != 200 or fixtures.get("errors"):
-              print("Calendario: errore API (nessuna credenziale mostrata).")
+              print("Errore calendario:", json.dumps(fixtures.get("errors") or {}, ensure_ascii=False)[:300])
               raise SystemExit(1)
+          priority = {39, 140, 135, 78, 61, 94, 88, 2, 3, 45, 40, 136, 79, 62}
           candidates = [item for item in fixtures.get("response") or []
                         if (item.get("fixture") or {}).get("id")
                         and ((item.get("fixture") or {}).get("status") or {}).get("short") == "NS"]
-          if not candidates:
-              raise SystemExit("Nessuna partita futura disponibile per il test.")
-          fixture_id = candidates[0]["fixture"]["id"]
-          print("Partita test:", (candidates[0].get("teams") or {}).get("home", {}).get("name"),
-                "-", (candidates[0].get("teams") or {}).get("away", {}).get("name"))
-          status, odds = get("/odds?fixture=" + str(fixture_id))
-          response = odds.get("response") or []
-          bookmakers = [b for item in response for b in item.get("bookmakers") or []]
-          markets = sum(len(b.get("bets") or []) for b in bookmakers)
-          print("Quote: HTTP", status, "eventi:", len(response),
-                "bookmaker:", len(bookmakers), "mercati:", markets)
-          if odds.get("errors"):
-              print("Errori API:", json.dumps(odds["errors"], ensure_ascii=False)[:500])
-          for bookmaker in bookmakers[:2]:
-              print("Bookmaker:", bookmaker.get("name"))
-              for bet in (bookmaker.get("bets") or [])[:2]:
-                  print("Mercato:", bet.get("name"), "esempi:",
-                        [(v.get("value"), v.get("odd")) for v in (bet.get("values") or [])[:3]])
-          if status != 200:
-              raise SystemExit("Endpoint quote non accessibile: HTTP " + str(status))
-          if not bookmakers:
-              print("Nessuna quota per questa partita: non prova che il piano sia privo di quote.")
+          candidates.sort(key=lambda item: (0 if (item.get("league") or {}).get("id") in priority else 1,
+                                            (item.get("fixture") or {}).get("timestamp") or 0))
+          print("Partite future:", len(candidates), "tentativi quote massimo:", min(5, len(candidates)))
+          found = False
+          for index, item in enumerate(candidates[:5], 1):
+              fixture_id = item["fixture"]["id"]
+              teams = item.get("teams") or {}
+              print("Tentativo", index, "partita:", (teams.get("home") or {}).get("name"),
+                    "-", (teams.get("away") or {}).get("name"))
+              status, odds = get("/odds?fixture=" + str(fixture_id))
+              response = odds.get("response") or []
+              bookmakers = [b for event in response for b in event.get("bookmakers") or []]
+              markets = sum(len(b.get("bets") or []) for b in bookmakers)
+              print("Quote: HTTP", status, "eventi:", len(response),
+                    "bookmaker:", len(bookmakers), "mercati:", markets)
+              if odds.get("errors"):
+                  print("Errori API:", json.dumps(odds["errors"], ensure_ascii=False)[:300])
+              if status != 200 or odds.get("errors"):
+                  print("Test interrotto: errore endpoint quote, nessun'altra richiesta.")
+                  break
+              if bookmakers:
+                  found = True
+                  for bookmaker in bookmakers[:2]:
+                      print("Bookmaker:", bookmaker.get("name"))
+                      for bet in (bookmaker.get("bets") or [])[:2]:
+                          print("Mercato:", bet.get("name"), "esempi:",
+                                [(v.get("value"), v.get("odd")) for v in (bet.get("values") or [])[:3]])
+                  break
+          print("ESITO:", "QUOTE REALI DISPONIBILI" if found else
+                "NESSUNA QUOTA TROVATA NEI TENTATIVI; non significa che il piano non le includa.")
           PY

@@ -1,0 +1,68 @@
+name: Test quote API-Football
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-odds:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+    steps:
+      - name: Verifica disponibilita quote senza mostrare la chiave
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request, urllib.error
+          from datetime import datetime, timedelta
+          from zoneinfo import ZoneInfo
+
+          key = os.environ.get("API_FOOTBALL_KEY", "").strip()
+          if not key:
+              raise SystemExit("ERRORE: secret API_FOOTBALL_KEY assente.")
+          base = "https://v3.football.api-sports.io"
+          headers = {"x-apisports-key": key, "Accept": "application/json"}
+          def get(path):
+              request = urllib.request.Request(base + path, headers=headers)
+              try:
+                  with urllib.request.urlopen(request, timeout=20) as response:
+                      return response.status, json.load(response)
+              except urllib.error.HTTPError as exc:
+                  return exc.code, {}
+          # Una richiesta per trovare una partita futura; una sola richiesta quote.
+          date = (datetime.now(ZoneInfo("Europe/Rome")) + timedelta(days=1)).date().isoformat()
+          status, fixtures = get("/fixtures?date=" + date + "&timezone=Europe%2FRome")
+          print("Calendario: HTTP", status, "partite:", len(fixtures.get("response") or []))
+          if status != 200 or fixtures.get("errors"):
+              print("Calendario: errore API (nessuna credenziale mostrata).")
+              raise SystemExit(1)
+          candidates = [item for item in fixtures.get("response") or []
+                        if (item.get("fixture") or {}).get("id")
+                        and ((item.get("fixture") or {}).get("status") or {}).get("short") == "NS"]
+          if not candidates:
+              raise SystemExit("Nessuna partita futura disponibile per il test.")
+          fixture_id = candidates[0]["fixture"]["id"]
+          print("Partita test:", (candidates[0].get("teams") or {}).get("home", {}).get("name"),
+                "-", (candidates[0].get("teams") or {}).get("away", {}).get("name"))
+          status, odds = get("/odds?fixture=" + str(fixture_id))
+          response = odds.get("response") or []
+          bookmakers = [b for item in response for b in item.get("bookmakers") or []]
+          markets = sum(len(b.get("bets") or []) for b in bookmakers)
+          print("Quote: HTTP", status, "eventi:", len(response),
+                "bookmaker:", len(bookmakers), "mercati:", markets)
+          if odds.get("errors"):
+              print("Errori API:", json.dumps(odds["errors"], ensure_ascii=False)[:500])
+          for bookmaker in bookmakers[:2]:
+              print("Bookmaker:", bookmaker.get("name"))
+              for bet in (bookmaker.get("bets") or [])[:2]:
+                  print("Mercato:", bet.get("name"), "esempi:",
+                        [(v.get("value"), v.get("odd")) for v in (bet.get("values") or [])[:3]])
+          if status != 200:
+              raise SystemExit("Endpoint quote non accessibile: HTTP " + str(status))
+          if not bookmakers:
+              print("Nessuna quota per questa partita: non prova che il piano sia privo di quote.")
+          PY

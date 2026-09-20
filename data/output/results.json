@@ -1,6 +1,68 @@
 {
-  "updated_at": "2026-09-18T14:56:13+02:00",
+  "updated_at": "2026-09-20T10:21:08+02:00",
   "days": [
+    {
+      "date": "2026-09-19",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 1.32,
+          "legs": [
+            {
+              "match": "Maccabi Netanya – Maccabi Tel Aviv",
+              "pick": "2",
+              "score": "1-2",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 1.88,
+          "legs": [
+            {
+              "match": "Peterhead – Airdrie United",
+              "pick": "2",
+              "score": "1-2",
+              "status": "won"
+            },
+            {
+              "match": "BSC Young Boys – Servette FC",
+              "pick": "1",
+              "score": "3-2",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.05,
+          "legs": [
+            {
+              "match": "Hapoel Beer Sheva – Ironi Kiryat Shmona",
+              "pick": "1",
+              "score": "1-0",
+              "status": "won"
+            },
+            {
+              "match": "Gillingham – Bristol Rovers",
+              "pick": "2",
+              "score": "3-0",
+              "status": "lost"
+            },
+            {
+              "match": "Sport Recife – Juventude",
+              "pick": "2",
+              "score": "2-1",
+              "status": "lost"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-17",
       "bets": [

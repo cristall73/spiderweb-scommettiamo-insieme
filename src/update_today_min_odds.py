@@ -491,6 +491,9 @@ def main():
         if double:
             used.update(x['event_id'] for x in double['legs'])
     double_aggressive = base.pick_combo(rows, 2, 2.50, 7.50, used)
+    # Se non c'e una doppia a 2,50, proponi una seconda doppia da almeno 2,00.
+    if double_aggressive is None:
+        double_aggressive = base.pick_combo(rows, 2, 2.00, 7.50, used)
     if double_aggressive:
         used.update(x['event_id'] for x in double_aggressive['legs'])
     triple = base.pick_combo(rows, 3, 3.00, 9.00, used)

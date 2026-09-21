@@ -1,6 +1,49 @@
 {
-  "updated_at": "2026-09-20T10:21:08+02:00",
+  "updated_at": "2026-09-21T17:04:25+02:00",
   "days": [
+    {
+      "date": "2026-09-20",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "lost",
+          "minimum_odds": 2.04,
+          "legs": [
+            {
+              "match": "Parma – Genoa",
+              "pick": "UNDER 2.5",
+              "score": "2-1",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.02,
+          "legs": [
+            {
+              "match": "Lausanne – FC Lugano",
+              "pick": "2",
+              "score": "0-4",
+              "status": "won"
+            },
+            {
+              "match": "Brondby – FC Copenhagen",
+              "pick": "2",
+              "score": "0-1",
+              "status": "won"
+            },
+            {
+              "match": "Racing Santander II – Amorebieta",
+              "pick": "1",
+              "score": "0-2",
+              "status": "lost"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-19",
       "bets": [

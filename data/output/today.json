@@ -1,82 +1,67 @@
 {
-  "generated_at": "2026-09-23T15:36:09+02:00",
-  "date": "2026-09-23",
+  "generated_at": "2026-09-24T15:31:09+02:00",
+  "date": "2026-09-24",
   "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 111,
-  "api_football_fixtures_count": 111,
+  "fixtures_count": 53,
+  "api_football_fixtures_count": 53,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
-  "sofascore_rows_today": 3,
+  "sofascore_rows_today": 4,
   "sofascore_calendar_added": 0,
-  "eligible_history_count": 31,
-  "retail_extra_mapped_count": 4,
+  "eligible_history_count": 5,
+  "retail_extra_mapped_count": 5,
   "retail_history_requests_used": 1,
   "retail_history_coverage": [
     {
-      "league": "Macedonia First League",
-      "fixtures_today": 1,
-      "history_matches": 193,
+      "league": "Israel Liga Leumit",
+      "fixtures_today": 4,
+      "history_matches": 297,
       "seasons_tried": [
         2024
       ]
     }
   ],
-  "unmapped_history_count": 80,
+  "unmapped_history_count": 48,
   "unmapped_leagues": [
     {
-      "country": "Israel",
-      "league": "Liga Alef",
-      "fixtures": 10
+      "country": "World",
+      "league": "UEFA Nations League",
+      "fixtures": 8
     },
     {
-      "country": "Nigeria",
-      "league": "NPFL",
-      "fixtures": 9
+      "country": "World",
+      "league": "Africa Cup of Nations - Qualification",
+      "fixtures": 7
     },
     {
-      "country": "Bosnia",
-      "league": "1st League - RS",
-      "fixtures": 6
-    },
-    {
-      "country": "Netherlands",
-      "league": "KNVB Beker",
-      "fixtures": 6
-    },
-    {
-      "country": "England",
-      "league": "WSL Cup",
+      "country": "Egypt",
+      "league": "Second League",
       "fixtures": 5
     },
     {
-      "country": "United-Arab-Emirates",
-      "league": "Presidents Cup",
+      "country": "Israel",
+      "league": "Liga Alef",
       "fixtures": 4
     },
     {
-      "country": "Brazil",
-      "league": "Paraense A3",
-      "fixtures": 4
-    },
-    {
-      "country": "Scotland",
-      "league": "Football League - Lowland League",
+      "country": "Ecuador",
+      "league": "Liga Pro Serie B",
       "fixtures": 3
     },
     {
-      "country": "Czech-Republic",
-      "league": "4. liga - Divizie B",
+      "country": "Macedonia",
+      "league": "Second League",
+      "fixtures": 2
+    },
+    {
+      "country": "Oman",
+      "league": "FA Cup",
       "fixtures": 2
     },
     {
       "country": "World",
       "league": "Gulf Cup of Nations",
-      "fixtures": 2
-    },
-    {
-      "country": "World",
-      "league": "Friendlies",
       "fixtures": 2
     },
     {
@@ -90,98 +75,53 @@
       "fixtures": 2
     },
     {
-      "country": "World",
-      "league": "CONCACAF Nations League",
-      "fixtures": 2
-    },
-    {
-      "country": "Dominican-Republic",
-      "league": "Liga Mayor",
-      "fixtures": 2
-    },
-    {
-      "country": "Peru",
-      "league": "Copa De La Liga",
-      "fixtures": 2
-    },
-    {
-      "country": "Bangladesh",
-      "league": "Federation Cup",
+      "country": "Slovakia",
+      "league": "3. liga - Center",
       "fixtures": 1
     },
     {
-      "country": "Bulgaria",
-      "league": "Third League - Southeast",
-      "fixtures": 1
-    },
-    {
-      "country": "Czech-Republic",
+      "country": "Macedonia",
       "league": "Cup",
       "fixtures": 1
     },
     {
-      "country": "Czech-Republic",
-      "league": "4. liga - Divizie C",
-      "fixtures": 1
-    },
-    {
-      "country": "Slovenia",
-      "league": "3. SNL - East",
-      "fixtures": 1
-    },
-    {
-      "country": "Ghana",
-      "league": "Premier League",
-      "fixtures": 1
-    },
-    {
-      "country": "USA",
-      "league": "USL Championship",
-      "fixtures": 1
-    },
-    {
-      "country": "Norway",
-      "league": "NM Cupen",
+      "country": "Estonia",
+      "league": "Cup",
       "fixtures": 1
     },
     {
       "country": "World",
-      "league": "Friendlies Clubs",
+      "league": "Friendlies",
       "fixtures": 1
     },
     {
-      "country": "Germany",
-      "league": "Oberliga - Rheinland-Pfalz / Saar",
+      "country": "Croatia",
+      "league": "Second NL",
       "fixtures": 1
     },
     {
-      "country": "Germany",
-      "league": "Oberliga - Bremen",
+      "country": "Nigeria",
+      "league": "NPFL",
       "fixtures": 1
     },
     {
-      "country": "Brazil",
-      "league": "Copa Rio",
+      "country": "Sweden",
+      "league": "Division 2 - Västra Götaland",
       "fixtures": 1
     },
     {
-      "country": "Spain",
-      "league": "Copa Federacion",
+      "country": "Costa-Rica",
+      "league": "Liga de Ascenso",
       "fixtures": 1
     },
     {
-      "country": "Scotland",
-      "league": "Challenge Cup",
+      "country": "World",
+      "league": "CONCACAF Nations League",
       "fixtures": 1
     },
     {
-      "country": "England",
-      "league": "FA Cup",
-      "fixtures": 1
-    },
-    {
-      "country": "Peru",
-      "league": "Primera División",
+      "country": "Morocco",
+      "league": "Botola Pro",
       "fixtures": 1
     },
     {
@@ -191,7 +131,7 @@
     }
   ],
   "fixtures_with_odds": 0,
-  "candidate_count": 3,
+  "candidate_count": 1,
   "active_rules": 212,
   "minimum_publish_probability": 0.55,
   "market_coverage": {
@@ -204,165 +144,40 @@
   },
   "api_requests_remaining": "98",
   "single": null,
-  "double": {
-    "legs": [
-      {
-        "event_id": 1633246,
-        "country": "Romania",
-        "league": "Liga III - Serie 4",
-        "home_team": "FC Oţelul II",
-        "away_team": "Gloria Băneasa",
-        "time": "16:00",
-        "canonical_league": "Romania Liga I",
-        "market": "ESITO FINALE 1X2",
-        "selection": "1",
-        "target": "HOME",
-        "selection_code": "HOME",
-        "odds": 1.58,
-        "min_acceptable_odds": 1.58,
-        "fair_odds": 1.46,
-        "model_probability": 0.6848,
-        "required_edge": 0.05,
-        "edge": 0.05,
-        "expected_value_at_min_odds": 0.0819,
-        "expected_value": 0.0819,
-        "system_roi": 0.0,
-        "system_bets": 0,
-        "score": 0.39587,
-        "retail_extra": false,
-        "calendar_source": "API-Football",
-        "needs_bookmaker_check": true,
-        "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
-        "market_floor": 0.55,
-        "relative_strength": 0.29956
-      },
-      {
-        "event_id": 1612632,
-        "country": "England",
-        "league": "WSL Cup",
-        "home_team": "Crystal Palace W",
-        "away_team": "Watford W",
-        "time": "20:00",
-        "canonical_league": "England Premier League",
-        "market": "ESITO FINALE 1X2",
-        "selection": "1",
-        "target": "HOME",
-        "selection_code": "HOME",
-        "odds": 1.79,
-        "min_acceptable_odds": 1.79,
-        "fair_odds": 1.64,
-        "model_probability": 0.6087,
-        "required_edge": 0.05,
-        "edge": 0.05,
-        "expected_value_at_min_odds": 0.0896,
-        "expected_value": 0.0896,
-        "system_roi": 0.0,
-        "system_bets": 0,
-        "score": 0.25001,
-        "retail_extra": false,
-        "calendar_source": "API-Football",
-        "needs_bookmaker_check": true,
-        "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
-        "market_floor": 0.55,
-        "relative_strength": 0.13044
-      }
-    ],
-    "total_odds": 2.83,
-    "combined_probability": 0.4168
-  },
+  "double": null,
   "double_aggressive": null,
   "first_type": "double",
   "triple": null,
   "shortlist": [
     {
-      "event_id": 1633246,
-      "country": "Romania",
-      "league": "Liga III - Serie 4",
-      "home_team": "FC Oţelul II",
-      "away_team": "Gloria Băneasa",
-      "time": "16:00",
-      "canonical_league": "Romania Liga I",
+      "event_id": 1555155,
+      "country": "Israel",
+      "league": "Liga Leumit",
+      "home_team": "Hapoel Acre",
+      "away_team": "Hapoel Afula",
+      "time": "18:00",
+      "canonical_league": "Israel Liga Leumit",
       "market": "ESITO FINALE 1X2",
       "selection": "1",
       "target": "HOME",
       "selection_code": "HOME",
-      "odds": 1.58,
-      "min_acceptable_odds": 1.58,
-      "fair_odds": 1.46,
-      "model_probability": 0.6848,
+      "odds": 1.72,
+      "min_acceptable_odds": 1.72,
+      "fair_odds": 1.58,
+      "model_probability": 0.6347,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.0819,
-      "expected_value": 0.0819,
+      "expected_value_at_min_odds": 0.0917,
+      "expected_value": 0.0917,
       "system_roi": 0.0,
       "system_bets": 0,
-      "score": 0.39587,
-      "retail_extra": false,
+      "score": 0.29984,
+      "retail_extra": true,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
       "market_floor": 0.55,
-      "relative_strength": 0.29956
-    },
-    {
-      "event_id": 1612632,
-      "country": "England",
-      "league": "WSL Cup",
-      "home_team": "Crystal Palace W",
-      "away_team": "Watford W",
-      "time": "20:00",
-      "canonical_league": "England Premier League",
-      "market": "ESITO FINALE 1X2",
-      "selection": "1",
-      "target": "HOME",
-      "selection_code": "HOME",
-      "odds": 1.79,
-      "min_acceptable_odds": 1.79,
-      "fair_odds": 1.64,
-      "model_probability": 0.6087,
-      "required_edge": 0.05,
-      "edge": 0.05,
-      "expected_value_at_min_odds": 0.0896,
-      "expected_value": 0.0896,
-      "system_roi": 0.0,
-      "system_bets": 0,
-      "score": 0.25001,
-      "retail_extra": false,
-      "calendar_source": "API-Football",
-      "needs_bookmaker_check": true,
-      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
-      "market_floor": 0.55,
-      "relative_strength": 0.13044
-    },
-    {
-      "event_id": 1612637,
-      "country": "England",
-      "league": "WSL Cup",
-      "home_team": "Tottenham Hotspur W",
-      "away_team": "West Ham W",
-      "time": "20:00",
-      "canonical_league": "England Premier League",
-      "market": "OVER/UNDER 1.5",
-      "selection": "UNDER 1.5",
-      "target": "UNDER15",
-      "selection_code": "UNDER15",
-      "odds": 1.99,
-      "min_acceptable_odds": 1.99,
-      "fair_odds": 1.8,
-      "model_probability": 0.5546,
-      "required_edge": 0.05,
-      "edge": 0.05,
-      "expected_value_at_min_odds": 0.1036,
-      "expected_value": 0.1036,
-      "system_roi": 0.0,
-      "system_bets": 0,
-      "score": 0.14632,
-      "retail_extra": false,
-      "calendar_source": "API-Football",
-      "needs_bookmaker_check": true,
-      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
-      "market_floor": 0.55,
-      "relative_strength": 0.01022
+      "relative_strength": 0.18822
     }
   ],
   "note": "Il calendario viene unito da API-Football, Football-Data e Sofascore, eliminando i duplicati. Sofascore viene usato solo come calendario: non modifica probabilita, modello, soglie, edge, ROI o regole walk-forward. Sono pubblicate solo candidate con probabilita modello almeno 55%; doppie e triple non vengono forzate e devono superare anche una probabilita combinata minima. Singola solo da quota 2,00, altrimenti prima doppia da 2,00; seconda doppia da 2,50 e tripla da 3,00, senza partite ripetute. La giocata e valida solo se il bookmaker offre una quota uguale o superiore alla quota minima indicata."

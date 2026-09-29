@@ -1,42 +1,18 @@
 {
-  "generated_at": "2026-09-28T18:44:21+02:00",
-  "date": "2026-09-28",
+  "generated_at": "2026-09-29T16:50:05+02:00",
+  "date": "2026-09-29",
   "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 27,
-  "api_football_fixtures_count": 27,
+  "fixtures_count": 88,
+  "api_football_fixtures_count": 87,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
-  "sofascore_rows_today": 6,
-  "sofascore_calendar_added": 0,
-  "eligible_history_count": 7,
-  "retail_extra_mapped_count": 5,
-  "retail_history_requests_used": 4,
+  "sofascore_rows_today": 14,
+  "sofascore_calendar_added": 1,
+  "eligible_history_count": 14,
+  "retail_extra_mapped_count": 2,
+  "retail_history_requests_used": 1,
   "retail_history_coverage": [
-    {
-      "league": "Colombia Primera B",
-      "fixtures_today": 2,
-      "history_matches": 310,
-      "seasons_tried": [
-        2024
-      ]
-    },
-    {
-      "league": "Israel Liga Leumit",
-      "fixtures_today": 1,
-      "history_matches": 297,
-      "seasons_tried": [
-        2024
-      ]
-    },
-    {
-      "league": "Paraguay Division Profesional",
-      "fixtures_today": 1,
-      "history_matches": 132,
-      "seasons_tried": [
-        2024
-      ]
-    },
     {
       "league": "Serbia Prva Liga",
       "fixtures_today": 1,
@@ -46,71 +22,141 @@
       ]
     }
   ],
-  "unmapped_history_count": 20,
+  "unmapped_history_count": 74,
   "unmapped_leagues": [
+    {
+      "country": "England",
+      "league": "Non League Premier - Southern Central",
+      "fixtures": 11
+    },
     {
       "country": "World",
       "league": "UEFA Nations League",
-      "fixtures": 5
-    },
-    {
-      "country": "Argentina",
-      "league": "Primera C",
-      "fixtures": 3
-    },
-    {
-      "country": "Qatar",
-      "league": "QSL Cup",
-      "fixtures": 2
-    },
-    {
-      "country": "World",
-      "league": "CONCACAF Nations League",
-      "fixtures": 2
-    },
-    {
-      "country": "Nigeria",
-      "league": "NPFL",
-      "fixtures": 1
-    },
-    {
-      "country": "Ghana",
-      "league": "Division One League",
-      "fixtures": 1
-    },
-    {
-      "country": "Norway",
-      "league": "3. Division - Girone 4",
-      "fixtures": 1
-    },
-    {
-      "country": "Slovenia",
-      "league": "2. SNL",
-      "fixtures": 1
-    },
-    {
-      "country": "Brazil",
-      "league": "Carioca B2",
-      "fixtures": 1
-    },
-    {
-      "country": "Argentina",
-      "league": "Primera B Metropolitana",
-      "fixtures": 1
+      "fixtures": 10
     },
     {
       "country": "World",
       "league": "Africa Cup of Nations - Qualification",
+      "fixtures": 10
+    },
+    {
+      "country": "England",
+      "league": "Non League Premier - Southern South",
+      "fixtures": 9
+    },
+    {
+      "country": "England",
+      "league": "Non League Premier - Northern",
+      "fixtures": 4
+    },
+    {
+      "country": "Qatar",
+      "league": "QSL Cup",
+      "fixtures": 3
+    },
+    {
+      "country": "England",
+      "league": "Non League Premier - Isthmian",
+      "fixtures": 3
+    },
+    {
+      "country": "World",
+      "league": "CONCACAF Nations League",
+      "fixtures": 3
+    },
+    {
+      "country": "World",
+      "league": "Friendlies Clubs",
+      "fixtures": 2
+    },
+    {
+      "country": "World",
+      "league": "Gulf Cup of Nations",
+      "fixtures": 2
+    },
+    {
+      "country": "Argentina",
+      "league": "Torneo Promocional Amateur",
+      "fixtures": 2
+    },
+    {
+      "country": "Bangladesh",
+      "league": "Federation Cup",
       "fixtures": 1
     },
     {
-      "country": "Paraguay",
-      "league": "Division Intermedia",
+      "country": "Slovenia",
+      "league": "3. SNL - East",
+      "fixtures": 1
+    },
+    {
+      "country": "Denmark",
+      "league": "Kvindeliga",
+      "fixtures": 1
+    },
+    {
+      "country": "World",
+      "league": "Friendlies",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Regionalliga - Bayern",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Schleswig-Holstein",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Hamburg",
+      "fixtures": 1
+    },
+    {
+      "country": "Argentina",
+      "league": "Primera C",
+      "fixtures": 1
+    },
+    {
+      "country": "Norway",
+      "league": "3. Division - Girone 1",
+      "fixtures": 1
+    },
+    {
+      "country": "Wales",
+      "league": "Premier League",
+      "fixtures": 1
+    },
+    {
+      "country": "Scotland",
+      "league": "Challenge Cup",
+      "fixtures": 1
+    },
+    {
+      "country": "Bolivia",
+      "league": "Copa de la División Profesional",
+      "fixtures": 1
+    },
+    {
+      "country": "Colombia",
+      "league": "Primera A",
+      "fixtures": 1
+    },
+    {
+      "country": "El-Salvador",
+      "league": "Primera Division",
+      "fixtures": 1
+    },
+    {
+      "country": "Chile",
+      "league": "Copa Chile",
       "fixtures": 1
     }
   ],
   "fixtures_with_odds": 0,
-  "candidate_count": 3,
+  "candidate_count": 5,
   "active_rules": 212,
   "minimum_publish_probability": 0.55,
   "market_coverage": {
@@ -126,162 +172,287 @@
   "double": {
     "legs": [
       {
-        "event_id": 1569943,
-        "country": "Spain",
-        "league": "Segunda División",
-        "home_team": "Leganes",
-        "away_team": "Castellón",
-        "time": "20:30",
-        "canonical_league": "Spain Segunda",
+        "event_id": 1585257,
+        "country": "England",
+        "league": "National League",
+        "home_team": "AFC Fylde",
+        "away_team": "Carlisle",
+        "time": "20:45",
+        "canonical_league": "England National League",
         "market": "ESITO FINALE 1X2",
         "selection": "2",
         "target": "AWAY",
         "selection_code": "AWAY",
-        "odds": 1.54,
-        "min_acceptable_odds": 1.54,
-        "fair_odds": 1.43,
-        "model_probability": 0.7015,
+        "odds": 1.42,
+        "min_acceptable_odds": 1.42,
+        "fair_odds": 1.32,
+        "model_probability": 0.7565,
         "required_edge": 0.05,
         "edge": 0.05,
-        "expected_value_at_min_odds": 0.0803,
-        "expected_value": 0.0803,
+        "expected_value_at_min_odds": 0.0743,
+        "expected_value": 0.0743,
         "system_roi": 0.0,
         "system_bets": 0,
-        "score": 0.42787,
+        "score": 0.53329,
         "retail_extra": false,
         "calendar_source": "API-Football",
         "needs_bookmaker_check": true,
         "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
         "market_floor": 0.55,
-        "relative_strength": 0.33667
+        "relative_strength": 0.45889
       },
       {
-        "event_id": 1549647,
-        "country": "Colombia",
-        "league": "Primera B",
-        "home_team": "Internacional Palmira",
-        "away_team": "Leones FC",
-        "time": "23:00",
-        "canonical_league": "Colombia Primera B",
-        "market": "OVER/UNDER 1.5",
-        "selection": "UNDER 1.5",
-        "target": "UNDER15",
-        "selection_code": "UNDER15",
-        "odds": 1.9,
-        "min_acceptable_odds": 1.9,
-        "fair_odds": 1.73,
-        "model_probability": 0.5787,
+        "event_id": 1585266,
+        "country": "England",
+        "league": "National League",
+        "home_team": "Boreham Wood",
+        "away_team": "Kidderminster Harriers",
+        "time": "20:00",
+        "canonical_league": "England National League",
+        "market": "ESITO FINALE 1X2",
+        "selection": "1",
+        "target": "HOME",
+        "selection_code": "HOME",
+        "odds": 1.47,
+        "min_acceptable_odds": 1.47,
+        "fair_odds": 1.37,
+        "model_probability": 0.7317,
         "required_edge": 0.05,
         "edge": 0.05,
-        "expected_value_at_min_odds": 0.0995,
-        "expected_value": 0.0995,
+        "expected_value_at_min_odds": 0.0755,
+        "expected_value": 0.0755,
         "system_roi": 0.0,
         "system_bets": 0,
-        "score": 0.19251,
-        "retail_extra": true,
+        "score": 0.48576,
+        "retail_extra": false,
         "calendar_source": "API-Football",
         "needs_bookmaker_check": true,
         "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
         "market_floor": 0.55,
-        "relative_strength": 0.06378
+        "relative_strength": 0.40378
       }
     ],
-    "total_odds": 2.93,
-    "combined_probability": 0.406
+    "total_odds": 2.09,
+    "combined_probability": 0.5535
   },
-  "double_aggressive": null,
+  "double_aggressive": {
+    "legs": [
+      {
+        "event_id": 1585260,
+        "country": "England",
+        "league": "National League",
+        "home_team": "Forest Green",
+        "away_team": "Wealdstone",
+        "time": "20:45",
+        "canonical_league": "England National League",
+        "market": "ESITO FINALE 1X2",
+        "selection": "1",
+        "target": "HOME",
+        "selection_code": "HOME",
+        "odds": 1.61,
+        "min_acceptable_odds": 1.61,
+        "fair_odds": 1.49,
+        "model_probability": 0.6717,
+        "required_edge": 0.05,
+        "edge": 0.05,
+        "expected_value_at_min_odds": 0.0815,
+        "expected_value": 0.0815,
+        "system_roi": 0.0,
+        "system_bets": 0,
+        "score": 0.37076,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+        "market_floor": 0.55,
+        "relative_strength": 0.27044
+      },
+      {
+        "event_id": 1585265,
+        "country": "England",
+        "league": "National League",
+        "home_team": "Yeovil Town",
+        "away_team": "Worthing",
+        "time": "20:45",
+        "canonical_league": "England National League",
+        "market": "ESITO FINALE 1X2",
+        "selection": "2",
+        "target": "AWAY",
+        "selection_code": "AWAY",
+        "odds": 1.73,
+        "min_acceptable_odds": 1.73,
+        "fair_odds": 1.59,
+        "model_probability": 0.6284,
+        "required_edge": 0.05,
+        "edge": 0.05,
+        "expected_value_at_min_odds": 0.0872,
+        "expected_value": 0.0872,
+        "system_roi": 0.0,
+        "system_bets": 0,
+        "score": 0.28777,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+        "market_floor": 0.55,
+        "relative_strength": 0.17422
+      }
+    ],
+    "total_odds": 2.79,
+    "combined_probability": 0.4221
+  },
   "first_type": "double",
   "triple": null,
   "shortlist": [
     {
-      "event_id": 1569943,
-      "country": "Spain",
-      "league": "Segunda División",
-      "home_team": "Leganes",
-      "away_team": "Castellón",
-      "time": "20:30",
-      "canonical_league": "Spain Segunda",
+      "event_id": 1585257,
+      "country": "England",
+      "league": "National League",
+      "home_team": "AFC Fylde",
+      "away_team": "Carlisle",
+      "time": "20:45",
+      "canonical_league": "England National League",
       "market": "ESITO FINALE 1X2",
       "selection": "2",
       "target": "AWAY",
       "selection_code": "AWAY",
-      "odds": 1.54,
-      "min_acceptable_odds": 1.54,
-      "fair_odds": 1.43,
-      "model_probability": 0.7015,
+      "odds": 1.42,
+      "min_acceptable_odds": 1.42,
+      "fair_odds": 1.32,
+      "model_probability": 0.7565,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.0803,
-      "expected_value": 0.0803,
+      "expected_value_at_min_odds": 0.0743,
+      "expected_value": 0.0743,
       "system_roi": 0.0,
       "system_bets": 0,
-      "score": 0.42787,
+      "score": 0.53329,
       "retail_extra": false,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
       "market_floor": 0.55,
-      "relative_strength": 0.33667
+      "relative_strength": 0.45889
     },
     {
-      "event_id": 1549647,
-      "country": "Colombia",
-      "league": "Primera B",
-      "home_team": "Internacional Palmira",
-      "away_team": "Leones FC",
-      "time": "23:00",
-      "canonical_league": "Colombia Primera B",
-      "market": "OVER/UNDER 1.5",
-      "selection": "UNDER 1.5",
-      "target": "UNDER15",
-      "selection_code": "UNDER15",
-      "odds": 1.9,
-      "min_acceptable_odds": 1.9,
-      "fair_odds": 1.73,
-      "model_probability": 0.5787,
-      "required_edge": 0.05,
-      "edge": 0.05,
-      "expected_value_at_min_odds": 0.0995,
-      "expected_value": 0.0995,
-      "system_roi": 0.0,
-      "system_bets": 0,
-      "score": 0.19251,
-      "retail_extra": true,
-      "calendar_source": "API-Football",
-      "needs_bookmaker_check": true,
-      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
-      "market_floor": 0.55,
-      "relative_strength": 0.06378
-    },
-    {
-      "event_id": 1555161,
-      "country": "Israel",
-      "league": "Liga Leumit",
-      "home_team": "Maccabi Bnei Raina",
-      "away_team": "Hapoel Ra'anana",
-      "time": "18:45",
-      "canonical_league": "Israel Liga Leumit",
+      "event_id": 1585266,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Boreham Wood",
+      "away_team": "Kidderminster Harriers",
+      "time": "20:00",
+      "canonical_league": "England National League",
       "market": "ESITO FINALE 1X2",
       "selection": "1",
       "target": "HOME",
       "selection_code": "HOME",
-      "odds": 1.95,
-      "min_acceptable_odds": 1.95,
-      "fair_odds": 1.77,
-      "model_probability": 0.5645,
+      "odds": 1.47,
+      "min_acceptable_odds": 1.47,
+      "fair_odds": 1.37,
+      "model_probability": 0.7317,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.1007,
-      "expected_value": 0.1007,
+      "expected_value_at_min_odds": 0.0755,
+      "expected_value": 0.0755,
       "system_roi": 0.0,
       "system_bets": 0,
-      "score": 0.16529,
-      "retail_extra": true,
+      "score": 0.48576,
+      "retail_extra": false,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
       "market_floor": 0.55,
-      "relative_strength": 0.03222
+      "relative_strength": 0.40378
+    },
+    {
+      "event_id": 1585260,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Forest Green",
+      "away_team": "Wealdstone",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "ESITO FINALE 1X2",
+      "selection": "1",
+      "target": "HOME",
+      "selection_code": "HOME",
+      "odds": 1.61,
+      "min_acceptable_odds": 1.61,
+      "fair_odds": 1.49,
+      "model_probability": 0.6717,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.0815,
+      "expected_value": 0.0815,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.37076,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.27044
+    },
+    {
+      "event_id": 1585265,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Yeovil Town",
+      "away_team": "Worthing",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "ESITO FINALE 1X2",
+      "selection": "2",
+      "target": "AWAY",
+      "selection_code": "AWAY",
+      "odds": 1.73,
+      "min_acceptable_odds": 1.73,
+      "fair_odds": 1.59,
+      "model_probability": 0.6284,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.0872,
+      "expected_value": 0.0872,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.28777,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.17422
+    },
+    {
+      "event_id": 1585264,
+      "country": "England",
+      "league": "National League",
+      "home_team": "Woking",
+      "away_team": "Solihull Moors",
+      "time": "20:45",
+      "canonical_league": "England National League",
+      "market": "ESITO FINALE 1X2",
+      "selection": "1",
+      "target": "HOME",
+      "selection_code": "HOME",
+      "odds": 1.91,
+      "min_acceptable_odds": 1.91,
+      "fair_odds": 1.74,
+      "model_probability": 0.5738,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.096,
+      "expected_value": 0.096,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.18312,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.05289
     }
   ],
   "note": "Il calendario viene unito da API-Football, Football-Data e Sofascore, eliminando i duplicati. Sofascore viene usato solo come calendario: non modifica probabilita, modello, soglie, edge, ROI o regole walk-forward. Sono pubblicate solo candidate con probabilita modello almeno 55%; doppie e triple non vengono forzate e devono superare anche una probabilita combinata minima. Singola solo da quota 2,00, altrimenti prima doppia da 2,00; seconda doppia da 2,50 e tripla da 3,00, senza partite ripetute. La giocata e valida solo se il bookmaker offre una quota uguale o superiore alla quota minima indicata."

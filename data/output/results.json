@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-09-28T18:44:20+02:00",
+  "updated_at": "2026-09-29T16:50:04+02:00",
   "days": [
+    {
+      "date": "2026-09-28",
+      "bets": [
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 2.93,
+          "legs": [
+            {
+              "match": "Leganes – Castellón",
+              "pick": "2",
+              "score": "0-2",
+              "status": "won"
+            },
+            {
+              "match": "Internacional Palmira – Leones FC",
+              "pick": "UNDER 1.5",
+              "score": "1-0",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-27",
       "bets": [

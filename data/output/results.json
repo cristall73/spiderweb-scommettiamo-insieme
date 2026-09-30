@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-09-29T16:50:04+02:00",
+  "updated_at": "2026-09-30T16:53:22+02:00",
   "days": [
+    {
+      "date": "2026-09-29",
+      "bets": [
+        {
+          "type": "Doppia",
+          "status": "won",
+          "minimum_odds": 2.09,
+          "legs": [
+            {
+              "match": "AFC Fylde – Carlisle",
+              "pick": "2",
+              "score": "0-2",
+              "status": "won"
+            },
+            {
+              "match": "Boreham Wood – Kidderminster Harriers",
+              "pick": "1",
+              "score": "3-1",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-09-28",
       "bets": [

@@ -1,85 +1,182 @@
 {
-  "generated_at": "2026-10-01T17:24:45+02:00",
-  "date": "2026-10-01",
+  "generated_at": "2026-10-02T16:42:27+02:00",
+  "date": "2026-10-02",
   "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 52,
-  "api_football_fixtures_count": 52,
+  "fixtures_count": 173,
+  "api_football_fixtures_count": 173,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
-  "sofascore_rows_today": 3,
+  "sofascore_rows_today": 7,
   "sofascore_calendar_added": 0,
-  "eligible_history_count": 10,
-  "retail_extra_mapped_count": 10,
-  "retail_history_requests_used": 2,
+  "eligible_history_count": 35,
+  "retail_extra_mapped_count": 5,
+  "retail_history_requests_used": 1,
   "retail_history_coverage": [
     {
-      "league": "Israel Liga Leumit",
-      "fixtures_today": 8,
-      "history_matches": 297,
-      "seasons_tried": [
-        2024
-      ]
-    },
-    {
-      "league": "Colombia Primera B",
+      "league": "Netherlands Eerste Divisie",
       "fixtures_today": 1,
-      "history_matches": 310,
+      "history_matches": 380,
       "seasons_tried": [
         2024
       ]
     }
   ],
-  "unmapped_history_count": 42,
+  "unmapped_history_count": 138,
   "unmapped_leagues": [
     {
       "country": "World",
-      "league": "UEFA Nations League",
-      "fixtures": 8
-    },
-    {
-      "country": "Israel",
-      "league": "Liga Alef",
-      "fixtures": 5
-    },
-    {
-      "country": "Brazil",
-      "league": "Carioca B2",
-      "fixtures": 5
-    },
-    {
-      "country": "Norway",
-      "league": "NM Cupen",
-      "fixtures": 3
-    },
-    {
-      "country": "World",
       "league": "Friendlies Clubs",
-      "fixtures": 3
+      "fixtures": 19
     },
     {
       "country": "World",
-      "league": "CONCACAF Nations League",
+      "league": "UEFA Nations League",
+      "fixtures": 9
+    },
+    {
+      "country": "Austria",
+      "league": "Regionalliga - South",
+      "fixtures": 6
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Niederrhein",
+      "fixtures": 6
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Hamburg",
+      "fixtures": 5
+    },
+    {
+      "country": "Ireland",
+      "league": "First Division",
+      "fixtures": 5
+    },
+    {
+      "country": "Sweden",
+      "league": "Division 2 - Västra Götaland",
+      "fixtures": 4
+    },
+    {
+      "country": "Austria",
+      "league": "Regionalliga - Ost",
+      "fixtures": 4
+    },
+    {
+      "country": "Wales",
+      "league": "FAW Championship",
+      "fixtures": 4
+    },
+    {
+      "country": "Morocco",
+      "league": "Botola Pro",
       "fixtures": 3
     },
     {
-      "country": "Brazil",
-      "league": "Paraibano 2",
-      "fixtures": 2
+      "country": "Germany",
+      "league": "Oberliga - Bayern Nord",
+      "fixtures": 3
     },
     {
-      "country": "Qatar",
-      "league": "QSL Cup",
+      "country": "Denmark",
+      "league": "2. Division",
+      "fixtures": 3
+    },
+    {
+      "country": "France",
+      "league": "National 2 - Group B",
+      "fixtures": 3
+    },
+    {
+      "country": "Eswatini",
+      "league": "Premier League",
       "fixtures": 2
     },
     {
       "country": "United-Arab-Emirates",
       "league": "League Cup",
+      "fixtures": 2
+    },
+    {
+      "country": "Norway",
+      "league": "3. Division - Girone 2",
+      "fixtures": 2
+    },
+    {
+      "country": "Sweden",
+      "league": "Ettan - Södra",
+      "fixtures": 2
+    },
+    {
+      "country": "Sweden",
+      "league": "Division 2 - Södra Götaland",
+      "fixtures": 2
+    },
+    {
+      "country": "Sweden",
+      "league": "Division 2 - Södra Svealand",
+      "fixtures": 2
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Bayern Süd",
+      "fixtures": 2
+    },
+    {
+      "country": "Germany",
+      "league": "Regionalliga - Bayern",
+      "fixtures": 2
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Rheinland-Pfalz / Saar",
+      "fixtures": 2
+    },
+    {
+      "country": "Austria",
+      "league": "Regionalliga - North",
+      "fixtures": 2
+    },
+    {
+      "country": "Brazil",
+      "league": "Mineiro - 3",
+      "fixtures": 2
+    },
+    {
+      "country": "World",
+      "league": "CONCACAF Nations League",
+      "fixtures": 2
+    },
+    {
+      "country": "Paraguay",
+      "league": "Division Intermedia",
+      "fixtures": 2
+    },
+    {
+      "country": "Ecuador",
+      "league": "Liga Pro Serie B",
+      "fixtures": 2
+    },
+    {
+      "country": "Colombia",
+      "league": "Primera A",
+      "fixtures": 1
+    },
+    {
+      "country": "Russia",
+      "league": "Second League A - Division A Silver",
+      "fixtures": 1
+    },
+    {
+      "country": "Estonia",
+      "league": "Cup",
       "fixtures": 1
     },
     {
       "country": "World",
-      "league": "Africa Cup of Nations - Qualification",
+      "league": "Friendlies",
       "fixtures": 1
     },
     {
@@ -88,48 +185,98 @@
       "fixtures": 1
     },
     {
-      "country": "Ghana",
-      "league": "Premier League",
+      "country": "Burkina-Faso",
+      "league": "Ligue 1",
       "fixtures": 1
     },
     {
-      "country": "Spain",
-      "league": "Copa Federacion",
+      "country": "Norway",
+      "league": "3. Division - Girone 4",
       "fixtures": 1
     },
     {
-      "country": "Mexico",
-      "league": "Liga Premier Serie A",
+      "country": "Czech-Republic",
+      "league": "4. liga - Divizie A",
       "fixtures": 1
     },
     {
-      "country": "France",
-      "league": "Ligue 3",
+      "country": "Czech-Republic",
+      "league": "3. liga - MSFL",
       "fixtures": 1
     },
     {
-      "country": "Costa-Rica",
-      "league": "Liga de Ascenso",
+      "country": "Czech-Republic",
+      "league": "4. liga - Divizie F",
       "fixtures": 1
     },
     {
-      "country": "Peru",
-      "league": "Copa De La Liga",
+      "country": "Finland",
+      "league": "Kansallinen Liiga",
       "fixtures": 1
     },
     {
-      "country": "Ecuador",
-      "league": "Liga Pro Serie B",
+      "country": "Czech-Republic",
+      "league": "Cup",
       "fixtures": 1
     },
     {
-      "country": "El-Salvador",
-      "league": "Primera Division",
+      "country": "Lithuania",
+      "league": "1 Lyga",
+      "fixtures": 1
+    },
+    {
+      "country": "Slovakia",
+      "league": "3. liga - West",
+      "fixtures": 1
+    },
+    {
+      "country": "Norway",
+      "league": "1. Division",
+      "fixtures": 1
+    },
+    {
+      "country": "Sweden",
+      "league": "Elitettan",
+      "fixtures": 1
+    },
+    {
+      "country": "Sweden",
+      "league": "Ettan - Norra",
+      "fixtures": 1
+    },
+    {
+      "country": "Sweden",
+      "league": "Division 2 - Norra Svealand",
+      "fixtures": 1
+    },
+    {
+      "country": "Poland",
+      "league": "III Liga - Group 3",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Oberliga - Baden-Württemberg",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Regionalliga - SudWest",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Regionalliga - Nord",
+      "fixtures": 1
+    },
+    {
+      "country": "Germany",
+      "league": "Regionalliga - West",
       "fixtures": 1
     }
   ],
   "fixtures_with_odds": 0,
-  "candidate_count": 3,
+  "candidate_count": 9,
   "active_rules": 212,
   "minimum_publish_probability": 0.55,
   "market_coverage": {
@@ -140,167 +287,412 @@
     "OVER_UNDER_15_35": true,
     "PRIMO_TEMPO": false
   },
-  "api_requests_remaining": "99",
+  "api_requests_remaining": "98",
   "single": null,
   "double": {
     "legs": [
       {
-        "event_id": 1640047,
+        "event_id": 1643494,
         "country": "World",
         "league": "Friendlies Clubs",
-        "home_team": "VfB Stuttgart",
-        "away_team": "SpVgg Greuther Fürth",
-        "time": "17:30",
-        "canonical_league": "Germany Bundesliga",
+        "home_team": "Guingamp",
+        "away_team": "Le Mans",
+        "time": "18:00",
+        "canonical_league": "France Ligue 2",
         "market": "ESITO FINALE 1X2",
-        "selection": "1",
-        "target": "HOME",
-        "selection_code": "HOME",
-        "odds": 1.45,
-        "min_acceptable_odds": 1.45,
-        "fair_odds": 1.35,
-        "model_probability": 0.7407,
+        "selection": "2",
+        "target": "AWAY",
+        "selection_code": "AWAY",
+        "odds": 1.48,
+        "min_acceptable_odds": 1.48,
+        "fair_odds": 1.38,
+        "model_probability": 0.7258,
         "required_edge": 0.05,
         "edge": 0.05,
-        "expected_value_at_min_odds": 0.074,
-        "expected_value": 0.074,
+        "expected_value_at_min_odds": 0.0742,
+        "expected_value": 0.0742,
         "system_roi": 0.0,
         "system_bets": 0,
-        "score": 0.50301,
+        "score": 0.47445,
         "retail_extra": false,
         "calendar_source": "API-Football",
         "needs_bookmaker_check": true,
         "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
         "market_floor": 0.55,
-        "relative_strength": 0.42378
+        "relative_strength": 0.39067
       },
       {
-        "event_id": 1555167,
-        "country": "Israel",
-        "league": "Liga Leumit",
-        "home_team": "Maccabi Bnei Raina",
-        "away_team": "Hapoel Kfar Shalem",
-        "time": "18:00",
-        "canonical_league": "Israel Liga Leumit",
+        "event_id": 1492777,
+        "country": "Ireland",
+        "league": "Premier Division",
+        "home_team": "Dundalk",
+        "away_team": "Bohemians",
+        "time": "20:45",
+        "canonical_league": "Ireland Premier Division",
         "market": "ESITO FINALE 1X2",
-        "selection": "1",
-        "target": "HOME",
-        "selection_code": "HOME",
-        "odds": 1.61,
-        "min_acceptable_odds": 1.61,
-        "fair_odds": 1.48,
-        "model_probability": 0.6743,
+        "selection": "2",
+        "target": "AWAY",
+        "selection_code": "AWAY",
+        "odds": 1.58,
+        "min_acceptable_odds": 1.58,
+        "fair_odds": 1.46,
+        "model_probability": 0.6858,
         "required_edge": 0.05,
         "edge": 0.05,
-        "expected_value_at_min_odds": 0.0856,
-        "expected_value": 0.0856,
+        "expected_value_at_min_odds": 0.0836,
+        "expected_value": 0.0836,
         "system_roi": 0.0,
         "system_bets": 0,
-        "score": 0.37574,
-        "retail_extra": true,
+        "score": 0.39778,
+        "retail_extra": false,
         "calendar_source": "API-Football",
         "needs_bookmaker_check": true,
         "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
         "market_floor": 0.55,
-        "relative_strength": 0.27622
+        "relative_strength": 0.30178
       }
     ],
-    "total_odds": 2.33,
-    "combined_probability": 0.4995
+    "total_odds": 2.34,
+    "combined_probability": 0.4978
   },
-  "double_aggressive": null,
+  "double_aggressive": {
+    "legs": [
+      {
+        "event_id": 1569953,
+        "country": "Spain",
+        "league": "Segunda División",
+        "home_team": "Eldense",
+        "away_team": "Oviedo",
+        "time": "20:30",
+        "canonical_league": "Spain Segunda",
+        "market": "ESITO FINALE 1X2",
+        "selection": "2",
+        "target": "AWAY",
+        "selection_code": "AWAY",
+        "odds": 1.65,
+        "min_acceptable_odds": 1.65,
+        "fair_odds": 1.52,
+        "model_probability": 0.658,
+        "required_edge": 0.05,
+        "edge": 0.05,
+        "expected_value_at_min_odds": 0.0857,
+        "expected_value": 0.0857,
+        "system_roi": 0.0,
+        "system_bets": 0,
+        "score": 0.3445,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+        "market_floor": 0.55,
+        "relative_strength": 0.24
+      },
+      {
+        "event_id": 1587181,
+        "country": "Germany",
+        "league": "Regionalliga - SudWest",
+        "home_team": "SV Sandhausen",
+        "away_team": "Kaiserslautern II",
+        "time": "19:00",
+        "canonical_league": "Germany 2. Bundesliga",
+        "market": "ESITO FINALE 1X2",
+        "selection": "2",
+        "target": "AWAY",
+        "selection_code": "AWAY",
+        "odds": 1.71,
+        "min_acceptable_odds": 1.71,
+        "fair_odds": 1.57,
+        "model_probability": 0.6381,
+        "required_edge": 0.05,
+        "edge": 0.05,
+        "expected_value_at_min_odds": 0.0911,
+        "expected_value": 0.0911,
+        "system_roi": 0.0,
+        "system_bets": 0,
+        "score": 0.30636,
+        "retail_extra": false,
+        "calendar_source": "API-Football",
+        "needs_bookmaker_check": true,
+        "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+        "market_floor": 0.55,
+        "relative_strength": 0.19578
+      }
+    ],
+    "total_odds": 2.82,
+    "combined_probability": 0.4199
+  },
   "first_type": "double",
   "triple": null,
   "shortlist": [
     {
-      "event_id": 1640047,
+      "event_id": 1643494,
       "country": "World",
       "league": "Friendlies Clubs",
-      "home_team": "VfB Stuttgart",
-      "away_team": "SpVgg Greuther Fürth",
-      "time": "17:30",
-      "canonical_league": "Germany Bundesliga",
+      "home_team": "Guingamp",
+      "away_team": "Le Mans",
+      "time": "18:00",
+      "canonical_league": "France Ligue 2",
       "market": "ESITO FINALE 1X2",
-      "selection": "1",
-      "target": "HOME",
-      "selection_code": "HOME",
-      "odds": 1.45,
-      "min_acceptable_odds": 1.45,
-      "fair_odds": 1.35,
-      "model_probability": 0.7407,
+      "selection": "2",
+      "target": "AWAY",
+      "selection_code": "AWAY",
+      "odds": 1.48,
+      "min_acceptable_odds": 1.48,
+      "fair_odds": 1.38,
+      "model_probability": 0.7258,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.074,
-      "expected_value": 0.074,
+      "expected_value_at_min_odds": 0.0742,
+      "expected_value": 0.0742,
       "system_roi": 0.0,
       "system_bets": 0,
-      "score": 0.50301,
+      "score": 0.47445,
       "retail_extra": false,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
       "market_floor": 0.55,
-      "relative_strength": 0.42378
+      "relative_strength": 0.39067
     },
     {
-      "event_id": 1555167,
-      "country": "Israel",
-      "league": "Liga Leumit",
-      "home_team": "Maccabi Bnei Raina",
-      "away_team": "Hapoel Kfar Shalem",
-      "time": "18:00",
-      "canonical_league": "Israel Liga Leumit",
+      "event_id": 1492777,
+      "country": "Ireland",
+      "league": "Premier Division",
+      "home_team": "Dundalk",
+      "away_team": "Bohemians",
+      "time": "20:45",
+      "canonical_league": "Ireland Premier Division",
+      "market": "ESITO FINALE 1X2",
+      "selection": "2",
+      "target": "AWAY",
+      "selection_code": "AWAY",
+      "odds": 1.58,
+      "min_acceptable_odds": 1.58,
+      "fair_odds": 1.46,
+      "model_probability": 0.6858,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.0836,
+      "expected_value": 0.0836,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.39778,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.30178
+    },
+    {
+      "event_id": 1569953,
+      "country": "Spain",
+      "league": "Segunda División",
+      "home_team": "Eldense",
+      "away_team": "Oviedo",
+      "time": "20:30",
+      "canonical_league": "Spain Segunda",
+      "market": "ESITO FINALE 1X2",
+      "selection": "2",
+      "target": "AWAY",
+      "selection_code": "AWAY",
+      "odds": 1.65,
+      "min_acceptable_odds": 1.65,
+      "fair_odds": 1.52,
+      "model_probability": 0.658,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.0857,
+      "expected_value": 0.0857,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.3445,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.24
+    },
+    {
+      "event_id": 1587181,
+      "country": "Germany",
+      "league": "Regionalliga - SudWest",
+      "home_team": "SV Sandhausen",
+      "away_team": "Kaiserslautern II",
+      "time": "19:00",
+      "canonical_league": "Germany 2. Bundesliga",
+      "market": "ESITO FINALE 1X2",
+      "selection": "2",
+      "target": "AWAY",
+      "selection_code": "AWAY",
+      "odds": 1.71,
+      "min_acceptable_odds": 1.71,
+      "fair_odds": 1.57,
+      "model_probability": 0.6381,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.0911,
+      "expected_value": 0.0911,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.30636,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.19578
+    },
+    {
+      "event_id": 1593143,
+      "country": "Germany",
+      "league": "Frauen Bundesliga",
+      "home_team": "Bayer Leverkusen W",
+      "away_team": "Werder Bremen W",
+      "time": "18:30",
+      "canonical_league": "Germany Bundesliga",
       "market": "ESITO FINALE 1X2",
       "selection": "1",
       "target": "HOME",
       "selection_code": "HOME",
-      "odds": 1.61,
-      "min_acceptable_odds": 1.61,
-      "fair_odds": 1.48,
-      "model_probability": 0.6743,
+      "odds": 1.74,
+      "min_acceptable_odds": 1.74,
+      "fair_odds": 1.6,
+      "model_probability": 0.6268,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.0856,
-      "expected_value": 0.0856,
+      "expected_value_at_min_odds": 0.0907,
+      "expected_value": 0.0907,
       "system_roi": 0.0,
       "system_bets": 0,
-      "score": 0.37574,
-      "retail_extra": true,
+      "score": 0.2847,
+      "retail_extra": false,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
       "market_floor": 0.55,
-      "relative_strength": 0.27622
+      "relative_strength": 0.17067
     },
     {
-      "event_id": 1555165,
-      "country": "Israel",
-      "league": "Liga Leumit",
-      "home_team": "Hapoel Ra'anana",
-      "away_team": "Kafr Qasim",
-      "time": "18:00",
-      "canonical_league": "Israel Liga Leumit",
-      "market": "OVER/UNDER 1.5",
-      "selection": "UNDER 1.5",
-      "target": "UNDER15",
-      "selection_code": "UNDER15",
+      "event_id": 1587489,
+      "country": "Germany",
+      "league": "Regionalliga - West",
+      "home_team": "Borussia M'gladbach II",
+      "away_team": "Bochum II",
+      "time": "19:30",
+      "canonical_league": "Germany Bundesliga",
+      "market": "ESITO FINALE 1X2",
+      "selection": "1",
+      "target": "HOME",
+      "selection_code": "HOME",
+      "odds": 1.75,
+      "min_acceptable_odds": 1.75,
+      "fair_odds": 1.6,
+      "model_probability": 0.6239,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.0919,
+      "expected_value": 0.0919,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.27914,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.16422
+    },
+    {
+      "event_id": 1571152,
+      "country": "Spain",
+      "league": "Primera División RFEF - Group 2",
+      "home_team": "Real Madrid II",
+      "away_team": "Atlético Madrid II",
+      "time": "21:15",
+      "canonical_league": "Spain La Liga",
+      "market": "ESITO FINALE 1X2",
+      "selection": "1",
+      "target": "HOME",
+      "selection_code": "HOME",
+      "odds": 1.76,
+      "min_acceptable_odds": 1.76,
+      "fair_odds": 1.61,
+      "model_probability": 0.6208,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.0926,
+      "expected_value": 0.0926,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.2732,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.15733
+    },
+    {
+      "event_id": 1633388,
+      "country": "Romania",
+      "league": "Liga III - Serie 5",
+      "home_team": "Dinamo Bucureşti II",
+      "away_team": "Oxigen Bucuresti",
+      "time": "14:00",
+      "canonical_league": "Romania Liga I",
+      "market": "ESITO FINALE 1X2",
+      "selection": "1",
+      "target": "HOME",
+      "selection_code": "HOME",
       "odds": 1.83,
       "min_acceptable_odds": 1.83,
       "fair_odds": 1.67,
-      "model_probability": 0.5989,
+      "model_probability": 0.5991,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.0961,
-      "expected_value": 0.0961,
+      "expected_value_at_min_odds": 0.0964,
+      "expected_value": 0.0964,
       "system_roi": 0.0,
       "system_bets": 0,
-      "score": 0.23122,
-      "retail_extra": true,
+      "score": 0.23161,
+      "retail_extra": false,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
       "market_floor": 0.55,
-      "relative_strength": 0.10867
+      "relative_strength": 0.10911
+    },
+    {
+      "event_id": 1642926,
+      "country": "World",
+      "league": "Friendlies Clubs",
+      "home_team": "Red Bull Salzburg",
+      "away_team": "FC BW Linz",
+      "time": "17:30",
+      "canonical_league": "Austria Bundesliga",
+      "market": "OVER/UNDER 3.5",
+      "selection": "OVER 3.5",
+      "target": "OVER35",
+      "selection_code": "OVER35",
+      "odds": 1.93,
+      "min_acceptable_odds": 1.93,
+      "fair_odds": 1.76,
+      "model_probability": 0.5691,
+      "required_edge": 0.05,
+      "edge": 0.05,
+      "expected_value_at_min_odds": 0.0984,
+      "expected_value": 0.0984,
+      "system_roi": 0.0,
+      "system_bets": 0,
+      "score": 0.17411,
+      "retail_extra": false,
+      "calendar_source": "API-Football",
+      "needs_bookmaker_check": true,
+      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
+      "market_floor": 0.55,
+      "relative_strength": 0.04244
     }
   ],
   "note": "Il calendario viene unito da API-Football, Football-Data e Sofascore, eliminando i duplicati. Sofascore viene usato solo come calendario: non modifica probabilita, modello, soglie, edge, ROI o regole walk-forward. Sono pubblicate solo candidate con probabilita modello almeno 55%; doppie e triple non vengono forzate e devono superare anche una probabilita combinata minima. Singola solo da quota 2,00, altrimenti prima doppia da 2,00; seconda doppia da 2,50 e tripla da 3,00, senza partite ripetute. La giocata e valida solo se il bookmaker offre una quota uguale o superiore alla quota minima indicata."

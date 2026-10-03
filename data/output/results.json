@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-10-02T16:42:24+02:00",
+  "updated_at": "2026-10-03T15:19:53+02:00",
   "days": [
+    {
+      "date": "2026-10-02",
+      "bets": [
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 2.34,
+          "legs": [
+            {
+              "match": "Guingamp – Le Mans",
+              "pick": "2",
+              "score": "2-1",
+              "status": "lost"
+            },
+            {
+              "match": "Dundalk – Bohemians",
+              "pick": "2",
+              "score": "1-2",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-01",
       "bets": [

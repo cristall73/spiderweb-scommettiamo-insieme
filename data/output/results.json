@@ -1,6 +1,49 @@
 {
-  "updated_at": "2026-10-03T15:19:53+02:00",
+  "updated_at": "2026-10-05T19:05:55+02:00",
   "days": [
+    {
+      "date": "2026-10-04",
+      "bets": [
+        {
+          "type": "Singola",
+          "status": "won",
+          "minimum_odds": 2.0,
+          "legs": [
+            {
+              "match": "Chacarita Juniors – Patronato",
+              "pick": "UNDER 1.5",
+              "score": "1-0",
+              "status": "won"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.78,
+          "legs": [
+            {
+              "match": "Vålerenga W – Rosenborg W",
+              "pick": "2",
+              "score": "1-1",
+              "status": "lost"
+            },
+            {
+              "match": "Chaco For Ever – Defensores De Belgrano",
+              "pick": "UNDER 1.5",
+              "score": "2-2",
+              "status": "lost"
+            },
+            {
+              "match": "Stuttgart W – Union Berlin W",
+              "pick": "OVER 3.5",
+              "score": "0-4",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-02",
       "bets": [

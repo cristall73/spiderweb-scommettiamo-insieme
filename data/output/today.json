@@ -1,65 +1,63 @@
 {
-  "generated_at": "2026-10-07T17:31:12+02:00",
-  "date": "2026-10-07",
+  "generated_at": "2026-10-08T17:32:35+02:00",
+  "date": "2026-10-08",
   "source": "API-Football + Football-Data + Sofascore calendario; probabilita SpiderWeb; quota minima da verificare sul bookmaker",
   "mode": "min_acceptable_odds",
-  "fixtures_count": 74,
-  "api_football_fixtures_count": 71,
+  "fixtures_count": 57,
+  "api_football_fixtures_count": 56,
   "football_data_rows_today": 0,
   "football_data_calendar_added": 0,
-  "sofascore_rows_today": 9,
-  "sofascore_calendar_added": 3,
-  "eligible_history_count": 9,
-  "retail_extra_mapped_count": 6,
-  "retail_history_requests_used": 2,
+  "sofascore_rows_today": 6,
+  "sofascore_calendar_added": 1,
+  "eligible_history_count": 8,
+  "retail_extra_mapped_count": 4,
+  "retail_history_requests_used": 3,
   "retail_history_coverage": [
     {
-      "league": "Peru Segunda Division",
-      "fixtures_today": 4,
-      "history_matches": 183,
+      "league": "Colombia Primera B",
+      "fixtures_today": 2,
+      "history_matches": 310,
       "seasons_tried": [
         2024
       ]
     },
     {
-      "league": "Colombia Primera B",
+      "league": "Iran Persian Gulf Pro League",
       "fixtures_today": 1,
-      "history_matches": 310,
+      "history_matches": 240,
+      "seasons_tried": [
+        2024
+      ]
+    },
+    {
+      "league": "Peru Segunda Division",
+      "fixtures_today": 1,
+      "history_matches": 183,
       "seasons_tried": [
         2024
       ]
     }
   ],
-  "unmapped_history_count": 65,
+  "unmapped_history_count": 49,
   "unmapped_leagues": [
     {
-      "country": "Italy",
-      "league": "Coppa Italia Serie D",
-      "fixtures": 16
+      "country": "Israel",
+      "league": "Liga Alef",
+      "fixtures": 6
     },
     {
-      "country": "Scotland",
-      "league": "Football League - Highland League",
-      "fixtures": 9
+      "country": "Morocco",
+      "league": "Botola Pro",
+      "fixtures": 4
     },
     {
-      "country": "Bulgaria",
-      "league": "Third League - Southwest",
-      "fixtures": 5
-    },
-    {
-      "country": "Venezuela",
-      "league": "Copa Venezuela",
-      "fixtures": 5
-    },
-    {
-      "country": "Greece",
-      "league": "Gamma Ethniki - Group 10",
+      "country": "Kyrgyzstan",
+      "league": "Premier League",
       "fixtures": 3
     },
     {
-      "country": "Ivory-Coast",
-      "league": "Ligue 1",
+      "country": "Kuwait",
+      "league": "Division 1",
       "fixtures": 3
     },
     {
@@ -68,38 +66,68 @@
       "fixtures": 3
     },
     {
+      "country": "Ecuador",
+      "league": "Liga Pro Serie B",
+      "fixtures": 3
+    },
+    {
+      "country": "Armenia",
+      "league": "First League",
+      "fixtures": 2
+    },
+    {
+      "country": "Iraq",
+      "league": "Iraqi League",
+      "fixtures": 2
+    },
+    {
+      "country": "United-Arab-Emirates",
+      "league": "League Cup",
+      "fixtures": 2
+    },
+    {
+      "country": "Montenegro",
+      "league": "First League",
+      "fixtures": 2
+    },
+    {
       "country": "Egypt",
       "league": "League Cup",
       "fixtures": 2
     },
     {
-      "country": "Switzerland",
-      "league": "1. Liga Classic - Group 3",
+      "country": "Spain",
+      "league": "Tercera División RFEF - Group 15",
+      "fixtures": 2
+    },
+    {
+      "country": "Peru",
+      "league": "Primera División",
       "fixtures": 2
     },
     {
       "country": "Brazil",
-      "league": "Goiano - 2",
+      "league": "Paraibano 2",
       "fixtures": 2
     },
     {
-      "country": "Ecuador",
-      "league": "Liga Pro Serie B",
-      "fixtures": 2
-    },
-    {
-      "country": "United States",
-      "league": "American USL League One",
-      "fixtures": 2
-    },
-    {
-      "country": "Turkmenistan",
-      "league": "Ýokary Liga",
+      "country": "Uzbekistan",
+      "league": "Pro League A",
       "fixtures": 1
     },
     {
-      "country": "Germany",
-      "league": "Oberliga - Baden-Württemberg",
+      "country": "Uganda",
+      "league": "Premier League",
+      "fixtures": 1
+    },
+    {
+      "country": "Qatar",
+      "league": "Stars League",
+      "fixtures": 1
+    },
+    {
+      "country": "Saudi-Arabia",
+      "league": "Division 1",
       "fixtures": 1
     },
     {
@@ -108,48 +136,38 @@
       "fixtures": 1
     },
     {
-      "country": "Belgium",
-      "league": "First Amateur Division",
+      "country": "Sweden",
+      "league": "Division 2 - Norra Götaland",
       "fixtures": 1
     },
     {
-      "country": "Brazil",
-      "league": "Paraibano 2",
-      "fixtures": 1
-    },
-    {
-      "country": "Brazil",
-      "league": "Gaúcho - 3",
+      "country": "Tanzania",
+      "league": "Ligi kuu Bara",
       "fixtures": 1
     },
     {
       "country": "Spain",
-      "league": "Tercera División RFEF - Group 7",
+      "league": "Tercera División RFEF - Group 16",
       "fixtures": 1
     },
     {
-      "country": "Uruguay",
-      "league": "Copa Uruguay",
-      "fixtures": 1
-    },
-    {
-      "country": "England",
-      "league": "Non League Premier - Northern",
-      "fixtures": 1
-    },
-    {
-      "country": "England",
-      "league": "Non League Premier - Southern South",
+      "country": "Lebanon",
+      "league": "Premier League",
       "fixtures": 1
     },
     {
       "country": "Bolivia",
       "league": "Copa de la División Profesional",
       "fixtures": 1
+    },
+    {
+      "country": "Jamaica",
+      "league": "Premier League",
+      "fixtures": 1
     }
   ],
   "fixtures_with_odds": 0,
-  "candidate_count": 3,
+  "candidate_count": 2,
   "active_rules": 212,
   "minimum_publish_probability": 0.55,
   "market_coverage": {
@@ -160,167 +178,137 @@
     "OVER_UNDER_15_35": true,
     "PRIMO_TEMPO": false
   },
-  "api_requests_remaining": "98",
+  "api_requests_remaining": "99",
   "single": null,
   "double": {
     "legs": [
       {
-        "event_id": 1640276,
-        "country": "Peru",
-        "league": "Segunda División",
-        "home_team": "Deportivo Llacuabamba",
-        "away_team": "Comerciantes",
-        "time": "20:00",
-        "canonical_league": "Peru Segunda Division",
+        "event_id": 1638103,
+        "country": "Finland",
+        "league": "Veikkausliiga",
+        "home_team": "KuPS",
+        "away_team": "AC Oulu",
+        "time": "18:00",
+        "canonical_league": "Finland Veikkausliiga",
         "market": "ESITO FINALE 1X2",
         "selection": "1",
         "target": "HOME",
         "selection_code": "HOME",
-        "odds": 1.66,
-        "min_acceptable_odds": 1.66,
+        "odds": 1.64,
+        "min_acceptable_odds": 1.64,
         "fair_odds": 1.52,
-        "model_probability": 0.656,
+        "model_probability": 0.6599,
         "required_edge": 0.05,
         "edge": 0.05,
-        "expected_value_at_min_odds": 0.0889,
-        "expected_value": 0.0889,
+        "expected_value_at_min_odds": 0.0823,
+        "expected_value": 0.0823,
         "system_roi": 0.0,
         "system_bets": 0,
-        "score": 0.34067,
-        "retail_extra": true,
+        "score": 0.34814,
+        "retail_extra": false,
         "calendar_source": "API-Football",
         "needs_bookmaker_check": true,
         "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
         "market_floor": 0.55,
-        "relative_strength": 0.23556
+        "relative_strength": 0.24422
       },
       {
-        "event_id": 1640265,
-        "country": "Peru",
-        "league": "Segunda División",
-        "home_team": "Academia Cantolao",
-        "away_team": "Santos",
-        "time": "17:45",
-        "canonical_league": "Peru Segunda Division",
+        "event_id": 1549595,
+        "country": "Colombia",
+        "league": "Primera B",
+        "home_team": "Depor FC",
+        "away_team": "Real Cartagena",
+        "time": "22:30",
+        "canonical_league": "Colombia Primera B",
         "market": "ESITO FINALE 1X2",
-        "selection": "1",
-        "target": "HOME",
-        "selection_code": "HOME",
-        "odds": 1.76,
-        "min_acceptable_odds": 1.76,
-        "fair_odds": 1.62,
-        "model_probability": 0.6183,
+        "selection": "2",
+        "target": "AWAY",
+        "selection_code": "AWAY",
+        "odds": 1.8,
+        "min_acceptable_odds": 1.8,
+        "fair_odds": 1.64,
+        "model_probability": 0.6085,
         "required_edge": 0.05,
         "edge": 0.05,
-        "expected_value_at_min_odds": 0.0882,
-        "expected_value": 0.0882,
+        "expected_value_at_min_odds": 0.0953,
+        "expected_value": 0.0953,
         "system_roi": 0.0,
         "system_bets": 0,
-        "score": 0.26841,
+        "score": 0.24963,
         "retail_extra": true,
         "calendar_source": "API-Football",
         "needs_bookmaker_check": true,
         "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
         "market_floor": 0.55,
-        "relative_strength": 0.15178
+        "relative_strength": 0.13
       }
     ],
-    "total_odds": 2.92,
-    "combined_probability": 0.4056
+    "total_odds": 2.95,
+    "combined_probability": 0.4015
   },
   "double_aggressive": null,
   "first_type": "double",
   "triple": null,
   "shortlist": [
     {
-      "event_id": 1640276,
-      "country": "Peru",
-      "league": "Segunda División",
-      "home_team": "Deportivo Llacuabamba",
-      "away_team": "Comerciantes",
-      "time": "20:00",
-      "canonical_league": "Peru Segunda Division",
+      "event_id": 1638103,
+      "country": "Finland",
+      "league": "Veikkausliiga",
+      "home_team": "KuPS",
+      "away_team": "AC Oulu",
+      "time": "18:00",
+      "canonical_league": "Finland Veikkausliiga",
       "market": "ESITO FINALE 1X2",
       "selection": "1",
       "target": "HOME",
       "selection_code": "HOME",
-      "odds": 1.66,
-      "min_acceptable_odds": 1.66,
+      "odds": 1.64,
+      "min_acceptable_odds": 1.64,
       "fair_odds": 1.52,
-      "model_probability": 0.656,
+      "model_probability": 0.6599,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.0889,
-      "expected_value": 0.0889,
+      "expected_value_at_min_odds": 0.0823,
+      "expected_value": 0.0823,
       "system_roi": 0.0,
       "system_bets": 0,
-      "score": 0.34067,
-      "retail_extra": true,
+      "score": 0.34814,
+      "retail_extra": false,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
       "market_floor": 0.55,
-      "relative_strength": 0.23556
+      "relative_strength": 0.24422
     },
     {
-      "event_id": 1640265,
-      "country": "Peru",
-      "league": "Segunda División",
-      "home_team": "Academia Cantolao",
-      "away_team": "Santos",
-      "time": "17:45",
-      "canonical_league": "Peru Segunda Division",
-      "market": "ESITO FINALE 1X2",
-      "selection": "1",
-      "target": "HOME",
-      "selection_code": "HOME",
-      "odds": 1.76,
-      "min_acceptable_odds": 1.76,
-      "fair_odds": 1.62,
-      "model_probability": 0.6183,
-      "required_edge": 0.05,
-      "edge": 0.05,
-      "expected_value_at_min_odds": 0.0882,
-      "expected_value": 0.0882,
-      "system_roi": 0.0,
-      "system_bets": 0,
-      "score": 0.26841,
-      "retail_extra": true,
-      "calendar_source": "API-Football",
-      "needs_bookmaker_check": true,
-      "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
-      "market_floor": 0.55,
-      "relative_strength": 0.15178
-    },
-    {
-      "event_id": 1549654,
+      "event_id": 1549595,
       "country": "Colombia",
       "league": "Primera B",
-      "home_team": "Leones FC",
-      "away_team": "Barranquilla",
-      "time": "23:00",
+      "home_team": "Depor FC",
+      "away_team": "Real Cartagena",
+      "time": "22:30",
       "canonical_league": "Colombia Primera B",
-      "market": "OVER/UNDER 1.5",
-      "selection": "UNDER 1.5",
-      "target": "UNDER15",
-      "selection_code": "UNDER15",
-      "odds": 1.92,
-      "min_acceptable_odds": 1.92,
-      "fair_odds": 1.75,
-      "model_probability": 0.5713,
+      "market": "ESITO FINALE 1X2",
+      "selection": "2",
+      "target": "AWAY",
+      "selection_code": "AWAY",
+      "odds": 1.8,
+      "min_acceptable_odds": 1.8,
+      "fair_odds": 1.64,
+      "model_probability": 0.6085,
       "required_edge": 0.05,
       "edge": 0.05,
-      "expected_value_at_min_odds": 0.0969,
-      "expected_value": 0.0969,
+      "expected_value_at_min_odds": 0.0953,
+      "expected_value": 0.0953,
       "system_roi": 0.0,
       "system_bets": 0,
-      "score": 0.17832,
+      "score": 0.24963,
       "retail_extra": true,
       "calendar_source": "API-Football",
       "needs_bookmaker_check": true,
       "source": "Probabilita SpiderWeb + margine prudenziale; quota minima da verificare",
       "market_floor": 0.55,
-      "relative_strength": 0.04733
+      "relative_strength": 0.13
     }
   ],
   "note": "Il calendario viene unito da API-Football, Football-Data e Sofascore, eliminando i duplicati. Sofascore viene usato solo come calendario: non modifica probabilita, modello, soglie, edge, ROI o regole walk-forward. Sono pubblicate solo candidate con probabilita modello almeno 55%; doppie e triple non vengono forzate e devono superare anche una probabilita combinata minima. Singola solo da quota 2,00, altrimenti prima doppia da 2,00; seconda doppia da 2,50 e tripla da 3,00, senza partite ripetute. La giocata e valida solo se il bookmaker offre una quota uguale o superiore alla quota minima indicata."

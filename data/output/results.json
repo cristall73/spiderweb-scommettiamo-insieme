@@ -1,6 +1,30 @@
 {
-  "updated_at": "2026-10-08T17:32:33+02:00",
+  "updated_at": "2026-10-09T17:14:43+02:00",
   "days": [
+    {
+      "date": "2026-10-08",
+      "bets": [
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 2.95,
+          "legs": [
+            {
+              "match": "KuPS – AC Oulu",
+              "pick": "1",
+              "score": "0-1",
+              "status": "lost"
+            },
+            {
+              "match": "Depor FC – Real Cartagena",
+              "pick": "2",
+              "score": "2-2",
+              "status": "lost"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-07",
       "bets": [

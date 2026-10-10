@@ -1,6 +1,55 @@
 {
-  "updated_at": "2026-10-09T17:14:43+02:00",
+  "updated_at": "2026-10-10T16:26:32+02:00",
   "days": [
+    {
+      "date": "2026-10-09",
+      "bets": [
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 2.02,
+          "legs": [
+            {
+              "match": "Dender – Club Brugge II",
+              "pick": "2",
+              "score": "3-0",
+              "status": "lost"
+            },
+            {
+              "match": "Jong AZ – Den Bosch",
+              "pick": "1",
+              "score": "0-1",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.09,
+          "legs": [
+            {
+              "match": "AB Copenhagen – Aarhus Fremad",
+              "pick": "1",
+              "score": "2-0",
+              "status": "won"
+            },
+            {
+              "match": "De Graafschap – Jong Utrecht",
+              "pick": "1",
+              "score": "2-1",
+              "status": "won"
+            },
+            {
+              "match": "Borussia Dortmund – Werder Bremen",
+              "pick": "1",
+              "score": "2-2",
+              "status": "lost"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-08",
       "bets": [

@@ -99,6 +99,22 @@ def collect_odds(client, events, date_iso, max_calls=24):
             if eid in wanted:
                 decoded = decode_offers(item)
                 if decoded:offers.setdefault(eid,[]).extend(decoded)
+    # A date query does not need a season; it avoids historical-season plan
+    # restrictions while covering a whole matchday in ten-event pages.
+    global_failed = False
+    page, total = 1, 1
+    while page <= total and client.calls-start_calls < max_calls:
+        try:data=client.get('/odds',{'date':date_iso,'timezone':'Europe/Rome','page':page})
+        except FeedError as exc:
+            diagnostics.append(str(exc))
+            global_failed = True
+            break
+        total = int((data.get('paging') or {}).get('total') or 1)
+        accept(data)
+        page += 1
+    if not global_failed:
+        if page <= total:diagnostics.append('Copertura quote parziale: budget della scansione raggiunto')
+        return offers, diagnostics
     fallback = False
     for lid in ordered:
         page, total = 1, 1

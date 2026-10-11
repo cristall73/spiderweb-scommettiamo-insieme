@@ -58,7 +58,7 @@ def main():
         r.update(start_timestamp=lookup[str(r['event_id'])]['start_timestamp'],odds=None,analysis_only=True)
     supported = {str(r['event_id']) for r in analyses}
     for e in eligible:e['model_supported']=str(e['event_id']) in supported
-    offers, quote_diagnostics = collect_odds(client,eligible,date_iso,max_calls=24)
+    offers, quote_diagnostics = collect_odds(client,eligible,date_iso,max_calls=20)
     diagnostics.extend(quote_diagnostics)
     # Preserve still-valid observations when the provider is temporarily unavailable.
     # New observations replace old prices for the same bookmaker and selection.

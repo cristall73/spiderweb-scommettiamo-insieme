@@ -28,6 +28,17 @@ class FeedTests(unittest.TestCase):
                         {'id':1,'values':[{'value':'Home','odd':'2.1'}]}]}]}]}
         c=Client();offers,errors=collect_odds(c,[{'event_id':2,'api_league_id':135}],'2026-10-11')
         self.assertEqual(c.calls,2);self.assertEqual(set(offers),{'2'});self.assertFalse(errors)
+    def test_fixture_fallback_when_date_and_season_queries_are_denied(self):
+        from odds_feed import FeedError
+        class Client:
+            calls=0
+            def get(self,path,params):
+                self.calls+=1
+                if 'fixture' not in params:raise FeedError('Unavailable query')
+                return {'response':[{'fixture':{'id':params['fixture']},'update':'2026-10-11T10:00:00Z',
+                         'bookmakers':[{'name':'Book','bets':[{'id':1,'values':[{'value':'Home','odd':'2'}]}]}]}]}
+        c=Client();offers,_=collect_odds(c,[{'event_id':1,'api_league_id':135,'api_season':2026}], '2026-10-11')
+        self.assertIn('1',offers);self.assertEqual(c.calls,3)
     def test_first_half_is_not_full_time(self):
         item={'bookmakers':[{'name':'Book','bets':[{'id':6,'name':'First Half Winner',
                     'values':[{'value':'Home','odd':'2'}]}]}]}

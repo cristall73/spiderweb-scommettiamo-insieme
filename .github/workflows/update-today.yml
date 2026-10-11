@@ -6,21 +6,9 @@ on:
     paths:
       - ".github/workflows/update-today.yml"
   schedule:
-    # Scheduler refresh: 2026-09-07
-    # Tentativi automatici distribuiti dalla mattina al pomeriggio.
-    # Il primo che aggiorna correttamente salva today.json con la data odierna.
-    # I tentativi automatici successivi vedono la data gia aggiornata e NON chiamano le API.
-    # GitHub Actions usa UTC. Con ora legale italiana (UTC+2):
-    # 08:13 UTC = 10:13, 09:17 = 11:17, 10:23 = 12:23, 11:31 = 13:31, 12:41 = 14:41.
-    # Minuti volutamente non tondi per ridurre ritardi/skip dello scheduler GitHub.
-    - cron: "13 8 * * *"
-    - cron: "17 9 * * *"
+    # UTC: tre scansioni, con nuove quote durante la giornata.
+    - cron: "13 6 * * *"
     - cron: "23 10 * * *"
-    - cron: "31 11 * * *"
-    - cron: "41 12 * * *"
-    # Due ulteriori tentativi di sicurezza: se i dati odierni esistono gia,
-    # il controllo iniziale evita qualunque nuova chiamata alle API.
-    - cron: "47 13 * * *"
     - cron: "53 14 * * *"
 
 permissions:
@@ -38,7 +26,7 @@ jobs:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       FOOTBALL_DATA_ORG_TOKEN: ${{ secrets.FOOTBALL_DATA_ORG_TOKEN }}
       FOOTBALLDATA_IO_KEY: ${{ secrets.FOOTBALLDATA_IO_KEY }}
-      SPIDERWEB_RADAR_VERSION: "min-acceptable-odds-v11-local-history-map"
+      SPIDERWEB_RADAR_VERSION: "observed-odds-v12"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -60,7 +48,8 @@ jobs:
                   try:
                       d = json.loads(p.read_text(encoding='utf-8'))
                       today = datetime.now(ZoneInfo('Europe/Rome')).date().isoformat()
-                      if d.get('date') == today:
+                      age = (datetime.now(ZoneInfo('Europe/Rome')) - datetime.fromisoformat(d['generated_at'])).total_seconds()
+                      if d.get('date') == today and age < 10800 and d.get('mode') == 'observed_odds':
                           should_run = False
                           print(f'Dati gia aggiornati per {today}: questo tentativo di sicurezza non fara chiamate API.')
                   except Exception as e:
@@ -114,9 +103,9 @@ jobs:
         if: steps.freshness.outputs.should_run == 'true'
         run: python src/update_previous_results.py
 
-      - name: Calcola candidati e quota minima
+      - name: Calcola analisi e acquisisci quote recenti
         if: steps.freshness.outputs.should_run == 'true'
-        run: python src/run_today_local_mapping.py
+        run: python src/run_today_verified.py
 
       - name: Verifica output radar
         if: steps.freshness.outputs.should_run == 'true'
@@ -156,11 +145,14 @@ jobs:
           git config user.email "418982+github-actions[bot]@users.noreply.github.com"
           cp data/output/today.json /tmp/today.json
           if [ -f data/output/results.json ]; then cp data/output/results.json /tmp/results.json; fi
+          if [ -d data/output/daily_snapshots ]; then cp -r data/output/daily_snapshots /tmp/spiderweb-snapshots; fi
           git fetch origin main
           git reset --hard origin/main
           cp /tmp/today.json data/output/today.json
           if [ -f /tmp/results.json ]; then cp /tmp/results.json data/output/results.json; fi
+          if [ -d /tmp/spiderweb-snapshots ]; then mkdir -p data/output/daily_snapshots; cp /tmp/spiderweb-snapshots/*.json data/output/daily_snapshots/; fi
           git add -f data/output/today.json data/output/results.json
+          if [ -d data/output/daily_snapshots ]; then git add -f data/output/daily_snapshots; fi
           if git diff --cached --quiet; then
             echo "Nessuna modifica"
           else

@@ -58,7 +58,7 @@ def _legs_from_previous(previous: dict) -> list[dict]:
     combos = []
     if single:
         combos.append(single)
-    for key in ('double', 'triple'):
+    for key in ('double', 'double_aggressive', 'triple'):
         for leg in (previous.get(key) or {}).get('legs') or []:
             combos.append(leg)
     for leg in combos:
@@ -86,7 +86,7 @@ def _find_fixture(leg: dict, by_id: dict[int, dict], fixtures: list[dict]) -> di
 
 def _resolved_leg(leg: dict, fixture: dict) -> dict | None:
     status = ((fixture.get('fixture') or {}).get('status') or {}).get('short')
-    goals = fixture.get('goals') or {}
+    goals = (fixture.get('score') or {}).get('fulltime') or {}
     home_goals = goals.get('home')
     away_goals = goals.get('away')
     if status not in FINAL_STATUSES or home_goals is None or away_goals is None:
@@ -199,6 +199,7 @@ def main() -> None:
     for label, source in (
         ('Singola', previous.get('single')),
         ('Doppia', previous.get('double')),
+        ('Doppia 2.5', previous.get('double_aggressive')),
         ('Tripla', previous.get('triple')),
     ):
         bet = _make_bet(label, source, resolved)

@@ -99,55 +99,30 @@ def collect_odds(client, events, date_iso, max_calls=24):
             if eid in wanted:
                 decoded = decode_offers(item)
                 if decoded:offers.setdefault(eid,[]).extend(decoded)
-    # A date query does not need a season; it avoids historical-season plan
-    # restrictions while covering a whole matchday in ten-event pages.
-    global_failed = False
+    # This subscription permits at most three pages per bulk query.
+    # Cover those pages, then use valid fixture queries for further coverage.
     page, total = 1, 1
-    while page <= total and client.calls-start_calls < max_calls:
+    while page <= total and page <= 3 and client.calls-start_calls < max_calls:
         try:data=client.get('/odds',{'date':date_iso,'timezone':'Europe/Rome','page':page})
         except FeedError as exc:
             diagnostics.append(str(exc))
-            global_failed = True
             break
         total = int((data.get('paging') or {}).get('total') or 1)
         accept(data)
         page += 1
-    if not global_failed:
-        if page <= total:diagnostics.append('Copertura quote parziale: budget della scansione raggiunto')
+    if page > total and offers:
         return offers, diagnostics
-    fallback = False
-    for lid in ordered:
-        page, total = 1, 1
-        while page <= total and client.calls-start_calls < max_calls:
-            params = {'date':date_iso,'league':lid,'page':page}
-            if groups[lid][0].get('api_season'):
-                params['season']=groups[lid][0]['api_season']
-            try:data=client.get('/odds',params)
-            except FeedError as exc:
-                diagnostics.append(str(exc))
-                fallback = True
-                break
-            total = int((data.get('paging') or {}).get('total') or 1)
-            accept(data)
-            page += 1
-        if fallback:break
-        if page <= total:
-            diagnostics.append('Copertura quote parziale: budget della scansione raggiunto')
-    # Fixture queries don't require a historical season. Valid alternative to
-    # a league/season query denied by a free subscription, without burst retries.
-    if fallback:
-        targets = sorted(events,key=lambda e:(not e.get('model_supported',False),
-            priority.get(e.get('api_league_id'),20),e.get('start_timestamp',0)))
-        for event in targets:
-            eid = str(event['event_id'])
-            if eid in offers or not eid.isdigit():continue
-            if client.calls-start_calls >= max_calls:break
-            try:data=client.get('/odds',{'fixture':eid})
-            except FeedError as exc:
-                diagnostics.append(str(exc))
-                # Stop global subscription/rate/day failures; no blind attempts.
-                break
-            accept(data)
-        if offers:
-            diagnostics.append('Quote recuperate per singolo incontro; copertura parziale rispetto al calendario')
+    targets = sorted(events,key=lambda e:(not e.get('model_supported',False),
+        priority.get(e.get('api_league_id'),20),e.get('start_timestamp',0)))
+    for event in targets:
+        eid = str(event['event_id'])
+        if eid in offers or not eid.isdigit():continue
+        if client.calls-start_calls >= max_calls:break
+        try:data=client.get('/odds',{'fixture':eid})
+        except FeedError as exc:
+            diagnostics.append(str(exc))
+            break
+        accept(data)
+    if len(offers) < len(wanted):
+        diagnostics.append('Copertura quote parziale rispetto al calendario')
     return offers, diagnostics

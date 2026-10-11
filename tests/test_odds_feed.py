@@ -38,7 +38,7 @@ class FeedTests(unittest.TestCase):
                 return {'response':[{'fixture':{'id':params['fixture']},'update':'2026-10-11T10:00:00Z',
                          'bookmakers':[{'name':'Book','bets':[{'id':1,'values':[{'value':'Home','odd':'2'}]}]}]}]}
         c=Client();offers,_=collect_odds(c,[{'event_id':1,'api_league_id':135,'api_season':2026}], '2026-10-11')
-        self.assertIn('1',offers);self.assertEqual(c.calls,3)
+        self.assertIn('1',offers);self.assertEqual(c.calls,2)
     def test_first_half_is_not_full_time(self):
         item={'bookmakers':[{'name':'Book','bets':[{'id':6,'name':'First Half Winner',
                     'values':[{'value':'Home','odd':'2'}]}]}]}

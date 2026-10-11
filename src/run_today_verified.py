@@ -1,83 +1,75 @@
-"""Keep the existing model; replace threshold-based tickets with observed prices."""
+"""Calendar, model analyses and observed odds; no fabricated market prices."""
 import json
 from datetime import datetime
+import pandas as pd
 import run_today_local_mapping as local
 from publication import POPULAR, priced_rows, tickets
+from odds_feed import FootballClient, FeedError, collect_odds
 
 job = local.safe.multi.radar_job
-original = job.build_candidates
-captured = []
-calendar = []
 
 
-def candidates(events, models, hist, teams, rules):
-    now = datetime.now(job.ROME)
-    events = [e for e in events if e.get('canonical_league') in POPULAR
-              and float(e.get('start_timestamp') or 0) > now.timestamp()]
-    calendar.extend(events)
-    rows = original(events, models, hist, teams, rules)
-    lookup = {str(e['event_id']):e for e in events}
-    for r in rows:
-        r['start_timestamp'] = lookup[str(r['event_id'])]['start_timestamp']
-        r['odds'] = None
-        r['analysis_only'] = True
-    captured.extend(rows)
-    # Legacy main expects thresholds: only used for intermediate compatibility.
-    return [{**r, 'odds':r['min_acceptable_odds']} for r in rows]
+def identity_safe(event):
+    # Never infer a first-team league solely from similar team names.
+    import re
+    texts = [str(event.get(k) or '') for k in ('home_team','away_team','league')]
+    return not any(re.search(r'\b(ii|iii|u\s?-?\d{2}|reserves?|youth|women)\b|\s+B$',text,re.I) for text in texts)
 
 
 def main():
+    now = datetime.now(job.ROME)
+    date_iso = now.date().isoformat()
+    client = FootballClient()
+    diagnostics = []
     if job.OUT.exists():
         old = json.loads(job.OUT.read_text())
         archive = job.OUT.parent / 'daily_snapshots'
         archive.mkdir(exist_ok=True)
         stamp = str(old.get('generated_at') or 'unknown').replace(':','-').replace('+','_')
         (archive / (stamp + '.json')).write_text(json.dumps(old,ensure_ascii=False))
-    job.build_candidates = candidates
-    job.main()
-    now = datetime.now(job.ROME)
-    offers = {}
-    diagnostics = []
-    ids = list(dict.fromkeys(str(r['event_id']) for r in captured))
-    # Bounded calls; missing subscription/data never becomes a fabricated price.
-    for eid in [x for x in ids if x.isdigit()][:12]:
-        try:
-            data, _ = job.radar.api_get('/odds', {'fixture':eid})
-            for item in data.get('response') or []:
-                if str((item.get('fixture') or {}).get('id')) != eid:
-                    continue
-                updated = item.get('update')
-                for book in item.get('bookmakers') or []:
-                    # Full-time markets only: exact IDs avoid first-half substitutions.
-                    for bet in book.get('bets') or []:
-                        codes = {1:{'Home':'HOME','Draw':'DRAW','Away':'AWAY'},
-                                 8:{'Yes':'BTTS_YES','No':'BTTS_NO'},
-                                 12:{'Home/Draw':'DC_1X','Draw/Away':'DC_X2','Home/Away':'DC_12'}}
-                        bid = bet.get('id')
-                        for value in bet.get('values') or []:
-                            label = value.get('value')
-                            code = codes.get(bid, {}).get(label)
-                            if bid == 5:
-                                code = {'Over 1.5':'OVER15','Under 1.5':'UNDER15',
-                                        'Over 2.5':'OVER25','Under 2.5':'UNDER25',
-                                        'Over 3.5':'OVER35','Under 3.5':'UNDER35'}.get(label)
-                            if code:
-                                offers.setdefault(eid, []).append({'selection_code':code,
-                                    'odds':value.get('odd'), 'bookmaker':book.get('name'),
-                                    'updated_at':updated, 'odds_source':'API-Football'})
-        except Exception:
-            diagnostics.append('Fonte quote non disponibile; alcune partite restano analisi.')
-            break
-    rows = priced_rows(captured, offers, now)
-    payload = json.loads(job.OUT.read_text())
-    payload.update(tickets(rows))
-    payload.update(mode='observed_odds', shortlist=captured[:120], priced_shortlist=rows[:120],
-        candidate_count=len(captured), fixtures_with_odds=len(offers),
-        playable_count=len({r['event_id'] for r in rows}),
-        popular_fixtures_count=len(calendar), calendar=calendar[:100],
-        odds_diagnostics=diagnostics,
-        note='Campionati principali e seconde divisioni selezionate. Le quote mostrate hanno fonte, bookmaker e orario; non sono confermate Sisal. Schedine solo con quote recenti (massimo 2 ore), stesso bookmaker e incontri distinti. Probabilità del modello non calibrate: non sono percentuali di successo garantite. Le analisi senza quote restano consultabili, senza schedine automatiche.')
+    try:
+        data = client.get('/fixtures',{'date':date_iso,'timezone':'Europe/Rome'})
+        raw = [x for x in data.get('response') or [] if job.radar.senior_fixture(x)]
+    except FeedError as exc:
+        raw = []
+        diagnostics.append(str(exc))
+    events = [job.radar.fixture_to_event(x) for x in raw]
+    for e in events:e['calendar_source']='API-Football'
+    # Use established league identity, never the old fuzzy history remapping.
+    eligible = [e for e in events if e.get('canonical_league') in POPULAR
+                and identity_safe(e) and e['start_timestamp']>now.timestamp()]
+    if not eligible:
+        fallback, _ = local.safe.enhanced_combined_calendar(date_iso,now)
+        events, _ = job.merge_calendar_sources(events,fallback)
+        eligible = [e for e in events if e.get('canonical_league') in POPULAR
+                    and identity_safe(e) and e['start_timestamp']>now.timestamp()]
+    historical = job.radar.load_live_training()
+    historical = historical[pd.to_datetime(historical['Date'],errors='coerce').dt.date < now.date()]
+    hist, teams = job.base.latest_histories(historical)
+    models = job.base.train_live_models(historical)
+    rules = job.base.load_live_rules()
+    analyses = local.build_candidates_balanced(eligible,models,hist,teams,rules)
+    lookup = {str(e['event_id']):e for e in eligible}
+    for r in analyses:
+        r.update(start_timestamp=lookup[str(r['event_id'])]['start_timestamp'],odds=None,analysis_only=True)
+    offers, quote_diagnostics = collect_odds(client,eligible,date_iso,max_calls=24)
+    diagnostics.extend(quote_diagnostics)
+    finished = datetime.now(job.ROME)
+    rows = priced_rows(analyses,offers,finished)
+    published = tickets(rows)
+    payload = dict(generated_at=finished.isoformat(timespec='seconds'),date=date_iso,
+        source='Calendario e quote API-Football; storico Football-Data; modello SpiderWeb',
+        mode='observed_odds',fixtures_count=len(events),api_football_fixtures_count=len(raw),
+        popular_fixtures_count=len(eligible),eligible_history_count=len({r['event_id'] for r in analyses}),
+        fixtures_with_odds=len(offers),playable_count=len({r['event_id'] for r in rows}),
+        candidate_count=len(analyses),active_rules=len(rules),shortlist=analyses,
+        priced_shortlist=rows,calendar=eligible,odds_diagnostics=diagnostics,
+        observed_offers=offers,
+        odds_requests_used=client.calls,api_requests_remaining=client.remaining,
+        note='Quote reali del provider, con bookmaker e orario di aggiornamento. Verifica sempre il prezzo attuale e la disponibilità sul tuo bookmaker. Singole alternative visibili anche sotto quota 2; multiple con stesso bookmaker e senza incontri duplicati. Le stime del modello e i backtest non garantiscono il risultato.',**published)
+    job.OUT.parent.mkdir(parents=True,exist_ok=True)
     job.OUT.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n')
+    print(json.dumps({k:payload[k] for k in ('popular_fixtures_count','candidate_count','fixtures_with_odds',
+        'playable_count','odds_requests_used','api_requests_remaining','odds_diagnostics')},ensure_ascii=False))
 
-if __name__ == '__main__':
-    main()
+if __name__=='__main__':main()

@@ -385,6 +385,7 @@ def build_candidates(events, models, hist, teams, rules):
                     'selection_code': sel,
                     'odds': round(threshold,2),
                     'min_acceptable_odds': round(threshold,2),
+                    'max_acceptable_odds': float(rule['max_odds']) if pd.notna(rule.get('max_odds')) else None,
                     'fair_odds': round(fair_odds,2),
                     'model_probability': round(p,4),
                     'required_edge': round(min_edge,4),

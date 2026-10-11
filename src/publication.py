@@ -3,6 +3,9 @@ import math
 from itertools import combinations
 from datetime import datetime
 
+# Provider refreshes pre-match odds about every 3h; allow one cycle plus 1h.
+MAX_PRICE_AGE_SECONDS = 4 * 3600
+
 POPULAR = {'England Premier League','England Championship','Italy Serie A','Italy Serie B',
  'Spain La Liga','Spain Segunda','Germany Bundesliga','Germany 2. Bundesliga',
  'France Ligue 1','France Ligue 2','Portugal Primeira Liga','Netherlands Eredivisie',
@@ -29,9 +32,9 @@ def priced_rows(analyses, offers, now):
                 age = (now - updated).total_seconds()
             except (ValueError, TypeError, KeyError):
                 continue
-            if not math.isfinite(price) or not 1 < price <= 100 or not 0 <= age <= 7200:
+            if not math.isfinite(price) or not 1 < price <= 100 or not 0 <= age <= MAX_PRICE_AGE_SECONDS:
                 continue
-            if price < r['min_acceptable_odds']:
+            if price < r['min_acceptable_odds'] or price > float(r.get('max_acceptable_odds') or 100):
                 continue
             p = r['model_probability']
             rows.append({**r, **o, 'needs_bookmaker_check': True,
@@ -48,7 +51,11 @@ def tickets(rows):
     def combo(n, low, high):
         best = None
         for book in sorted({r['bookmaker'] for r in rows}):
-            pool = [r for r in rows if r['bookmaker'] == book and r['event_id'] not in used][:24]
+            best_events = {}
+            for r in rows:
+                if r['bookmaker'] == book and r['event_id'] not in used:
+                    best_events.setdefault(r['event_id'],r)
+            pool = list(best_events.values())[:24]
             for legs in combinations(pool, n):
                 if len({r['event_id'] for r in legs}) != n:
                     continue

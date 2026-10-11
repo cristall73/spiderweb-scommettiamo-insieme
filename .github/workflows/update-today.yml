@@ -26,7 +26,7 @@ jobs:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       FOOTBALL_DATA_ORG_TOKEN: ${{ secrets.FOOTBALL_DATA_ORG_TOKEN }}
       FOOTBALLDATA_IO_KEY: ${{ secrets.FOOTBALLDATA_IO_KEY }}
-      SPIDERWEB_RADAR_VERSION: "observed-odds-v12"
+      SPIDERWEB_RADAR_VERSION: "paged-odds-v13-paced"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -69,6 +69,10 @@ jobs:
       - name: Dipendenze
         if: steps.freshness.outputs.should_run == 'true'
         run: pip install -r requirements.txt
+
+      - name: Verifica logica quote
+        if: steps.freshness.outputs.should_run == 'true'
+        run: python -m unittest discover -s tests -v
 
       - name: Diagnostica input radar
         if: steps.freshness.outputs.should_run == 'true'

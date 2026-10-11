@@ -15,8 +15,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: spiderweb-partite-oggi
-  cancel-in-progress: true
+  group: spiderweb-data-main
+  cancel-in-progress: false
 
 jobs:
   update:

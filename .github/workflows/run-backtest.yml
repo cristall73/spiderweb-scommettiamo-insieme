@@ -10,8 +10,8 @@ on:
       - ".github/workflows/run-backtest.yml"
 
 concurrency:
-  group: backtest-calcio-main
-  cancel-in-progress: true
+  group: spiderweb-data-main
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -41,17 +41,27 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f data/output/backtest_multisource_real.csv
-          git add -f data/output/backtest_multisource_summary.csv
-          git add -f data/output/backtest_multisource_stable.csv
-          git add -f data/output/live_training.csv
-          if git diff --cached --quiet; then
-            echo "Nessuna modifica ai risultati"
-          else
+          # Conserva solo gli output generati prima di riallineare il checkout.
+          output_dir=$(mktemp -d)
+          files=(data/output/backtest_multisource_real.csv data/output/backtest_multisource_summary.csv data/output/backtest_multisource_stable.csv data/output/live_training.csv)
+          for file in "${files[@]}"; do cp "$file" "$output_dir/$(basename "$file")"; done
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            for file in "${files[@]}"; do cp "$output_dir/$(basename "$file")" "$file"; done
+            git add -f -- "${files[@]}"
+            if git diff --cached --quiet; then
+              echo "Nessuna modifica ai risultati"
+              exit 0
+            fi
             git commit -m "Aggiorna backtest globale e storico live"
-            git pull --rebase origin main
-            git push origin main
-          fi
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Repository aggiornato durante il salvataggio: nuovo tentativo $attempt/5"
+          done
+          echo "::error::Impossibile pubblicare i risultati dopo 5 tentativi"
+          exit 1
 
       - name: Nota radar live
         run: |

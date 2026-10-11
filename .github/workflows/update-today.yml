@@ -26,7 +26,7 @@ jobs:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       FOOTBALL_DATA_ORG_TOKEN: ${{ secrets.FOOTBALL_DATA_ORG_TOKEN }}
       FOOTBALLDATA_IO_KEY: ${{ secrets.FOOTBALLDATA_IO_KEY }}
-      SPIDERWEB_RADAR_VERSION: "paged-odds-v14-fixture-fallback"
+      SPIDERWEB_RADAR_VERSION: "paged-odds-v15-current-history"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -148,14 +148,19 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "418982+github-actions[bot]@users.noreply.github.com"
           cp data/output/today.json /tmp/today.json
+          cp data/output/live_training.csv /tmp/spiderweb-live-training.csv
+          if [ -f data/output/history_refresh.json ]; then cp data/output/history_refresh.json /tmp/spiderweb-history-refresh.json; fi
           if [ -f data/output/results.json ]; then cp data/output/results.json /tmp/results.json; fi
           if [ -d data/output/daily_snapshots ]; then cp -r data/output/daily_snapshots /tmp/spiderweb-snapshots; fi
           git fetch origin main
           git reset --hard origin/main
           cp /tmp/today.json data/output/today.json
+          cp /tmp/spiderweb-live-training.csv data/output/live_training.csv
+          if [ -f /tmp/spiderweb-history-refresh.json ]; then cp /tmp/spiderweb-history-refresh.json data/output/history_refresh.json; fi
           if [ -f /tmp/results.json ]; then cp /tmp/results.json data/output/results.json; fi
           if [ -d /tmp/spiderweb-snapshots ]; then mkdir -p data/output/daily_snapshots; cp /tmp/spiderweb-snapshots/*.json data/output/daily_snapshots/; fi
-          git add -f data/output/today.json data/output/results.json
+          git add -f data/output/today.json data/output/results.json data/output/live_training.csv
+          if [ -f data/output/history_refresh.json ]; then git add -f data/output/history_refresh.json; fi
           if [ -d data/output/daily_snapshots ]; then git add -f data/output/daily_snapshots; fi
           if git diff --cached --quiet; then
             echo "Nessuna modifica"

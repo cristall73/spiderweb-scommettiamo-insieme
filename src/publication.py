@@ -37,7 +37,7 @@ def priced_rows(analyses, offers, now):
             if price < r['min_acceptable_odds'] or price > float(r.get('max_acceptable_odds') or 100):
                 continue
             p = r['model_probability']
-            rows.append({**r, **o, 'needs_bookmaker_check': True,
+            rows.append({**r, **o, 'odds':price,'analysis_only':False,'needs_bookmaker_check': True,
                          'edge': round(p - 1 / price, 4),
                          'expected_value': round(p * price - 1, 4)})
     return sorted(rows, key=lambda r: (-r['score'], -r['model_probability']))

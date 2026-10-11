@@ -274,6 +274,17 @@ def feature_row(hist,league,home,away):
     return pd.DataFrame([dict(zip(FEATURES,vals))])
 
 
+class OutcomeProbability:
+    """Expose coherent multi-class outcomes through the binary model interface."""
+    def __init__(self, model, classes):
+        self.model, self.classes = model, classes
+    def predict_proba(self, x):
+        raw = self.model.predict_proba(x)
+        labels = list(self.model.classes_)
+        p = sum(raw[:, labels.index(c)] for c in self.classes)
+        return np.column_stack([1-p,p])
+
+
 def train_live_models(df):
     featured=add_features(df).dropna(subset=FEATURES).copy()
     models={}
@@ -288,8 +299,21 @@ def train_live_models(df):
     for target,yraw in targets.items():
         y=yraw.astype(int)
         model=make_model()
+        # Balanced class weights change the prior, so those outputs are not
+        # usable as event probabilities for additional betting markets.
+        # OU25/BTTS retain the exact model used by existing walk-forward rules.
+        if target not in ('OU25','BTTS'):
+            model.set_params(model__class_weight=None)
         model.fit(featured[FEATURES],y)
         models[target]=model
+    outcome = np.where(hg>ag,'HOME',np.where(hg==ag,'DRAW','AWAY'))
+    fulltime = make_model()
+    fulltime.set_params(model__class_weight=None)
+    fulltime.fit(featured[FEATURES],outcome)
+    for target, classes in {'HOME':['HOME'],'DRAW':['DRAW'],'AWAY':['AWAY'],
+                            'DC_1X':['HOME','DRAW'],'DC_X2':['DRAW','AWAY'],
+                            'DC_12':['HOME','AWAY']}.items():
+        models[target]=OutcomeProbability(fulltime,classes)
     return models
 
 

@@ -22,6 +22,10 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(len(priced_rows([self.row],{'1':[offer]},self.now)),1)
     def test_rule_upper_bound_is_respected(self):
         self.assertEqual(priced_rows([{**self.row,'max_acceptable_odds':1.9}],{'1':[self.offer]},self.now),[])
+    def test_provider_string_prices_are_numeric(self):
+        row=priced_rows([self.row],{'1':[{**self.offer,'odds':'2.1'}]},self.now)[0]
+        self.assertIsInstance(row['odds'],float)
+        self.assertIsNotNone(tickets([row])['single'])
     def test_observed_price_retained(self):
         result=priced_rows([self.row],{'1':[self.offer]},self.now)[0]
         self.assertEqual(result['odds'],2)

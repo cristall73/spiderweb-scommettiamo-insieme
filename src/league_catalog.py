@@ -48,7 +48,10 @@ WORLD_LEAGUES = {
     'USA': {'name':'USA MLS','country':'USA','aliases':['major league soccer','mls']},
 }
 
-EUROPE_SEASONS = ['2021','2122','2223','2324','2425','2526']
+# Include current season automatically so form does not freeze at last season.
+from datetime import datetime
+_catalog_year=datetime.now().year if datetime.now().month>=7 else datetime.now().year-1
+EUROPE_SEASONS = [f'{y%100:02d}{(y+1)%100:02d}' for y in range(_catalog_year-5,_catalog_year+1)]
 EUROPE_URL = 'https://www.football-data.co.uk/mmz4281/{season}/{code}.csv'
 WORLD_URL = 'https://www.football-data.co.uk/new/{code}.csv'
 

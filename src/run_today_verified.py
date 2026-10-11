@@ -5,6 +5,7 @@ import pandas as pd
 import run_today_local_mapping as local
 from publication import POPULAR, priced_rows, tickets
 from odds_feed import FootballClient, FeedError, collect_odds
+from refresh_live_history import refresh
 
 job = local.safe.multi.radar_job
 
@@ -21,8 +22,10 @@ def main():
     date_iso = now.date().isoformat()
     client = FootballClient()
     diagnostics = []
+    previous_offers = {}
     if job.OUT.exists():
         old = json.loads(job.OUT.read_text())
+        if old.get('date') == date_iso:previous_offers=old.get('observed_offers') or {}
         archive = job.OUT.parent / 'daily_snapshots'
         archive.mkdir(exist_ok=True)
         stamp = str(old.get('generated_at') or 'unknown').replace(':','-').replace('+','_')
@@ -44,6 +47,7 @@ def main():
         eligible = [e for e in events if e.get('canonical_league') in POPULAR
                     and identity_safe(e) and e['start_timestamp']>now.timestamp()]
     historical = job.radar.load_live_training()
+    historical, history_refresh = refresh(historical,eligible,now)
     historical = historical[pd.to_datetime(historical['Date'],errors='coerce').dt.date < now.date()]
     hist, teams = job.base.latest_histories(historical)
     models = job.base.train_live_models(historical)
@@ -56,6 +60,12 @@ def main():
     for e in eligible:e['model_supported']=str(e['event_id']) in supported
     offers, quote_diagnostics = collect_odds(client,eligible,date_iso,max_calls=24)
     diagnostics.extend(quote_diagnostics)
+    # Preserve still-valid observations when the provider is temporarily unavailable.
+    # New observations replace old prices for the same bookmaker and selection.
+    for eid, old_prices in previous_offers.items():
+        latest = {(o['bookmaker'],o['selection_code']):o for o in old_prices}
+        latest.update({(o['bookmaker'],o['selection_code']):o for o in offers.get(eid,[])})
+        offers[eid]=list(latest.values())
     finished = datetime.now(job.ROME)
     rows = priced_rows(analyses,offers,finished)
     published = tickets(rows)
@@ -63,7 +73,7 @@ def main():
                          for book in sorted({r['bookmaker'] for r in rows})}
     payload = dict(generated_at=finished.isoformat(timespec='seconds'),date=date_iso,
         source='Calendario e quote API-Football; storico Football-Data; modello SpiderWeb',
-        mode='observed_odds',fixtures_count=len(events),api_football_fixtures_count=len(raw),
+        mode='observed_odds',history_refresh=history_refresh,fixtures_count=len(events),api_football_fixtures_count=len(raw),
         popular_fixtures_count=len(eligible),eligible_history_count=len({r['event_id'] for r in analyses}),
         fixtures_with_odds=len(offers),playable_count=len({r['event_id'] for r in rows}),
         candidate_count=len(analyses),active_rules=len(rules),shortlist=analyses,

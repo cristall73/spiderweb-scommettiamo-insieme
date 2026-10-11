@@ -40,4 +40,27 @@ class PublicationTests(unittest.TestCase):
             used.extend(l['event_id'] for l in legs)
         self.assertEqual(len(used),len(set(used)))
 
+class AllocationTests(unittest.TestCase):
+    def test_primary_three_before_optional_second_double(self):
+        rows=[dict(event_id=i, odds=q, model_probability=p, score=p,
+                   bookmaker='A',selection_code='HOME')
+              for i,q,p in [(1,2.1,.6),(2,1.45,.8),(3,1.45,.8),
+                            (4,1.45,.8),(5,1.45,.8),(6,1.45,.8)]]
+        result=tickets(rows)
+        self.assertTrue(all(result[k] for k in ('single','double','triple')))
+        self.assertIsNone(result['double_aggressive'])
+        ids=[r['event_id'] for t in result.values() if t for r in t.get('legs',[t])]
+        self.assertEqual(len(ids),len(set(ids)))
+    def test_alternative_market_can_supply_required_price(self):
+        rows=[dict(event_id=i, odds=q, model_probability=p, score=p,
+                   bookmaker='A',selection_code=code)
+              for i,q,p,code in [(1,1.1,.95,'DC_1X'),(1,2.1,.6,'HOME'),
+                                 (2,1.45,.8,'OVER15'),(3,1.45,.8,'OVER15')]]
+        result=tickets(rows)
+        self.assertEqual(result['single']['selection_code'],'HOME')
+        self.assertIsNotNone(result['double'])
+    def test_optional_double_does_not_claim_below_250(self):
+        rows=[dict(event_id=i,odds=1.53,model_probability=.8,score=.8,bookmaker='A') for i in range(6)]
+        self.assertIsNone(tickets(rows)['double_aggressive'])
+
 if __name__=='__main__':unittest.main()

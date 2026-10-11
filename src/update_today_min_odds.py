@@ -372,6 +372,22 @@ def build_candidates(events, models, hist, teams, rules):
                     if best is None or candidate[0] > best[0]:
                         best = candidate
                 if best is None:
+                    # Same prudential policy as the other probability markets.
+                    # Absence of a profitable historical rule is disclosed.
+                    margin = 0.05
+                    threshold = ceil2(1.0 / (p - margin))
+                    rows.append({
+                        **{k:e.get(k) for k in ('event_id','country','league','home_team','away_team','time')},
+                        'canonical_league': league, 'target': target,
+                        'market': base.friendly_market(target),
+                        'selection': base.friendly_selection(sel), 'selection_code': sel,
+                        'odds': threshold, 'min_acceptable_odds': threshold,
+                        'fair_odds': round(1/p,2), 'model_probability': round(p,4),
+                        'required_edge': margin, 'score': round(p,5),
+                        'system_roi': 0.0, 'system_bets': 0,
+                        'validation': 'model_only',
+                        'source': 'Solo modello; nessuna regola walk-forward compatibile',
+                    })
                     continue
                 score, threshold, min_edge, roi, bets, rule = best
                 fair_odds = 1.0 / p if p > 0 else 999

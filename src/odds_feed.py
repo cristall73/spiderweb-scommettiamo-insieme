@@ -110,7 +110,7 @@ def collect_odds(client, events, date_iso, max_calls=24):
         total = int((data.get('paging') or {}).get('total') or 1)
         accept(data)
         page += 1
-    if page > total and offers:
+    if wanted.issubset(offers):
         return offers, diagnostics
     targets = sorted(events,key=lambda e:(not e.get('model_supported',False),
         priority.get(e.get('api_league_id'),20),e.get('start_timestamp',0)))

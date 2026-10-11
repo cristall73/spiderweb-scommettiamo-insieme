@@ -71,9 +71,13 @@ def main():
     published = tickets(rows)
     bookmaker_tickets = {book:tickets([r for r in rows if r['bookmaker']==book])
                          for book in sorted({r['bookmaker'] for r in rows})}
+    rejection_summary = dict(analysed_events=len(supported), events_without_analysis=len(eligible)-len(supported),
+        events_without_quotes=sum(str(e['event_id']) not in offers for e in eligible),
+        events_with_valid_prices=len({r['event_id'] for r in rows}),
+        tickets_available=sum(bool(published[k]) for k in ('single','double','triple')))
     payload = dict(generated_at=finished.isoformat(timespec='seconds'),date=date_iso,
         source='Calendario e quote API-Football; storico Football-Data; modello SpiderWeb',
-        mode='observed_odds',history_refresh=history_refresh,fixtures_count=len(events),api_football_fixtures_count=len(raw),
+        mode='observed_odds',selection_diagnostics=rejection_summary,history_refresh=history_refresh,fixtures_count=len(events),api_football_fixtures_count=len(raw),
         popular_fixtures_count=len(eligible),eligible_history_count=len({r['event_id'] for r in analyses}),
         fixtures_with_odds=len(offers),playable_count=len({r['event_id'] for r in rows}),
         candidate_count=len(analyses),active_rules=len(rules),shortlist=analyses,

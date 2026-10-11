@@ -39,6 +39,21 @@ class FeedTests(unittest.TestCase):
                          'bookmakers':[{'name':'Book','bets':[{'id':1,'values':[{'value':'Home','odd':'2'}]}]}]}]}
         c=Client();offers,_=collect_odds(c,[{'event_id':1,'api_league_id':135,'api_season':2026}], '2026-10-11')
         self.assertIn('1',offers);self.assertEqual(c.calls,2)
+    def test_missing_fixture_is_fetched_after_complete_bulk_pages(self):
+        class Client:
+            calls=0
+            def get(self,path,params):
+                self.calls+=1
+                eid=params.get('fixture',1)
+                return {'paging':{'total':1},'response':[{'fixture':{'id':eid},
+                    'update':'2026-10-11T10:00:00Z','bookmakers':[{'name':'Book','bets':[
+                        {'id':1,'values':[{'value':'Home','odd':'2.1'}]}]}]}]}
+        c=Client()
+        offers,errors=collect_odds(c,[{'event_id':1},{'event_id':2}], '2026-10-11')
+        self.assertEqual(set(offers),{'1','2'})
+        self.assertEqual(c.calls,2)
+        self.assertFalse(errors)
+
     def test_first_half_is_not_full_time(self):
         item={'bookmakers':[{'name':'Book','bets':[{'id':6,'name':'First Half Winner',
                     'values':[{'value':'Home','odd':'2'}]}]}]}

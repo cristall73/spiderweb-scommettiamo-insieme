@@ -26,7 +26,7 @@ jobs:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       FOOTBALL_DATA_ORG_TOKEN: ${{ secrets.FOOTBALL_DATA_ORG_TOKEN }}
       FOOTBALLDATA_IO_KEY: ${{ secrets.FOOTBALLDATA_IO_KEY }}
-      SPIDERWEB_RADAR_VERSION: "paged-odds-v16-whole-matchday"
+      SPIDERWEB_RADAR_VERSION: "balanced-tickets-v17"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

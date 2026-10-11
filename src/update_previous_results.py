@@ -114,7 +114,13 @@ def _make_bet(label: str, source: dict | None, resolved: dict[str, dict]) -> dic
             return None
         result_legs.append(resolved[key])
     minimum_odds = source.get('total_odds') if source.get('legs') else source.get('min_acceptable_odds', source.get('odds'))
+    measured = all(leg.get('odds_source') and float(leg.get('odds') or 0)>1 for leg in legs)
+    observed_odds = __import__('math').prod(float(leg['odds']) for leg in legs) if measured else None
+    won = all(x['status'] == 'won' for x in result_legs)
     return {
+        'observed_odds': round(observed_odds,4) if measured else None,
+        'simulated_stake_eur': 1 if measured else None,
+        'simulated_profit_eur': round(observed_odds-1 if won else -1,4) if measured else None,
         'type': label,
         'status': 'won' if all(x['status'] == 'won' for x in result_legs) else 'lost',
         'minimum_odds': minimum_odds,

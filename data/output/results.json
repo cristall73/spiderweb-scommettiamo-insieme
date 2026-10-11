@@ -1,6 +1,74 @@
 {
-  "updated_at": "2026-10-10T16:26:32+02:00",
+  "updated_at": "2026-10-11T06:03:24+02:00",
   "days": [
+    {
+      "date": "2026-10-10",
+      "bets": [
+        {
+          "type": "Doppia",
+          "status": "lost",
+          "minimum_odds": 2.0,
+          "legs": [
+            {
+              "match": "RAAL La Louvière – Club Brugge KV",
+              "pick": "2",
+              "score": "1-4",
+              "status": "won"
+            },
+            {
+              "match": "Zulte Waregem – Gent",
+              "pick": "1",
+              "score": "0-2",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Doppia 2.5",
+          "status": "lost",
+          "minimum_odds": 2.52,
+          "legs": [
+            {
+              "match": "Inter – Parma",
+              "pick": "1",
+              "score": "3-0",
+              "status": "won"
+            },
+            {
+              "match": "Barracas Central – Huracan",
+              "pick": "UNDER 1.5",
+              "score": "2-0",
+              "status": "lost"
+            }
+          ]
+        },
+        {
+          "type": "Tripla",
+          "status": "lost",
+          "minimum_odds": 3.02,
+          "legs": [
+            {
+              "match": "Maccabi Tel Aviv – Bnei Sakhnin",
+              "pick": "1",
+              "score": "0-0",
+              "status": "lost"
+            },
+            {
+              "match": "Rosenborg – Sandefjord",
+              "pick": "1",
+              "score": "1-1",
+              "status": "lost"
+            },
+            {
+              "match": "FC Zurich – FC Thun",
+              "pick": "OVER 3.5",
+              "score": "4-2",
+              "status": "won"
+            }
+          ]
+        }
+      ]
+    },
     {
       "date": "2026-10-09",
       "bets": [

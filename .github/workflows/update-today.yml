@@ -26,7 +26,7 @@ jobs:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       FOOTBALL_DATA_ORG_TOKEN: ${{ secrets.FOOTBALL_DATA_ORG_TOKEN }}
       FOOTBALLDATA_IO_KEY: ${{ secrets.FOOTBALLDATA_IO_KEY }}
-      SPIDERWEB_RADAR_VERSION: "paged-odds-v13-paced"
+      SPIDERWEB_RADAR_VERSION: "paged-odds-v14-fixture-fallback"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

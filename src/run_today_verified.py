@@ -52,11 +52,15 @@ def main():
     lookup = {str(e['event_id']):e for e in eligible}
     for r in analyses:
         r.update(start_timestamp=lookup[str(r['event_id'])]['start_timestamp'],odds=None,analysis_only=True)
+    supported = {str(r['event_id']) for r in analyses}
+    for e in eligible:e['model_supported']=str(e['event_id']) in supported
     offers, quote_diagnostics = collect_odds(client,eligible,date_iso,max_calls=24)
     diagnostics.extend(quote_diagnostics)
     finished = datetime.now(job.ROME)
     rows = priced_rows(analyses,offers,finished)
     published = tickets(rows)
+    bookmaker_tickets = {book:tickets([r for r in rows if r['bookmaker']==book])
+                         for book in sorted({r['bookmaker'] for r in rows})}
     payload = dict(generated_at=finished.isoformat(timespec='seconds'),date=date_iso,
         source='Calendario e quote API-Football; storico Football-Data; modello SpiderWeb',
         mode='observed_odds',fixtures_count=len(events),api_football_fixtures_count=len(raw),
@@ -64,7 +68,7 @@ def main():
         fixtures_with_odds=len(offers),playable_count=len({r['event_id'] for r in rows}),
         candidate_count=len(analyses),active_rules=len(rules),shortlist=analyses,
         priced_shortlist=rows,calendar=eligible,odds_diagnostics=diagnostics,
-        observed_offers=offers,
+        observed_offers=offers,bookmaker_tickets=bookmaker_tickets,
         odds_requests_used=client.calls,api_requests_remaining=client.remaining,
         note='Quote reali del provider, con bookmaker e orario di aggiornamento. Verifica sempre il prezzo attuale e la disponibilità sul tuo bookmaker. Singole alternative visibili anche sotto quota 2; multiple con stesso bookmaker e senza incontri duplicati. Le stime del modello e i backtest non garantiscono il risultato.',**published)
     job.OUT.parent.mkdir(parents=True,exist_ok=True)

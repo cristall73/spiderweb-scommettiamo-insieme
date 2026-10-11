@@ -53,7 +53,8 @@ class FootballClient:
                     continue
                 # Do not expose response contents or credentials in diagnostics.
                 reason = 'limite richieste' if 'limit' in text.lower() else 'piano o endpoint non disponibile'
-                raise FeedError('Provider: '+reason)
+                safe_text = text.replace(self.key,'[redacted]')[:180]
+                raise FeedError('Provider: '+reason+' ('+safe_text+')')
             return data
         raise FeedError('Limite per minuto del provider raggiunto')
 
@@ -82,10 +83,7 @@ def decode_offers(item):
 
 
 def collect_odds(client, events, date_iso, max_calls=24):
-    """Fetch every page for selected leagues, then individual uncovered fixtures.
-    Coverage is independent from score so high-probability selections do not
-    consume the entire budget before smaller prices are inspected.
-    """
+    """Paginated league requests with bounded fixture fallback for free plans."""
     offers, diagnostics = {}, []
     wanted = {str(e['event_id']) for e in events}
     groups = {}
@@ -95,21 +93,45 @@ def collect_odds(client, events, date_iso, max_calls=24):
     priority = {135:0,39:1,140:2,78:3,61:4,136:5,40:6,2:7,3:8,848:9}
     ordered = sorted(groups,key=lambda lid:(priority.get(lid,20),-len(groups[lid]),lid))
     start_calls = client.calls
+    def accept(data):
+        for item in data.get('response') or []:
+            eid = str((item.get('fixture') or {}).get('id'))
+            if eid in wanted:
+                decoded = decode_offers(item)
+                if decoded:offers.setdefault(eid,[]).extend(decoded)
+    fallback = False
     for lid in ordered:
         page, total = 1, 1
         while page <= total and client.calls-start_calls < max_calls:
-            try:data=client.get('/odds',{'date':date_iso,'league':lid,'page':page})
+            params = {'date':date_iso,'league':lid,'page':page}
+            if groups[lid][0].get('api_season'):
+                params['season']=groups[lid][0]['api_season']
+            try:data=client.get('/odds',params)
             except FeedError as exc:
                 diagnostics.append(str(exc))
-                # Subscription/day budget applies to all leagues; no wasteful retries.
-                return offers, diagnostics
+                fallback = True
+                break
             total = int((data.get('paging') or {}).get('total') or 1)
-            for item in data.get('response') or []:
-                eid = str((item.get('fixture') or {}).get('id'))
-                if eid in wanted:
-                    decoded = decode_offers(item)
-                    if decoded:offers.setdefault(eid,[]).extend(decoded)
+            accept(data)
             page += 1
+        if fallback:break
         if page <= total:
             diagnostics.append('Copertura quote parziale: budget della scansione raggiunto')
+    # Fixture queries don't require a historical season. Valid alternative to
+    # a league/season query denied by a free subscription, without burst retries.
+    if fallback:
+        targets = sorted(events,key=lambda e:(not e.get('model_supported',False),
+            priority.get(e.get('api_league_id'),20),e.get('start_timestamp',0)))
+        for event in targets:
+            eid = str(event['event_id'])
+            if eid in offers or not eid.isdigit():continue
+            if client.calls-start_calls >= max_calls:break
+            try:data=client.get('/odds',{'fixture':eid})
+            except FeedError as exc:
+                diagnostics.append(str(exc))
+                # Stop global subscription/rate/day failures; no blind attempts.
+                break
+            accept(data)
+        if offers:
+            diagnostics.append('Quote recuperate per singolo incontro; copertura parziale rispetto al calendario')
     return offers, diagnostics

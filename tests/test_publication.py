@@ -17,6 +17,11 @@ class PublicationTests(unittest.TestCase):
         for change in [dict(updated_at='2026-10-10T10:00:00+00:00'),dict(odds=1.7),dict(odds='NaN'),dict(selection_code='UNDER25')]:
             self.assertEqual(priced_rows([self.row],{'1':[{**self.offer,**change}]},self.now),[])
         self.assertEqual(priced_rows([{**self.row,'start_timestamp':0}],{'1':[self.offer]},self.now),[])
+    def test_provider_three_hour_update_is_usable(self):
+        offer={**self.offer,'updated_at':'2026-10-11T07:00:00+00:00'}
+        self.assertEqual(len(priced_rows([self.row],{'1':[offer]},self.now)),1)
+    def test_rule_upper_bound_is_respected(self):
+        self.assertEqual(priced_rows([{**self.row,'max_acceptable_odds':1.9}],{'1':[self.offer]},self.now),[])
     def test_observed_price_retained(self):
         result=priced_rows([self.row],{'1':[self.offer]},self.now)[0]
         self.assertEqual(result['odds'],2)

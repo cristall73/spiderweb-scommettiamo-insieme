@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T13:46:24+02:00",
+  "generated_at": "2026-10-14T17:16:26+02:00",
   "date": "2026-10-14",
   "source": "Calendario e quote API-Football; storico Football-Data; modello SpiderWeb",
   "mode": "observed_odds",
@@ -18,8 +18,8 @@
     "latest_result": "2026-10-11",
     "source": "Football-Data current-season results"
   },
-  "fixtures_count": 143,
-  "api_football_fixtures_count": 143,
+  "fixtures_count": 89,
+  "api_football_fixtures_count": 89,
   "popular_fixtures_count": 4,
   "eligible_history_count": 4,
   "fixtures_with_odds": 4,
@@ -622,7 +622,7 @@
       "start_timestamp": 1792003500,
       "analysis_only": false,
       "bookmaker": "William Hill",
-      "updated_at": "2026-10-14T08:33:20+00:00",
+      "updated_at": "2026-10-14T12:00:57+00:00",
       "odds_source": "API-Football"
     },
     {
@@ -657,7 +657,7 @@
       "start_timestamp": 1792003500,
       "analysis_only": false,
       "bookmaker": "Bet365",
-      "updated_at": "2026-10-14T08:33:20+00:00",
+      "updated_at": "2026-10-14T12:00:57+00:00",
       "odds_source": "API-Football"
     },
     {
@@ -672,14 +672,14 @@
       "selection": "X2",
       "target": "DC_X2",
       "selection_code": "DC_X2",
-      "odds": 1.55,
+      "odds": 1.52,
       "min_acceptable_odds": 1.51,
       "fair_odds": 1.4,
       "model_probability": 0.7133,
       "required_edge": 0.05,
-      "edge": 0.0681,
+      "edge": 0.0554,
       "expected_value_at_min_odds": 0.0771,
-      "expected_value": 0.1056,
+      "expected_value": 0.0842,
       "system_roi": 0.0,
       "system_bets": 0,
       "score": 0.25637,
@@ -692,7 +692,7 @@
       "start_timestamp": 1792003500,
       "analysis_only": false,
       "bookmaker": "Marathonbet",
-      "updated_at": "2026-10-14T08:33:20+00:00",
+      "updated_at": "2026-10-14T12:00:57+00:00",
       "odds_source": "API-Football"
     },
     {
@@ -707,14 +707,14 @@
       "selection": "X2",
       "target": "DC_X2",
       "selection_code": "DC_X2",
-      "odds": 1.55,
+      "odds": 1.52,
       "min_acceptable_odds": 1.51,
       "fair_odds": 1.4,
       "model_probability": 0.7133,
       "required_edge": 0.05,
-      "edge": 0.0681,
+      "edge": 0.0554,
       "expected_value_at_min_odds": 0.0771,
-      "expected_value": 0.1056,
+      "expected_value": 0.0842,
       "system_roi": 0.0,
       "system_bets": 0,
       "score": 0.25637,
@@ -727,7 +727,7 @@
       "start_timestamp": 1792003500,
       "analysis_only": false,
       "bookmaker": "1xBet",
-      "updated_at": "2026-10-14T08:33:20+00:00",
+      "updated_at": "2026-10-14T12:00:57+00:00",
       "odds_source": "API-Football"
     },
     {
@@ -742,14 +742,14 @@
       "selection": "X2",
       "target": "DC_X2",
       "selection_code": "DC_X2",
-      "odds": 1.6,
+      "odds": 1.57,
       "min_acceptable_odds": 1.51,
       "fair_odds": 1.4,
       "model_probability": 0.7133,
       "required_edge": 0.05,
-      "edge": 0.0883,
+      "edge": 0.0764,
       "expected_value_at_min_odds": 0.0771,
-      "expected_value": 0.1413,
+      "expected_value": 0.1199,
       "system_roi": 0.0,
       "system_bets": 0,
       "score": 0.25637,
@@ -762,7 +762,7 @@
       "start_timestamp": 1792003500,
       "analysis_only": false,
       "bookmaker": "Betano",
-      "updated_at": "2026-10-14T08:33:20+00:00",
+      "updated_at": "2026-10-14T12:00:57+00:00",
       "odds_source": "API-Football"
     }
   ],
@@ -843,784 +843,784 @@
         "selection_code": "HOME",
         "odds": "2.40",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.60",
+        "odds": "3.40",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.50",
+        "odds": "2.62",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.44",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.62",
+        "odds": "2.50",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.44",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.29",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.55",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.45",
+        "odds": "2.50",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.60",
+        "odds": "3.50",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "2.62",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.14",
+        "odds": "1.17",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "5.50",
+        "odds": "5.00",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.53",
+        "odds": "1.57",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.50",
+        "odds": "2.38",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.20",
+        "odds": "2.38",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.67",
+        "odds": "1.57",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.44",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "2.62",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.44",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.28",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.53",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.35",
+        "odds": "2.42",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.82",
+        "odds": "3.75",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.58",
+        "odds": "2.53",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.09",
+        "odds": "1.10",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "5.35",
+        "odds": "5.05",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.42",
+        "odds": "1.46",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.49",
+        "odds": "2.38",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.17",
+        "odds": "2.29",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.64",
+        "odds": "1.58",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.40",
+        "odds": "1.43",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.68",
+        "odds": "2.58",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.46",
+        "odds": "1.48",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.24",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.55",
+        "odds": "1.52",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "HOME",
-        "odds": "2.45",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "DRAW",
-        "odds": "3.70",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "AWAY",
-        "odds": "2.63",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "OVER15",
-        "odds": "1.13",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "UNDER15",
-        "odds": "6.00",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "OVER25",
-        "odds": "1.47",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "UNDER25",
-        "odds": "2.63",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "OVER35",
-        "odds": "2.20",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "UNDER35",
-        "odds": "1.65",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "BTTS_YES",
-        "odds": "1.40",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "BTTS_NO",
-        "odds": "2.88",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "DC_1X",
-        "odds": "1.44",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "DC_12",
-        "odds": "1.25",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
-        "odds_source": "API-Football"
-      },
-      {
-        "selection_code": "DC_X2",
-        "odds": "1.50",
-        "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "2.40",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.80",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "3.60",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.63",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "2.70",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.13",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "1.17",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "5.40",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "5.00",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.47",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "1.53",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.44",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "2.45",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.12",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "2.45",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.62",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "1.53",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.40",
-        "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "odds": "1.47",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.70",
+        "odds": "2.63",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "DC_1X",
+        "odds": "1.44",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "DC_12",
+        "odds": "1.25",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "DC_X2",
+        "odds": "1.50",
+        "bookmaker": "Betfair",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "HOME",
+        "odds": "2.45",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "DRAW",
+        "odds": "3.75",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "AWAY",
+        "odds": "2.60",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "OVER15",
+        "odds": "1.14",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "UNDER15",
+        "odds": "5.00",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "OVER25",
+        "odds": "1.52",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "UNDER25",
+        "odds": "2.31",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "OVER35",
+        "odds": "2.25",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "UNDER35",
+        "odds": "1.55",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "BTTS_YES",
+        "odds": "1.44",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
+        "odds_source": "API-Football"
+      },
+      {
+        "selection_code": "BTTS_NO",
+        "odds": "2.55",
+        "bookmaker": "BetVictor",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.44",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.25",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.50",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.50",
+        "odds": "2.54",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.80",
+        "odds": "3.65",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.71",
+        "odds": "2.73",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.15",
+        "odds": "1.18",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "5.86",
+        "odds": "5.26",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.51",
+        "odds": "1.60",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.65",
+        "odds": "2.44",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.26",
+        "odds": "2.45",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.69",
+        "odds": "1.59",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "2.32",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.52",
+        "odds": "3.49",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.54",
+        "odds": "2.56",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "2.26",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.63",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.42",
+        "odds": "1.41",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.22",
+        "odds": "1.23",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.50",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.35",
+        "odds": "2.42",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.82",
+        "odds": "3.75",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.58",
+        "odds": "2.53",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.09",
+        "odds": "1.10",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "5.35",
+        "odds": "5.05",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.42",
+        "odds": "1.46",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.49",
+        "odds": "2.38",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.17",
+        "odds": "2.29",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.64",
+        "odds": "1.58",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.40",
+        "odds": "1.43",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.73",
+        "odds": "2.63",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.46",
+        "odds": "1.48",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.24",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.55",
+        "odds": "1.52",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.42",
+        "odds": "2.45",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.85",
+        "odds": "3.65",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.65",
+        "odds": "2.70",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.16",
+        "odds": "1.19",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "5.30",
+        "odds": "4.75",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.50",
+        "odds": "1.60",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.65",
+        "odds": "2.42",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.22",
+        "odds": "2.42",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.70",
+        "odds": "1.60",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.44",
+        "odds": "1.47",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.67",
+        "odds": "2.55",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.50",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.26",
+        "odds": "1.28",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.60",
+        "odds": "1.57",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.45",
+        "odds": "2.50",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.80",
+        "odds": "3.75",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.70",
+        "odds": "2.65",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       }
     ],
@@ -1629,1570 +1629,1570 @@
         "selection_code": "HOME",
         "odds": "2.25",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.20",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "3.00",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.75",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "1.95",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.35",
+        "odds": "1.36",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.30",
+        "odds": "1.33",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.62",
+        "odds": "1.57",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.38",
+        "odds": "2.30",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.20",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "3.00",
+        "odds": "3.10",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
         "odds": "1.30",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
         "odds": "3.50",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "2.00",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "1.80",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "3.40",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.33",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.73",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "2.00",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.36",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.36",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.53",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "2.25",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.40",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "2.98",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
         "odds": "1.25",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
         "odds": "3.28",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.92",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "1.82",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "3.28",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.25",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.72",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "1.98",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.36",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.28",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.59",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.38",
+        "odds": "2.30",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.30",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "3.00",
+        "odds": "3.10",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
         "odds": "1.30",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
         "odds": "3.40",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.90",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "1.87",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "3.40",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.30",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.67",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "2.15",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.33",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.30",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.53",
+        "odds": "1.57",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "2.30",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.40",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "3.00",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.31",
+        "odds": "1.32",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.05",
+        "odds": "3.00",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.90",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "1.78",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "3.10",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.30",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.70",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "2.00",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.36",
+        "odds": "1.33",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.29",
+        "odds": "1.30",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.53",
+        "odds": "1.55",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.40",
+        "odds": "2.36",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.41",
+        "odds": "3.43",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "3.09",
+        "odds": "3.14",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.32",
+        "odds": "1.31",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.55",
+        "odds": "3.57",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "2.04",
+        "odds": "2.03",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "1.85",
+        "odds": "1.86",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "3.55",
+        "odds": "3.53",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.32",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "2.24",
+        "odds": "2.28",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.12",
+        "odds": "3.11",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "2.91",
+        "odds": "2.86",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "2.04",
+        "odds": "2.05",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "1.80",
+        "odds": "1.79",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.29",
+        "odds": "1.31",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.25",
+        "odds": "1.26",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.62",
+        "odds": "1.60",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "2.27",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.40",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "2.99",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
         "odds": "1.25",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
         "odds": "3.28",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.92",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "1.82",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "3.28",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.25",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.72",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "2.01",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.36",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.28",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.59",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "2.37",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.30",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "3.10",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
         "odds": "1.33",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
         "odds": "3.35",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "2.00",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "1.85",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "3.35",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.33",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.72",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "2.05",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.40",
+        "odds": "1.39",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.32",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.62",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "2.40",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.40",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "3.05",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       }
     ],
     "1563202": [
       {
         "selection_code": "HOME",
-        "odds": "1.62",
+        "odds": "1.67",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.80",
+        "odds": "3.70",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "5.00",
+        "odds": "4.60",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.75",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "1.95",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.18",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.25",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "2.20",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "1.62",
+        "odds": "1.67",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.90",
+        "odds": "3.80",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "5.00",
+        "odds": "4.75",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
         "odds": "1.28",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
         "odds": "3.75",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.91",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "1.91",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "3.20",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.36",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.83",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "1.83",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.17",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.25",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "2.25",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "1.63",
+        "odds": "1.64",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.94",
+        "odds": "3.85",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "4.80",
+        "odds": "4.85",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.19",
+        "odds": "1.22",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.78",
+        "odds": "3.50",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.76",
+        "odds": "1.83",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "1.99",
+        "odds": "1.91",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.83",
+        "odds": "2.97",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.33",
+        "odds": "1.30",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.74",
+        "odds": "1.79",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "1.95",
+        "odds": "1.89",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.16",
+        "odds": "1.15",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.22",
+        "odds": "1.23",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "2.17",
+        "odds": "2.16",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "1.65",
+        "odds": "1.67",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "4.00",
+        "odds": "3.90",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "5.00",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.22",
+        "odds": "1.25",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "4.10",
+        "odds": "3.80",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.80",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "2.00",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "3.10",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.36",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.80",
+        "odds": "1.75",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.00",
+        "odds": "2.05",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.13",
+        "odds": "1.14",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.20",
+        "odds": "1.22",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "2.20",
+        "odds": "2.10",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "1.65",
+        "odds": "1.67",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.90",
+        "odds": "3.80",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "5.00",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.26",
+        "odds": "1.27",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.35",
+        "odds": "3.30",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.76",
+        "odds": "1.79",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "1.92",
+        "odds": "1.88",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.80",
+        "odds": "2.86",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.36",
+        "odds": "1.35",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.75",
+        "odds": "1.78",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "1.95",
+        "odds": "1.93",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.17",
+        "odds": "1.18",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.20",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "2.15",
+        "odds": "2.10",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "1.66",
+        "odds": "1.71",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "4.10",
+        "odds": "3.98",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "5.23",
+        "odds": "5.01",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
         "odds": "1.28",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.86",
+        "odds": "3.83",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.88",
+        "odds": "1.89",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.01",
+        "odds": "2.00",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "3.20",
+        "odds": "3.22",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.37",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "1.60",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.66",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "4.79",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.83",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "2.01",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "1.09",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.18",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "2.31",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "1.65",
+        "odds": "1.66",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.94",
+        "odds": "3.85",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "4.75",
+        "odds": "4.80",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.19",
+        "odds": "1.22",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.78",
+        "odds": "3.50",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.76",
+        "odds": "1.83",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "1.99",
+        "odds": "1.91",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.83",
+        "odds": "2.97",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.33",
+        "odds": "1.30",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.74",
+        "odds": "1.79",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "1.98",
+        "odds": "1.92",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.16",
+        "odds": "1.15",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.22",
+        "odds": "1.23",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "2.17",
+        "odds": "2.16",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "1.67",
+        "odds": "1.72",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "4.05",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "5.50",
+        "odds": "5.10",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.28",
+        "odds": "1.30",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.75",
+        "odds": "3.60",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.85",
+        "odds": "1.90",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.02",
+        "odds": "1.95",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "3.05",
+        "odds": "3.20",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.40",
+        "odds": "1.37",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.80",
+        "odds": "1.85",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "1.93",
+        "odds": "1.90",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "1.18",
+        "odds": "1.20",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.24",
+        "odds": "1.25",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "2.27",
+        "odds": "2.22",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "1.68",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "4.00",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "5.00",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       }
     ],
@@ -3201,784 +3201,784 @@
         "selection_code": "HOME",
         "odds": "4.40",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.75",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "1.70",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.70",
+        "odds": "1.80",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.05",
+        "odds": "1.91",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "2.15",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.25",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.20",
         "bookmaker": "William Hill",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "4.75",
+        "odds": "5.00",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.75",
+        "odds": "3.60",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "1.70",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
         "odds": "1.22",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
         "odds": "4.33",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.73",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "2.10",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
         "odds": "2.75",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
         "odds": "1.44",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
         "odds": "1.67",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
         "odds": "2.10",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "2.10",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.25",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.18",
         "bookmaker": "Bet365",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "4.65",
+        "odds": "4.55",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.94",
+        "odds": "3.84",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "1.65",
+        "odds": "1.68",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.18",
+        "odds": "1.21",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.88",
+        "odds": "3.58",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.71",
+        "odds": "1.79",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.06",
+        "odds": "1.95",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.66",
+        "odds": "2.88",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.37",
+        "odds": "1.32",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.69",
+        "odds": "1.74",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.02",
+        "odds": "1.95",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "2.14",
+        "odds": "2.09",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.22",
+        "odds": "1.23",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.16",
+        "odds": "1.17",
         "bookmaker": "Marathonbet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "4.75",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "4.00",
+        "odds": "3.80",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "1.70",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.22",
+        "odds": "1.29",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "4.20",
+        "odds": "3.50",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.73",
+        "odds": "1.87",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.10",
+        "odds": "1.90",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.88",
+        "odds": "3.25",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.40",
+        "odds": "1.33",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.75",
+        "odds": "1.87",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.05",
+        "odds": "1.90",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "2.10",
+        "odds": "2.00",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.20",
+        "odds": "1.22",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.14",
         "bookmaker": "Betfair",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "4.60",
+        "odds": "4.80",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.90",
+        "odds": "3.80",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "1.70",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.24",
+        "odds": "1.28",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.55",
+        "odds": "3.25",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.68",
+        "odds": "1.80",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.01",
+        "odds": "1.87",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.62",
+        "odds": "2.90",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.41",
+        "odds": "1.34",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.67",
+        "odds": "1.78",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.05",
+        "odds": "1.93",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "2.05",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.20",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.20",
+        "odds": "1.18",
         "bookmaker": "BetVictor",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "4.64",
+        "odds": "4.81",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "4.05",
+        "odds": "4.00",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "1.74",
+        "odds": "1.73",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.25",
+        "odds": "1.29",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "4.12",
+        "odds": "3.75",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.78",
+        "odds": "1.90",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.13",
+        "odds": "1.99",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.88",
+        "odds": "3.18",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.44",
+        "odds": "1.38",
         "bookmaker": "Pinnacle",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
         "odds": "4.32",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
         "odds": "3.67",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "1.66",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
         "odds": "1.71",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
         "odds": "2.14",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
         "odds": "2.21",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
         "odds": "1.18",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.12",
         "bookmaker": "SBO",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "4.61",
+        "odds": "4.51",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "3.94",
+        "odds": "3.84",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "1.67",
+        "odds": "1.70",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.18",
+        "odds": "1.21",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "3.88",
+        "odds": "3.58",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.71",
+        "odds": "1.79",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.06",
+        "odds": "1.95",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.66",
+        "odds": "2.88",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.37",
+        "odds": "1.32",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.69",
+        "odds": "1.74",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.05",
+        "odds": "1.98",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "2.14",
+        "odds": "2.09",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.22",
+        "odds": "1.23",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
-        "odds": "1.16",
+        "odds": "1.17",
         "bookmaker": "1xBet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "5.00",
+        "odds": "4.90",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "4.05",
+        "odds": "4.00",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
-        "odds": "1.72",
+        "odds": "1.75",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER15",
-        "odds": "1.25",
+        "odds": "1.27",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER15",
-        "odds": "4.05",
+        "odds": "3.85",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER25",
-        "odds": "1.75",
+        "odds": "1.82",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER25",
-        "odds": "2.15",
+        "odds": "2.05",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "OVER35",
-        "odds": "2.82",
+        "odds": "3.00",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "UNDER35",
-        "odds": "1.45",
+        "odds": "1.42",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_YES",
-        "odds": "1.70",
+        "odds": "1.75",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "BTTS_NO",
-        "odds": "2.07",
+        "odds": "2.02",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_1X",
-        "odds": "2.18",
+        "odds": "2.15",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_12",
-        "odds": "1.24",
+        "odds": "1.25",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DC_X2",
         "odds": "1.21",
         "bookmaker": "Betano",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "HOME",
-        "odds": "4.60",
+        "odds": "4.80",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "DRAW",
-        "odds": "4.00",
+        "odds": "3.85",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       },
       {
         "selection_code": "AWAY",
         "odds": "1.74",
         "bookmaker": "Dafabet",
-        "updated_at": "2026-10-14T08:33:20+00:00",
+        "updated_at": "2026-10-14T12:00:57+00:00",
         "odds_source": "API-Football"
       }
     ]
@@ -4016,7 +4016,7 @@
     }
   },
   "odds_requests_used": 8,
-  "api_requests_remaining": 92,
+  "api_requests_remaining": 88,
   "note": "Quote reali del provider, con bookmaker e orario di aggiornamento. Verifica sempre il prezzo attuale e la disponibilità sul tuo bookmaker. Singole alternative visibili anche sotto quota 2; multiple con stesso bookmaker e senza incontri duplicati. Le stime del modello e i backtest non garantiscono il risultato.",
   "single": null,
   "double": null,

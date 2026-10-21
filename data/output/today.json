@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-21T17:24:24+02:00",
+  "generated_at": "2026-10-21T21:01:11+02:00",
   "date": "2026-10-21",
   "source": "Calendario e quote API-Football; storico Football-Data; modello SpiderWeb",
   "mode": "observed_odds",
   "selection_diagnostics": {
     "analysed_events": 0,
-    "events_without_analysis": 1,
-    "events_without_quotes": 1,
+    "events_without_analysis": 0,
+    "events_without_quotes": 0,
     "events_with_valid_prices": 0,
     "tickets_available": 0
   },
@@ -18,9 +18,9 @@
     "latest_result": "2026-10-19",
     "source": "Football-Data current-season results"
   },
-  "fixtures_count": 14,
+  "fixtures_count": 11,
   "api_football_fixtures_count": 0,
-  "popular_fixtures_count": 1,
+  "popular_fixtures_count": 0,
   "eligible_history_count": 0,
   "fixtures_with_odds": 0,
   "playable_count": 0,
@@ -28,30 +28,10 @@
   "active_rules": 5,
   "shortlist": [],
   "priced_shortlist": [],
-  "calendar": [
-    {
-      "event_id": "wc26-esp.1-401882870",
-      "api_league_id": null,
-      "api_season": null,
-      "country": "Spain",
-      "league": "Spanish LALIGA",
-      "canonical_league": "Spain La Liga",
-      "home_team": "Levante",
-      "away_team": "Athletic Club",
-      "time": "20:00",
-      "start_timestamp": 1792605600,
-      "popularity": 0,
-      "markets": [],
-      "odds_available": false,
-      "calendar_source": "worldcup26.ir",
-      "retail_extra": false,
-      "model_supported": false
-    }
-  ],
+  "calendar": [],
   "odds_diagnostics": [
     "Provider: piano o endpoint non disponibile (Your account is suspended, check on https://dashboard.api-football.com.)",
-    "Connessione al provider non disponibile",
-    "Copertura quote parziale rispetto al calendario"
+    "Provider: piano o endpoint non disponibile (Your account is suspended, check on https://dashboard.api-football.com.)"
   ],
   "observed_offers": {},
   "bookmaker_tickets": {},

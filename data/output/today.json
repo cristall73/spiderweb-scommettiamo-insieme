@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-21T13:42:40+02:00",
+  "generated_at": "2026-10-21T17:24:24+02:00",
   "date": "2026-10-21",
   "source": "Calendario e quote API-Football; storico Football-Data; modello SpiderWeb",
   "mode": "observed_odds",
@@ -50,7 +50,7 @@
   ],
   "odds_diagnostics": [
     "Provider: piano o endpoint non disponibile (Your account is suspended, check on https://dashboard.api-football.com.)",
-    "Provider: piano o endpoint non disponibile (Your account is suspended, check on https://dashboard.api-football.com.)",
+    "Connessione al provider non disponibile",
     "Copertura quote parziale rispetto al calendario"
   ],
   "observed_offers": {},

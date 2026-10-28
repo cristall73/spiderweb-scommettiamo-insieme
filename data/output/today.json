@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T13:45:05+01:00",
+  "generated_at": "2026-10-28T17:45:08+01:00",
   "date": "2026-10-28",
   "source": "Calendario e quote API-Football; storico Football-Data; modello SpiderWeb",
   "mode": "observed_odds",
@@ -18,7 +18,7 @@
     "latest_result": "2026-10-26",
     "source": "Football-Data current-season results"
   },
-  "fixtures_count": 46,
+  "fixtures_count": 22,
   "api_football_fixtures_count": 0,
   "popular_fixtures_count": 14,
   "eligible_history_count": 12,

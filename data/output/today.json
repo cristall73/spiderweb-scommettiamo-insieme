@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T21:34:59+01:00",
-  "date": "2026-11-16",
+  "generated_at": "2026-11-17T00:33:48+01:00",
+  "date": "2026-11-17",
   "source": "Calendario e quote API-Football; storico Football-Data; modello SpiderWeb",
   "mode": "observed_odds",
   "selection_diagnostics": {
@@ -11,14 +11,14 @@
     "tickets_available": 0
   },
   "history_refresh": {
-    "date": "2026-11-16",
+    "date": "2026-11-17",
     "season": "2627",
-    "refreshed_leagues": 1,
+    "refreshed_leagues": 0,
     "failed_leagues": [],
     "latest_result": "2026-11-15",
     "source": "Football-Data current-season results"
   },
-  "fixtures_count": 0,
+  "fixtures_count": 4,
   "api_football_fixtures_count": 0,
   "popular_fixtures_count": 0,
   "eligible_history_count": 0,
